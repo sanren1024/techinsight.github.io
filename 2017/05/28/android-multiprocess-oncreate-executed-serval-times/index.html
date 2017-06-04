@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>TechInsight技术博客</title>
+  <title>Android多进程app中Application回调onCreate()方法被执行多次分析及解决 | TechInsight技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android多进程app中Application回调方法onCreate()被执行多次分析及解决  问题描述  最近工作中碰到一个问题，在优化app，使用DDMS查看Application log过程中看到，app启动了三个进程，一个主进程，两个附带的进程。自定义Application回调方法onCreate()被执行了3次。开始不知是何原因。 相关知识 android:process  从An">
+  <meta name="description" content="问题描述  最近工作中碰到一个问题，在优化app，使用DDMS查看Application log过程中看到，app启动了三个进程，一个主进程，两个附带的进程。自定义Application回调方法onCreate()被执行了3次。开始不知是何原因。 相关知识 android:process  从Android开发者文档中的manifest中进程配置android:process可以获知:正常情况">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TechInsight技术博客">
+<meta property="og:title" content="Android多进程app中Application回调onCreate()方法被执行多次分析及解决">
 <meta property="og:url" content="http://yoursite.com/2017/05/28/android-multiprocess-oncreate-executed-serval-times/index.html">
 <meta property="og:site_name" content="TechInsight技术博客">
-<meta property="og:description" content="Android多进程app中Application回调方法onCreate()被执行多次分析及解决  问题描述  最近工作中碰到一个问题，在优化app，使用DDMS查看Application log过程中看到，app启动了三个进程，一个主进程，两个附带的进程。自定义Application回调方法onCreate()被执行了3次。开始不知是何原因。 相关知识 android:process  从An">
+<meta property="og:description" content="问题描述  最近工作中碰到一个问题，在优化app，使用DDMS查看Application log过程中看到，app启动了三个进程，一个主进程，两个附带的进程。自定义Application回调方法onCreate()被执行了3次。开始不知是何原因。 相关知识 android:process  从Android开发者文档中的manifest中进程配置android:process可以获知:正常情况">
 <meta property="og:image" content="http://yoursite.com/images/android-multiprocess-oncreate-executed-serval-times/processes_app_starts.png">
 <meta property="og:image" content="http://yoursite.com/images/android-multiprocess-oncreate-executed-serval-times/original_processes_start_time_long.png">
 <meta property="og:image" content="http://yoursite.com/images/android-multiprocess-oncreate-executed-serval-times/processes_start_timelong_after_modification.png">
-<meta property="og:updated_time" content="2017-05-27T15:59:25.871Z">
+<meta property="og:updated_time" content="2017-06-02T14:50:35.816Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TechInsight技术博客">
-<meta name="twitter:description" content="Android多进程app中Application回调方法onCreate()被执行多次分析及解决  问题描述  最近工作中碰到一个问题，在优化app，使用DDMS查看Application log过程中看到，app启动了三个进程，一个主进程，两个附带的进程。自定义Application回调方法onCreate()被执行了3次。开始不知是何原因。 相关知识 android:process  从An">
+<meta name="twitter:title" content="Android多进程app中Application回调onCreate()方法被执行多次分析及解决">
+<meta name="twitter:description" content="问题描述  最近工作中碰到一个问题，在优化app，使用DDMS查看Application log过程中看到，app启动了三个进程，一个主进程，两个附带的进程。自定义Application回调方法onCreate()被执行了3次。开始不知是何原因。 相关知识 android:process  从Android开发者文档中的manifest中进程配置android:process可以获知:正常情况">
 <meta name="twitter:image" content="http://yoursite.com/images/android-multiprocess-oncreate-executed-serval-times/processes_app_starts.png">
   
     <link rel="alternative" href="/atom.xml" title="TechInsight技术博客" type="application/atom+xml">
@@ -164,9 +164,24 @@
             <article id="post-android-multiprocess-oncreate-executed-serval-times" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android多进程app中Application回调onCreate()方法被执行多次分析及解决
+    </h1>
+  
+
+        
+        <a href="/2017/05/28/android-multiprocess-oncreate-executed-serval-times/" class="archive-article-date">
+  	<time datetime="2017-05-28T15:41:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-28</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Android多进程app中Application回调方法onCreate-被执行多次分析及解决"><a href="#Android多进程app中Application回调方法onCreate-被执行多次分析及解决" class="headerlink" title="Android多进程app中Application回调方法onCreate()被执行多次分析及解决"></a>Android多进程app中Application回调方法onCreate()被执行多次分析及解决</h4><blockquote>
+        <blockquote>
 <p> 问题描述</p>
 </blockquote>
 <p>最近工作中碰到一个问题，在优化app，使用DDMS查看Application log过程中看到，app启动了三个进程，一个主进程，两个附带的进程。<br><img src="/images/android-multiprocess-oncreate-executed-serval-times/processes_app_starts.png" alt="启动三个进程" title="启动进程"><br>自定义Application回调方法onCreate()被执行了3次。开始不知是何原因。</p>
@@ -174,6 +189,7 @@
 <p>android:process</p>
 </blockquote>
 <p>从Android开发者文档中的manifest中进程配置<strong><em>android:process</em></strong>可以获知:<br>正常情况下，应用程序的所有组件运行在一个默认的进程名下，因此不需要使用这个属性。但在需要的情况下，可以通过使用这个属性来覆盖默认进程，这样一个app就跨越多个进程。</p>
+<a id="more"></a>
 <p>如果这个属性值以冒号（“:”）开始，说明新进程相对于应用程序是一个私有进程，且组件运行在此进程中。若属性值以小写字符开始，那么新进程即是一个全局进程，组件运行在这个全局进程中。这也意味着其他应用程序组件可以与此进程进行通信，减少资源使用。</p>
 <p>标签<em>&lt;applicatoin&gt;</em>的<em>android:process</em>属性可以为整个appn内组件设置一个默认的运行进程。</p>
 <blockquote>
@@ -217,7 +233,9 @@ private String getProcessName(Context context) {
 }
 </code></pre><p>这样经过测试，在不同的进程被创建时，进行不同的工作，执行时间可以缩短一半。<br><img src="/images/android-multiprocess-oncreate-executed-serval-times/processes_start_timelong_after_modification.png" alt="修改3个进程启动耗时" title="修改后3个进程创建耗时"></p>
 <p><strong><em><font color="red">虽然这种方法可以奏效，在但Android 5.0后的版本，此方法不是每次都起到效果</font></em></strong></p>
-<p>具体方案还需要测试。。。。节后更新。端午节快乐！</p>
+<blockquote>
+<p>具体方案还需要测试。。。。节后更新。端午节快乐！<br>后续继续此方案解决测试</p>
+</blockquote>
 
       
 
@@ -319,6 +337,20 @@ private String getProcessName(Context context) {
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2017/06/01/how-to-setup-personal-blog-width-hexo-and-github/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          使用hexo+github搭建个人微博——手把手教
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 
 
