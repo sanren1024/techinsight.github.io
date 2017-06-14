@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Android获取运行进程解决方案分析 | TechInsight技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在Android中获取运行进程这种需求在许多场合需要被使用到，但实际情况是在Android Lollipop即5.0后，Google开始收紧对底层权限控制。 可以从原有的几个方法的API变化及调用返回看出。  getRunningAppProcesses())在直到4.x， 5.0版本上工作良好（即便API中提示此方法仅用于debugging及编译管理UI之用），但从5.0+开始在一些OEM的系统">
+  <meta name="description" content="在Android中获取运行进程这种需求在许多场合需要被使用到，但实际情况是在Android Lollipop即5.0后，Google开始收紧对底层权限控制。下面就涉及的方法及我现在找到的解决方案来分析下，是如何解决这个问题的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android获取运行进程解决方案分析">
 <meta property="og:url" content="http://yoursite.com/2017/06/08/get-running-processes-above-android-lollipop/index.html">
 <meta property="og:site_name" content="TechInsight技术博客">
-<meta property="og:description" content="在Android中获取运行进程这种需求在许多场合需要被使用到，但实际情况是在Android Lollipop即5.0后，Google开始收紧对底层权限控制。 可以从原有的几个方法的API变化及调用返回看出。  getRunningAppProcesses())在直到4.x， 5.0版本上工作良好（即便API中提示此方法仅用于debugging及编译管理UI之用），但从5.0+开始在一些OEM的系统">
-<meta property="og:updated_time" content="2017-06-14T14:46:30.755Z">
+<meta property="og:description" content="在Android中获取运行进程这种需求在许多场合需要被使用到，但实际情况是在Android Lollipop即5.0后，Google开始收紧对底层权限控制。下面就涉及的方法及我现在找到的解决方案来分析下，是如何解决这个问题的。">
+<meta property="og:updated_time" content="2017-06-14T15:03:29.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android获取运行进程解决方案分析">
-<meta name="twitter:description" content="在Android中获取运行进程这种需求在许多场合需要被使用到，但实际情况是在Android Lollipop即5.0后，Google开始收紧对底层权限控制。 可以从原有的几个方法的API变化及调用返回看出。  getRunningAppProcesses())在直到4.x， 5.0版本上工作良好（即便API中提示此方法仅用于debugging及编译管理UI之用），但从5.0+开始在一些OEM的系统">
+<meta name="twitter:description" content="在Android中获取运行进程这种需求在许多场合需要被使用到，但实际情况是在Android Lollipop即5.0后，Google开始收紧对底层权限控制。下面就涉及的方法及我现在找到的解决方案来分析下，是如何解决这个问题的。">
   
     <link rel="alternative" href="/atom.xml" title="TechInsight技术博客" type="application/atom+xml">
   
@@ -177,7 +177,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在Android中获取<strong>运行进程</strong>这种需求在许多场合需要被使用到，但实际情况是在Android Lollipop即5.0后，Google开始收紧对底层权限控制。</p>
+        <p>在Android中获取<strong>运行进程</strong>这种需求在许多场合需要被使用到，但实际情况是在Android Lollipop即5.0后，Google开始收紧对底层权限控制。<br>下面就涉及的方法及我现在找到的解决方案来分析下，是如何解决这个问题的。</p>
+<a id="more"></a>
 <p>可以从原有的几个方法的API变化及调用返回看出。</p>
 <ul>
 <li><p><a href="https://developer.android.com/reference/android/app/ActivityManager.html#getRunningAppProcesses(" target="_blank" rel="external">getRunningAppProcesses()</a>)在直到4.x， 5.0版本上工作良好（即便API中提示此方法仅用于debugging及编译管理UI之用），但从5.0+开始在一些OEM的系统中调用此方法进行测试会发现方法返回null。</p>
@@ -186,7 +187,6 @@
 </li>
 </ul>
 <p>从上述两个方法的变化可以看出在5.0+之后，想要获取运行进程越来越难。</p>
-<p>持续更新中 …….<br>TO BE CONTINUED ……</p>
 
       
 
