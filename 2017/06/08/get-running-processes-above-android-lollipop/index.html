@@ -18,8 +18,9 @@
 <meta property="og:image" content="http://yoursite.com/images/get-running-processes-above-android-lollipop/ps_list_processes_of_android.png">
 <meta property="og:image" content="http://yoursite.com/images/get-running-processes-above-android-lollipop/ps_list_processes_of_android_1.png">
 <meta property="og:image" content="http://yoursite.com/images/get-running-processes-above-android-lollipop/cat_cmdline_content.jpg">
+<meta property="og:image" content="http://yoursite.com/images/get-running-processes-above-android-lollipop/content_format_of_file_stat.png">
 <meta property="og:image" content="http://yoursite.com/images/temp/comment.jpg">
-<meta property="og:updated_time" content="2017-06-27T16:12:13.557Z">
+<meta property="og:updated_time" content="2017-06-27T16:30:08.389Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android获取运行进程解决方案分析">
 <meta name="twitter:description" content="在Android中获取运行进程这种需求在许多场合需要被使用到，但实际情况是在Android Lollipop即5.0后，Google开始收紧对底层权限控制。下面就涉及的方法及我现在找到的解决方案来分析下，是如何解决这个问题的。">
@@ -201,9 +202,16 @@
 <p>在/proc目录下，进程名均是以数字命名的目录。因此获取运行进程信息，即是访问数字命名的目录，通过读取目录内特定文件来获取对应的进程名。</p>
 <p>读取进程名分成以下几步：</p>
 <ol>
-<li>读取进程目录下cmdline文件内容，android系统中该文件内包含的既是文件名。<br><img src="/images/get-running-processes-above-android-lollipop/ps_list_processes_of_android.png" alt="android-ps命令列举进程"><br><img src="/images/get-running-processes-above-android-lollipop/ps_list_processes_of_android_1.png" alt="android-ps命令列举进程"><br>通过ps命令可以查看到当前android中的进程。<br>然后再cat文件内容查看：<br><img src="/images/get-running-processes-above-android-lollipop/cat_cmdline_content.jpg" alt="cat cmdline文件内容"></li>
-<li></li>
+<li><p>读取进程目录下cmdline文件内容，android系统中该文件内包含的既是文件名。<br><img src="/images/get-running-processes-above-android-lollipop/ps_list_processes_of_android.png" alt="android-ps命令列举进程"><br><img src="/images/get-running-processes-above-android-lollipop/ps_list_processes_of_android_1.png" alt="android-ps命令列举进程"><br>通过ps命令可以查看到当前android中的进程。<br>然后再cat文件内容查看：<br><img src="/images/get-running-processes-above-android-lollipop/cat_cmdline_content.jpg" alt="cat cmdline文件内容"></p>
+</li>
+<li><p>cmdline内容也可能是空，具体原因不明。此种情况下，换做去读取/<br>proc/pid/stat文件。<br>stat内容格式：<br><img src="/images/get-running-processes-above-android-lollipop/content_format_of_file_stat.png" alt="stat文件内容"><br>内容是空格分割的多列，其中第二列既是当前进程的进程名。</p>
+</li>
+<li><p>以步骤1、2访问/proc目录内所有数字命名目录， 即可以获取到当前Android系统中正在运行的进程。</p>
+</li>
 </ol>
+<p>在获取进程之后，我们就可以根据需要进行某些操作了。</p>
+<p>据说google在7.0上有加强了对/proc目录访问的控制，AndroidProcesses的解决方案就有问题了……..</p>
+<p>持续关注此问题后续可能的解决方案中……</p>
 <p><img src="/images/temp/comment.jpg" alt="谢谢观赏"></p>
 
       
