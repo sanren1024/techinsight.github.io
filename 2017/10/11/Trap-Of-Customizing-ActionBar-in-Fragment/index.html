@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>TechInsight技术博客</title>
+  <title>Trap3——Fragment中定制ActionBar（同一个Activity内多个Fragment） | TechInsight技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Android, Java, 移动开发相关技术简绍。">
+<meta name="keywords" content="Trap,ActionBar,Fragment">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TechInsight技术博客">
+<meta property="og:title" content="Trap3——Fragment中定制ActionBar（同一个Activity内多个Fragment）">
 <meta property="og:url" content="http://yoursite.com/2017/10/11/Trap-Of-Customizing-ActionBar-in-Fragment/index.html">
 <meta property="og:site_name" content="TechInsight技术博客">
 <meta property="og:description" content="Android, Java, 移动开发相关技术简绍。">
-<meta property="og:updated_time" content="2017-10-10T18:38:27.192Z">
+<meta property="og:updated_time" content="2017-10-10T18:41:03.818Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TechInsight技术博客">
+<meta name="twitter:title" content="Trap3——Fragment中定制ActionBar（同一个Activity内多个Fragment）">
 <meta name="twitter:description" content="Android, Java, 移动开发相关技术简绍。">
   
     <link rel="alternative" href="/atom.xml" title="TechInsight技术博客" type="application/atom+xml">
@@ -160,6 +161,21 @@
             <article id="post-Trap-Of-Customizing-ActionBar-in-Fragment" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Trap3——Fragment中定制ActionBar（同一个Activity内多个Fragment）
+    </h1>
+  
+
+        
+        <a href="/2017/10/11/Trap-Of-Customizing-ActionBar-in-Fragment/" class="archive-article-date">
+  	<time datetime="2017-10-11T02:38:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-11</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         
@@ -201,7 +217,37 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Trap</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ActionBar</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Fragment</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -265,18 +311,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/10/11/Trap-of-ViewPager-in-Fragment/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Trap2——Fragment中嵌有ViewPager（FragmentPagerAdapter）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/08/30/Trap-Of-Using-FloatingActionButton-on-different-android/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Trap1——在不同版本上使用FloatingActionButton</div>
+    <a href="/2017/10/11/Trap-of-ViewPager-in-Fragment/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Trap2——Fragment中嵌有ViewPager（FragmentPagerAdapter）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -427,15 +464,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Widget</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FloatingActionButton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ViewPager</a>
+                <a href="javascript:void(0)" class="js-tag color5">ActionBar</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -451,6 +480,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Widget</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FloatingActionButton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
@@ -460,6 +497,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">微博</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ViewPager</a>
               </li>
             
             <div class="clearfix"></div>
