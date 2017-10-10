@@ -178,7 +178,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>项目需求中，需要实现app首页下部有三个tab，首个tab内部又有多个顶部tab效果。</p>
+<p>首先考虑的是外部容器三个页面使用Fragment实现，首个tab内部又有多个tab对应的页面，即fragment。实现考虑使用ViewPager+TabLayout方式实现。</p>
+<h4 id="实现中问题："><a href="#实现中问题：" class="headerlink" title="实现中问题："></a><font color="red">实现中问题：</font></h4><blockquote>
+<p>app每次打开，ViewPager首次加载显示正常，在切换之后再返回ViewPager，会发现tab页面消失。</p>
+</blockquote>
+<p>原因：ViewPager内放置Fragment使用FragmentPagerAdapter时，传入的FragmentManager对象有问题。<br>创建FragmentPagerAdapter时，代码如下：</p>
+<pre><code>new HomeFragmentAdapter(mActivity.getSupportedFragmentManager(), fragments);
+</code></pre><p> 需要注意，此刻创建FragmentPagerAdapter本身是在一个Fragment中创建的，即在Fragment使用FragmentPagerAdapter，所以造成了上述情况。</p>
+<p>解决方法：<br>创建FragmentPagerAdapter时传入ChildFragmentManager对象，即使用容器Fragment来获取ChildFragmentManager对象。</p>
+<pre><code>new HomeFragmentAdapter(Fragment.getChildFragmentManager(), fragments);
+</code></pre><p>这样可以解决这个问题。</p>
+<blockquote>
+<p>在打开app后，home返回桌面，使用360等工具查杀后再打开，Fragment状态错乱</p>
+</blockquote>
+<p>在app被查杀时，Fragment等组件保存的页面状态只是部分信息，不会将页面内所有数据类似快照一样保存完整，因此再次打开app时，页面内部数据恢复，其他部分无法恢复，造成显示错乱。</p>
+<p>目前解决办法：<br>在每次打开app时，将Fragment原先保存在保存在状态清除，恢复最初状态。<br>在super.onCreate(savedInstanceState );之前调用。</p>
+<pre><code>// 再利用三方软件回收，查杀进程后，删除activity中fragment包含的状态
+    if (savedInstanceState != null) {
+        String FRAGMENTS_TAG = &quot;android:support:fragments&quot;;
+        savedInstanceState.remove(FRAGMENTS_TAG);
+    }
+</code></pre><p>这样可以解决在突然被查杀后，再次打开时显示错乱问题。</p>
+
       
 
       
@@ -196,6 +218,10 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ViewPager</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Fragment</a>
         		</li>
       		
 		</ul>
@@ -858,6 +884,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ViewPager</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
               </li>
              
               <li class="article-tag-list-item">
