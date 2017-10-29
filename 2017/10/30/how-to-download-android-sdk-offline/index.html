@@ -17,7 +17,8 @@
 <meta property="og:description" content="最近想在自己的电脑上搭建android开发环境了，由于电脑上很干净（没有任何开发环境），也就是从零开始，虽然知道sdk下载地址被墙了（那个墙很坑爹，好的资源都被墙）。 这里说的方法并非打开sdk-manager.exe的方式，因为这种方式只在android-sdk_r24.4.1-windows.zip之后就不再更新相同的方式了，算是里程碑了。再后边的版本只有一个tools文件夹了，换了文件格式，">
 <meta property="og:image" content="http://yoursite.com/images/how-to-download-android-sdk-offline/set_sdk_location.png">
 <meta property="og:image" content="http://yoursite.com/images/how-to-download-android-sdk-offline/select_sdk_update_sites.png">
-<meta property="og:updated_time" content="2017-10-29T14:46:07.617Z">
+<meta property="og:image" content="http://yoursite.com/images/how-to-download-android-sdk-offline/android_repository_xml.png">
+<meta property="og:updated_time" content="2017-10-29T15:10:15.278Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="离线下载Android SDK（100%成功）">
 <meta name="twitter:description" content="最近想在自己的电脑上搭建android开发环境了，由于电脑上很干净（没有任何开发环境），也就是从零开始，虽然知道sdk下载地址被墙了（那个墙很坑爹，好的资源都被墙）。 这里说的方法并非打开sdk-manager.exe的方式，因为这种方式只在android-sdk_r24.4.1-windows.zip之后就不再更新相同的方式了，算是里程碑了。再后边的版本只有一个tools文件夹了，换了文件格式，">
@@ -187,9 +188,17 @@
 <ol>
 <li>首先下载最新的<a href="https://dl.google.com/dl/android/studio/ide-zips/3.0.0.18/android-studio-ide-171.4408382-windows.zip" target="_blank" rel="external">Android Studio</a>，因为官网提供的Android Studio内不包含SDK环境，所以同时需要下载<a href="https://dl.google.com/android/repository/sdk-tools-windows-3859397.zip" target="_blank" rel="external">SKD Tools</a></li>
 <li>第二打开Android Studio，进入Settings -&gt; Appearance &amp; Behavior -&gt; System Settings -&gt; Android SDK 选项卡，首先设置SDK路径，即下载的SDK Tools路径，如下：<br><img src="/images/how-to-download-android-sdk-offline/set_sdk_location.png" alt="设置SDK路径" title="SDK路径"><br>按照顺序设置结束。</li>
-<li>在选择SDK Update Sites。<br><img src="/images/how-to-download-android-sdk-offline/select_sdk_update_sites.png" alt="选择SDK Update Sites选项卡" title="sdk update sites"></li>
-<li></li>
+<li>在选择SDK Update Sites。<br><img src="/images/how-to-download-android-sdk-offline/select_sdk_update_sites.png" alt="选择SDK Update Sites选项卡" title="sdk update sites"><br>查看图中红框中的Android Repository。</li>
+<li>将地址复制出来，<a href="https://dl.google.com/android/repository/repository2-1.xml" title="sdk下载配置" target="_blank" rel="external">https://dl.google.com/android/repository/repository2-1.xml</a>，改地址在不同版本发布时可能有所不同，在浏览器中打开xml文件（应该是需要翻墙的），如下图：<br><img src="/images/how-to-download-android-sdk-offline/android_repository_xml.png" alt="android下载配置"><br>文件内数据太多，太大，往下拉，可以从打开的文档中可以看到，所有sdk配置，包含了tools，platform-tools等zip文件文件名（早起版本中提供了完整的下载地址），24版本之后就没有提供完整地址了。</li>
+<li>将<a href="https://dl.google.com/android/repository/" target="_blank" rel="external">https://dl.google.com/android/repository/</a> + “需要的zip文件名”拼接在一起，粘贴到浏览器地址栏中，或者打开迅雷的等下载工具可以直接下载。</li>
 </ol>
+<p>这种方式很傻瓜式，有些笨，但100%可以成功，且现在的网络速度很快，相信花不了多少时间就可以完成整个SDK的下载。</p>
+<p>在网上最多的还是</p>
+<ul>
+<li>找到国内镜像地址进行配置更新，但这种方法还需要看服务器内数据是否是最新的，很可能更新不及时。</li>
+<li>通过ping dl.google.com来找到相关的服务器的方式，但这种方式缺陷是可能找到的海外服务器地址，一个都没法使用。</li>
+</ul>
+<p>所以现在的这个方式是最靠谱的。程序员也可以自己写段程序处理xml文件，输出所有的下载地址，然后在迅雷中批量下载！！！！OK了</p>
 
       
 
@@ -472,14 +481,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Widget</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FloatingActionButton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ActionBar</a>
               </li>
              
@@ -488,7 +489,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ViewPager</a>
+                <a href="javascript:void(0)" class="js-tag color2">Widget</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FloatingActionButton</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,19 +505,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sdk</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ViewPager</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sdk</a>
               </li>
              
               <li class="article-tag-list-item">
