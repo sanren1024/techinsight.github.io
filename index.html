@@ -178,12 +178,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="离线下载Android-SDK——100-成功"><a href="#离线下载Android-SDK——100-成功" class="headerlink" title="离线下载Android SDK——100%成功"></a>离线下载Android SDK——100%成功</h3><p>最近想在自己的电脑上搭建android开发环境了，由于电脑上很干净（没有任何开发环境），也就是从零开始，虽然知道sdk下载地址被墙了（那个墙很坑爹，好的资源都被墙）。</p>
+        <p>最近想在自己的电脑上搭建android开发环境了，由于电脑上很干净（没有任何开发环境），也就是从零开始，虽然知道sdk下载地址被墙了（那个墙很坑爹，好的资源都被墙）。</p>
 <h4 id="这里说的方法并非打开sdk-manager-exe的方式，因为这种方式只在android-sdk-r24-4-1-windows-zip之后就不再更新相同的方式了，算是里程碑了。再后边的版本只有一个tools文件夹了，换了文件格式，在windows下没有sdk-manager-exe了。"><a href="#这里说的方法并非打开sdk-manager-exe的方式，因为这种方式只在android-sdk-r24-4-1-windows-zip之后就不再更新相同的方式了，算是里程碑了。再后边的版本只有一个tools文件夹了，换了文件格式，在windows下没有sdk-manager-exe了。" class="headerlink" title="这里说的方法并非打开sdk-manager.exe的方式，因为这种方式只在android-sdk_r24.4.1-windows.zip之后就不再更新相同的方式了，算是里程碑了。再后边的版本只有一个tools文件夹了，换了文件格式，在windows下没有sdk-manager.exe了。"></a><font color="red">这里说的方法并非打开sdk-manager.exe的方式，因为这种方式只在android-sdk_r24.4.1-windows.zip之后就不再更新相同的方式了，算是里程碑了。再后边的版本只有一个tools文件夹了，换了文件格式，在windows下没有sdk-manager.exe了。</font></h4><h4 id="也不是打开Android-Studio的settings里边的Android-SDK项就可以更新了，因为更新地址被墙了。。。。。。。。即使打开了代理也未必成功！！！"><a href="#也不是打开Android-Studio的settings里边的Android-SDK项就可以更新了，因为更新地址被墙了。。。。。。。。即使打开了代理也未必成功！！！" class="headerlink" title="也不是打开Android Studio的settings里边的Android SDK项就可以更新了，因为更新地址被墙了。。。。。。。。即使打开了代理也未必成功！！！"></a><font color="blue">也不是打开Android Studio的settings里边的Android SDK项就可以更新了，因为更新地址被墙了。。。。。。。。即使打开了代理也未必成功！！！</font></h4><p>下面说的方式有点儿傻瓜式，但肯定能成功，这个方法还不能成功，那就是人品问题了。</p>
 <p>开始吧！！！！！</p>
 <ol>
 <li>首先下载最新的<a href="https://dl.google.com/dl/android/studio/ide-zips/3.0.0.18/android-studio-ide-171.4408382-windows.zip" target="_blank" rel="external">Android Studio</a>，因为官网提供的Android Studio内不包含SDK环境，所以同时需要下载<a href="https://dl.google.com/android/repository/sdk-tools-windows-3859397.zip" target="_blank" rel="external">SKD Tools</a></li>
-<li>第二打开Android Studio，进入Settings -&gt; Appearance &amp; Behavior -&gt; System Settings -&gt; Android SDK 选项卡，首先设置SDK路径，即下载的SDK Tools路径，如下：<br><img src="/images/how-to-download-android-sdk-offline/set_sdk_location.png" alt="设置SDK路径" title="SDK路径"></li>
+<li>第二打开Android Studio，进入Settings -&gt; Appearance &amp; Behavior -&gt; System Settings -&gt; Android SDK 选项卡，首先设置SDK路径，即下载的SDK Tools路径，如下：<br><img src="/images/how-to-download-android-sdk-offline/set_sdk_location.png" alt="设置SDK路径" title="SDK路径"><br>按照顺序设置结束。</li>
+<li>在选择SDK Update Sites。<br><img src="/images/how-to-download-android-sdk-offline/select_sdk_update_sites.png" alt="选择SDK Update Sites选项卡" title="sdk update sites"></li>
 <li></li>
 </ol>
 
@@ -310,11 +311,11 @@ Toolbar mActionBar;
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ActionBar</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Fragment</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Fragment</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ActionBar</a>
         		</li>
       		
 		</ul>
@@ -424,11 +425,11 @@ Toolbar mActionBar;
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Fragment</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ViewPager</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ViewPager</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Fragment</a>
         		</li>
       		
 		</ul>
@@ -1082,7 +1083,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ActionBar</a>
+                <a href="javascript:void(0)" class="js-tag color5">ViewPager</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1098,15 +1099,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ActionBar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多进程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ViewPager</a>
               </li>
              
               <li class="article-tag-list-item">
