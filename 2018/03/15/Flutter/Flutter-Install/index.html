@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Android资源获取方式 | TechInsight技术博客</title>
+  <title>Android Flutter环境准备 | TechInsight技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="安装Flutter  在国内安装使用Flutter，首先阅读下这篇文章，具体原因你懂的。 在国内安装Flutter需要首先需要一个值得信任的国内镜像。在镜像上边保存着Flutter索要的依赖及相关库，包等。为了使用Flutter，需要使用一个备用存储位置，我们需要配置环境变量。配置环境变量名：PUB_HOSTED_URL和FLUTTER_STORAGE_BASE_URL。">
 <meta name="keywords" content="Android,Flutter,Dart">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android资源获取方式">
+<meta property="og:title" content="Android Flutter环境准备">
 <meta property="og:url" content="http://yoursite.com/2018/03/15/Flutter/Flutter-Install/index.html">
 <meta property="og:site_name" content="TechInsight技术博客">
 <meta property="og:description" content="安装Flutter  在国内安装使用Flutter，首先阅读下这篇文章，具体原因你懂的。 在国内安装Flutter需要首先需要一个值得信任的国内镜像。在镜像上边保存着Flutter索要的依赖及相关库，包等。为了使用Flutter，需要使用一个备用存储位置，我们需要配置环境变量。配置环境变量名：PUB_HOSTED_URL和FLUTTER_STORAGE_BASE_URL。">
 <meta property="og:image" content="http://yoursite.com/images/Flutter/flutter-install/run_flutter_doctor.png">
 <meta property="og:image" content="http://yoursite.com/images/Flutter/flutter-install/android_studio_flutter_project.png">
 <meta property="og:image" content="http://yoursite.com/images/Flutter/flutter-installflutter_app_runtime.png">
-<meta property="og:updated_time" content="2018-03-14T16:41:29.751Z">
+<meta property="og:updated_time" content="2018-03-14T16:54:02.112Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android资源获取方式">
+<meta name="twitter:title" content="Android Flutter环境准备">
 <meta name="twitter:description" content="安装Flutter  在国内安装使用Flutter，首先阅读下这篇文章，具体原因你懂的。 在国内安装Flutter需要首先需要一个值得信任的国内镜像。在镜像上边保存着Flutter索要的依赖及相关库，包等。为了使用Flutter，需要使用一个备用存储位置，我们需要配置环境变量。配置环境变量名：PUB_HOSTED_URL和FLUTTER_STORAGE_BASE_URL。">
 <meta name="twitter:image" content="http://yoursite.com/images/Flutter/flutter-install/run_flutter_doctor.png">
   
@@ -169,7 +169,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Android资源获取方式
+      Android Flutter环境准备
     </h1>
   
 
@@ -190,7 +190,7 @@
 <a id="more"></a>  
 <p>在windows系统中，需要在环境变量设置中添加：<br>PUB_HOSTED_URL ： <a href="https://pub.flutter-io.cn" target="_blank" rel="external">https://pub.flutter-io.cn</a><br>FLUTTER_STORAGE_BASE_URL ： <a href="https://storage.flutter-io.cn" target="_blank" rel="external">https://storage.flutter-io.cn</a></p>
 <p>然后运行Git命令（前提是安装了GitBash工具）：<br>git clone -b dev <a href="https://github.com/flutter/flutter.git" target="_blank" rel="external">https://github.com/flutter/flutter.git</a> Flutter</p>
-<h4 id="Flutter文件夹需要注意：文件夹存放的路径上不要出现空格，否则在IDE中进行工程创建后会有警告，SDK环境路径上存在分隔符。"><a href="#Flutter文件夹需要注意：文件夹存放的路径上不要出现空格，否则在IDE中进行工程创建后会有警告，SDK环境路径上存在分隔符。" class="headerlink" title="Flutter文件夹需要注意：文件夹存放的路径上不要出现空格，否则在IDE中进行工程创建后会有警告，SDK环境路径上存在分隔符。"></a><font color="red">Flutter文件夹需要注意：文件夹存放的路径上不要出现空格，否则在IDE中进行工程创建后会有警告，SDK环境路径上存在分隔符。</font></h4><p>在clone完成之后，即flutter sdk下载完毕，还需要配置Flutter环境： xxxx、Flutter/bin目录下。</p>
+<h4 id="Flutter文件夹需要注意：文件夹存放的路径上不要出现空格，否则在IDE中进行工程创建后会有警告，SDK环境路径上存在分隔符。"><a href="#Flutter文件夹需要注意：文件夹存放的路径上不要出现空格，否则在IDE中进行工程创建后会有警告，SDK环境路径上存在分隔符。" class="headerlink" title="Flutter文件夹需要注意：文件夹存放的路径上不要出现空格，否则在IDE中进行工程创建后会有警告，SDK环境路径上存在分隔符。"></a><font color="red">Flutter文件夹需要注意：文件夹存放的路径上不要出现空格，否则在IDE中进行工程创建后会有警告，SDK环境路径上存在分隔符。</font></h4><p>在clone完成之后，即flutter sdk下载完毕，还需要配置Flutter环境： xxxx/Flutter/bin目录下。</p>
 <p>重新打开一个命令行，在其中输入命令</p>
 <pre><code>flutter doctor
 </code></pre><p>进行环境及缺失的依赖检查，并下载需要的依赖。<br>运行效果如下图：<br><img src="/images/Flutter/flutter-install/run_flutter_doctor.png" alt="运行flutter doctor"></p>
@@ -494,18 +494,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ViewPager</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ActionBar</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Widget</a>
               </li>
              
@@ -514,11 +502,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Application</a>
+                <a href="javascript:void(0)" class="js-tag color5">ViewPager</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多进程</a>
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,6 +515,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多进程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ActionBar</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,6 +535,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">微博</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
              
               <li class="article-tag-list-item">
