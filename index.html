@@ -158,6 +158,131 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Flutter/Flutter_Introduction" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/23/Flutter/Flutter_Introduction/">Flutter简述</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/23/Flutter/Flutter_Introduction/" class="archive-article-date">
+  	<time datetime="2018-03-23T08:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>Flutter是Google移动UI框架，用以创建高质量的native接口，真正跨平台，同时在iOS和Android上运行。Flutter是免费开源的，全球开发者及组织均可以使用。</p>
+<p>Flutter有又几个特点：</p>
+<ol>
+<li><p>快速开发</p>
+<ul>
+<li>毫秒级别的加载速度，快速的渲染启动。</li>
+</ul>
+</li>
+<li><p>极具表现力，灵活的UI</p>
+<ul>
+<li>接近native用户体验的特性。分层结构更是允许完全，从而可以非常快速的渲染且灵活。</li>
+</ul>
+</li>
+<li><p>native性能</p>
+<ul>
+<li>Flutter组件包含所有主要平台的差异，例如滚动，导航，图标和字体，从而提供了在iOS和Android一样的native性能体验.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>快速开发</p>
+</blockquote>
+<p>Flutter热加载技术有助于你快速且简单地进行试验，构建UI，增加特性，并且快速修复bug。体验不到一秒的重新加载体验。</p>
+<p><img src="/images/Flutter/flutter-introdution/hot-reload.gif" alt="hot-reload"></p>
+<blockquote>
+<p>漂亮的UI</p>
+</blockquote>
+<p>Flutter内置MD设计风格及iOS组件，更有丰富的手势API，流畅的滚动体验和平台认同感会让用户感到愉悦。</p>
+<p><img src="/images/Flutter/flutter-introdution/screenshot-1.png" alt=""><img src="/images/Flutter/flutter-introdution/screenshot-2.png" alt=""><img src="/images/Flutter/flutter-introdution/E:\Flutter_Study\screenshot-3.png" alt=""><img src="/images/Flutter/flutter-introdution/ios-friendlychat.png" alt=""></p>
+<p>查看<a href="https://flutter.io/widgets/" target="_blank" rel="external">组件</a></p>
+<blockquote>
+<p>现代的响应式框架（Modern，reactive framework）</p>
+</blockquote>
+<p>利用Flutter响应式框架和丰富的平台，布局和功能组件是的UI构建非常简单。使用灵活并且强大的API（2D，动画，手势，性能等）可以解决在UI上各种问题。</p>
+<p><code>class CounterState extends State&lt;Counter&gt; {  int counter = 0;  void increment() {    // Tells the Flutter framework that state has changed,    // so the framework can run build() and update the display.    setState(() {      counter++;    });  }  Widget build(BuildContext context) {    // This method is rerun every time setState is called.    // The Flutter framework has been optimized to make rerunning    // build methods fast, so that you can just rebuild anything that    // needs updating rather than having to individually change    // instances of widgets.    return new Row(      children: &lt;Widget&gt;[        new RaisedButton(          onPressed: increment,          child: new Text(&#39;Increment&#39;),        ),        new Text(&#39;Count: $counter&#39;),      ],    );  }}</code></p>
+<p>查看<a href="https://flutter.io/widgets/" target="_blank" rel="external">组件</a>及学习更多有关<a href="https://flutter.io/widgets-intro/" target="_blank" rel="external">reactive framework</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Flutter</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Flutter//" class="article-tag-list-link color3">Flutter</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/23/Flutter/Flutter_Introduction/">继续阅读 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Flutter/Flutter-Install" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -165,7 +290,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/15/Flutter/Flutter-Install/">Android Flutter环境准备</a>
+      <a class="article-title" href="/2018/03/15/Flutter/Flutter-Install/">Flutter(一) 环境准备</a>
     </h1>
   
 
@@ -181,8 +306,8 @@
         <blockquote>
 <p>安装Flutter</p>
 </blockquote>
-<p>在国内安装使用Flutter，首先阅读下这篇<a href="https://github.com/flutter/flutter/wiki/Using-Flutter-in-China" target="_blank" rel="external">文章</a>，具体原因你懂的。</p>
-<p>在国内安装Flutter需要首先需要一个值得信任的国内镜像。在镜像上边保存着Flutter索要的依赖及相关库，包等。为了使用Flutter，需要使用一个备用存储位置，我们需要配置环境变量。<br>配置环境变量名：PUB_HOSTED_URL和FLUTTER_STORAGE_BASE_URL。</p>
+<p>在国内安装使用Flutter，首先阅读下这篇<a href="https://github.com/flutter/flutter/wiki/Using-Flutter-in-China" target="_blank" rel="external">文章</a>，由于国内网络大环境问题，需要提前进行一点配置。</p>
+<p>在国内安装Flutter需要首先需要一个值得信任的国内镜像。在镜像上边保存着Flutter需要的依赖及相关库，包等。为了使用Flutter，需要使用一个备用存储位置，我们需要配置环境变量。<br>配置环境变量名：PUB_HOSTED_URL和FLUTTER_STORAGE_BASE_URL。</p>
         
           <a class="article-more-a" href="/2018/03/15/Flutter/Flutter-Install/#more">more >></a>
         
@@ -223,10 +348,6 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="/categories/Android/Flutter//" class="article-tag-list-link color3">Flutter</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Android/Flutter/Dart//" class="article-tag-list-link color5">Dart</a>
         		</li>
       		
 		</ul>
@@ -413,11 +534,11 @@ Toolbar mActionBar;
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Fragment</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ActionBar</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ActionBar</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Fragment</a>
         		</li>
       		
 		</ul>
@@ -527,11 +648,11 @@ Toolbar mActionBar;
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ViewPager</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Fragment</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Fragment</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ViewPager</a>
         		</li>
       		
 		</ul>
@@ -1012,11 +1133,11 @@ Toolbar mActionBar;
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多进程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Application</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Application</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多进程</a>
         		</li>
       		
 		</ul>
@@ -1185,6 +1306,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ActionBar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ViewPager</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Widget</a>
               </li>
              
@@ -1193,11 +1326,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ViewPager</a>
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+                <a href="javascript:void(0)" class="js-tag color4">多进程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1206,14 +1339,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多进程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ActionBar</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1226,10 +1351,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">微博</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
              
               <li class="article-tag-list-item">
