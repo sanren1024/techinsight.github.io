@@ -347,6 +347,212 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/29/Flutter/Flutter_Create_Your_First_App/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="倪冠华（Nicholas）">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TechInsight技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/29/Flutter/Flutter_Create_Your_First_App/" itemprop="url">Flutter(二)  创建第一个Flutter APP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-29T11:36:22Z">
+                2018-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/Flutter/" itemprop="url" rel="index">
+                    <span itemprop="name">Flutter</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/29/Flutter/Flutter_Create_Your_First_App/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/29/Flutter/Flutter_Create_Your_First_App/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这一章主要是创建一个Flutter App。如果你熟悉面向对象编程，有基本的编程概念（变量，循环，条件判断等），那么你不必要具备原有的Dart和移动开发经验，，就可以轻松地理解完成这章内容。</p>
+<ul>
+<li><a href="#1">Step 1：创建第一个flutter app</a></li>
+<li><a href="#2">Step 2：使用外部包</a></li>
+<li><a href="#3">Step 3：添加一个有状态的组件（Stateful widget）</a></li>
+<li><a href="#4">Step 4：创建无限滚动ListView</a></li>
+<li><a href="#5">Step 5：添加交互</a></li>
+<li><a href="#6">Step 6：跳转到另一个屏</a></li>
+<li><a href="#7">Step 7：利用主题改变UI</a></li>
+</ul>
+<blockquote>
+<p>构造什么</p>
+</blockquote>
+<p>你将为一家初创公司实现一个简单的移动app，主要功能是为这家公司推荐名字。用户可以选择或者取消名字，保存最好的名字。程序会一次性产生10个名字。在用户滚动时，新名字同时会产生出来。用户可以点击导航栏（appbar）的列表图标进入到一个新的列表页查看喜欢的名字。</p>
+<p>最终的结果最后运行结果中可以看到。</p>
+<blockquote>
+<p>你将会学到：</p>
+<ul>
+<li>Flutter app基本结构</li>
+<li>查找并使用包来扩展功能</li>
+<li>使用热加载加快开发周期</li>
+<li>如何实现一个有状态组件（Stateful widget）</li>
+<li>如何创建一个无限，懒加载列表</li>
+<li>如何创建并路由到第二个屏幕</li>
+<li>如何使用app主题修改外观</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>你将会使用：<br>需要安装：</p>
+<ul>
+<li><p>Flutter SDK<br>Flutter SDK包含了Flutter引擎，framework，组件，工具，和Dart SDK。这份代码实验需要v0.1.4或者更高版本。</p>
+</li>
+<li><p>Android Studio<br>这次代码实验需要Android Studio。也可以在命令行。</p>
+</li>
+<li><p>需要IDE插件<br>IDE上必须分别安装Flutter和Dart插件。</p>
+<p>查看<a href="https://flutter.io/get-started/install/" target="_blank" rel="noopener">Flutter安装</a>学习如何建立起你的Flutter环境</p>
+</li>
+</ul>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/29/Flutter/Flutter_Create_Your_First_App/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/Flutter/Flutter_Introduction/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -517,7 +723,7 @@ Flutter有又几个特点：
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/15/Flutter/Flutter-Install/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/15/Flutter/Flutter_Install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="倪冠华（Nicholas）">
@@ -536,7 +742,7 @@ Flutter有又几个特点：
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/15/Flutter/Flutter-Install/" itemprop="url">Flutter(一) 环境准备</a></h1>
+                <a class="post-title-link" href="/2018/03/15/Flutter/Flutter_Install/" itemprop="url">Flutter(一) 环境准备</a></h1>
         
 
         <div class="post-meta">
@@ -600,9 +806,9 @@ Flutter有又几个特点：
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/15/Flutter/Flutter-Install/#comments" itemprop="discussionUrl">
+                <a href="/2018/03/15/Flutter/Flutter_Install/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/15/Flutter/Flutter-Install/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/03/15/Flutter/Flutter_Install/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -638,7 +844,7 @@ Flutter有又几个特点：
 <p>在国内安装Flutter需要首先需要一个值得信任的国内镜像。在镜像上边保存着Flutter需要的依赖及相关库，包等。为了使用Flutter，需要使用一个备用存储位置，我们需要配置环境变量。<br>配置环境变量名：PUB_HOSTED_URL和FLUTTER_STORAGE_BASE_URL。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/15/Flutter/Flutter-Install/#more" rel="contents">
+            <a class="btn" href="/2018/03/15/Flutter/Flutter_Install/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -995,173 +1201,11 @@ Flutter有又几个特点：
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/11/Trap-of-ViewPager-in-Fragment/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="倪冠华（Nicholas）">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TechInsight技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/11/Trap-of-ViewPager-in-Fragment/" itemprop="url">Trap2——Fragment中嵌有ViewPager（FragmentPagerAdapter）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-11T01:14:49Z">
-                2017-10-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/10/11/Trap-of-ViewPager-in-Fragment/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/10/11/Trap-of-ViewPager-in-Fragment/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          项目需求中，需要实现app首页下部有三个tab，首个tab内部又有多个顶部tab效果。
-首先考虑的是外部容器三个页面使用Fragment实现，首个tab内部又有多个tab对应的页面，即fragment。实现考虑使用ViewPager+TabLayout方式实现。
-实现中问题：
-app每次打开，Vie
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/11/Trap-of-ViewPager-in-Fragment/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1211,7 +1255,7 @@ app每次打开，Vie
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
