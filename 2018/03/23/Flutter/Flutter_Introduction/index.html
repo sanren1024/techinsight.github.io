@@ -143,7 +143,7 @@
 <meta property="og:image" content="http://yoursite.com/images/Flutter/flutter-introdution/screenshot-2.png">
 <meta property="og:image" content="http://yoursite.com/images/Flutter/flutter-introdution/E:/Flutter_Study/screenshot-3.png">
 <meta property="og:image" content="http://yoursite.com/images/Flutter/flutter-introdution/ios-friendlychat.png">
-<meta property="og:updated_time" content="2018-03-22T16:37:37.894Z">
+<meta property="og:updated_time" content="2018-04-08T17:14:32.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flutter简述">
 <meta name="twitter:description" content="Flutter是Google移动UI框架，用以创建高质量的native接口，真正跨平台，同时在iOS和Android上运行。Flutter是免费开源的，全球开发者及组织均可以使用。 Flutter有又几个特点：  快速开发  毫秒级别的加载速度，快速的渲染启动。   极具表现力，灵活的UI  接近native用户体验的特性。分层结构更是允许完全，从而可以非常快速的渲染且灵活。   native性">
@@ -489,9 +489,75 @@
 <p>现代的响应式框架（Modern，reactive framework）</p>
 </blockquote>
 <p>利用Flutter响应式框架和丰富的平台，布局和功能组件是的UI构建非常简单。使用灵活并且强大的API（2D，动画，手势，性能等）可以解决在UI上各种问题。</p>
-<p><code>class CounterState extends State&lt;Counter&gt; {  int counter = 0;  void increment() {    // Tells the Flutter framework that state has changed,    // so the framework can run build() and update the display.    setState(() {      counter++;    });  }  Widget build(BuildContext context) {    // This method is rerun every time setState is called.    // The Flutter framework has been optimized to make rerunning    // build methods fast, so that you can just rebuild anything that    // needs updating rather than having to individually change    // instances of widgets.    return new Row(      children: &lt;Widget&gt;[        new RaisedButton(          onPressed: increment,          child: new Text(&#39;Increment&#39;),        ),        new Text(&#39;Count: $counter&#39;),      ],    );  }}</code></p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CounterState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">Counter</span>&gt; </span>&#123;</span><br><span class="line">  <span class="built_in">int</span> counter = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">void</span> increment() &#123;</span><br><span class="line">    <span class="comment">// Tells the Flutter framework that state has changed,</span></span><br><span class="line">    <span class="comment">// so the framework can run build() and update the display.</span></span><br><span class="line">    setState(() &#123;</span><br><span class="line">      counter++;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="comment">// This method is rerun every time setState is called.</span></span><br><span class="line">    <span class="comment">// The Flutter framework has been optimized to make rerunning</span></span><br><span class="line">    <span class="comment">// build methods fast, so that you can just rebuild anything that</span></span><br><span class="line">    <span class="comment">// needs updating rather than having to individually change</span></span><br><span class="line">    <span class="comment">// instances of widgets.</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Row(</span><br><span class="line">      children: &lt;Widget&gt;[</span><br><span class="line">        <span class="keyword">new</span> RaisedButton(</span><br><span class="line">          onPressed: increment,</span><br><span class="line">          child: <span class="keyword">new</span> Text(<span class="string">'Increment'</span>),</span><br><span class="line">        ),</span><br><span class="line">        <span class="keyword">new</span> Text(<span class="string">'Count: $counter'</span>),</span><br><span class="line">      ],</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>查看<a href="https://flutter.io/widgets/" target="_blank" rel="noopener">组件</a>及学习更多有关<a href="https://flutter.io/widgets-intro/" target="_blank" rel="noopener">reactive framework</a></p>
-
+<blockquote>
+<p>访问native特性和SDKs</p>
+</blockquote>
+<p>通过使用平台APIs，第三方SDK和native代码，可以灵活地实现App。Flutter可以让你在iOS和Android上复用Java，Swift和Objective-C代码以及访问native特性和SDKs。</p>
+<p>Flutter平台特性访问十分简单。下边是Flutter内<a href="https://github.com/flutter/flutter/tree/master/examples/platform_channel" target="_blank" rel="noopener">interop example</a>]示例：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Future&lt;<span class="built_in">Null</span>&gt; getBatteryLevel() <span class="keyword">async</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> batteryLevel = <span class="string">'unknown'</span>;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="built_in">int</span> result = <span class="keyword">await</span> methodChannel.invokeMethod(<span class="string">'getBatteryLevel'</span>);</span><br><span class="line">    batteryLevel = <span class="string">'Battery level: $result%'</span>;</span><br><span class="line">  &#125; on PlatformException &#123;</span><br><span class="line">    batteryLevel = <span class="string">'Failed to get battery level.'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  setState(() &#123;</span><br><span class="line">    _batteryLevel = batteryLevel;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>学习如何使用<a href="https://flutter.io/using-packages/" target="_blank" rel="noopener">packages</a>，或者<a href="https://flutter.io/platform-channels/" target="_blank" rel="noopener">platform channels</a>来访问native代码，APIs及SDKs。</p>
+<blockquote>
+<p>统一的开发标准</p>
+</blockquote>
+<p>Flutter拥有工具及库帮助你简单快速地在iOS和Android上实现你的想法。若你还没有任何移动开发经验，那么Flutter将会是你构建漂亮的移动APP的一种简单快速的额方式。若你是有经验的iOS或者Android开发人员，那么你可以使用Flutter组件，并且继续使用已有的Java/Objective-C/Swift程序。</p>
+<ul>
+<li>构建<ul>
+<li>漂亮的APP UI<ul>
+<li>丰富的2D GPU加速APIs</li>
+<li>响应式框架</li>
+<li>动画/动作 APIs</li>
+<li>兼容Android Material组件及苹果组件样式<ul>
+<li>流程的编码体验</li>
+<li>急速热加载技术</li>
+<li>IntelliJ：重构，自动补足功能等</li>
+<li>Dart语言及核心库</li>
+<li>包管理</li>
+<li>拥有App所有特性</li>
+<li>与移动OS APIs&amp;SDKs互操作性</li>
+<li>Maven/Java</li>
+<li>Cocoapods/ObjC/Swift</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>优化<ul>
+<li>测试<ul>
+<li>Unit测试</li>
+<li>继承测试</li>
+<li>无设备测试</li>
+<li>Debug</li>
+<li>IDE debug</li>
+<li>基于网络debug</li>
+<li>异步/唤醒感知</li>
+<li>表达式求值程序</li>
+<li>配置</li>
+<li>时间线</li>
+<li>CPU和内存</li>
+<li>应用性能图标</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>部署<ul>
+<li>编译<ul>
+<li>Native ARM程序</li>
+<li>消除无效代码</li>
+</ul>
+</li>
+<li>发布<ul>
+<li>App市场</li>
+<li>Play Store</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>可以在<a href="https://flutter.io/technical-overview/" target="_blank" rel="noopener">技术概览</a>了解更多Flutter的特殊性。</p>
+<h5 id="原文地址"><a href="#原文地址" class="headerlink" title="原文地址"></a><a href="https://flutter.io/" target="_blank" rel="noopener">原文地址</a></h5>
       
     </div>
     
@@ -648,8 +714,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -771,6 +846,22 @@ var jiathis_config={
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#原文地址"><span class="nav-number">1.</span> <span class="nav-text">原文地址</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
