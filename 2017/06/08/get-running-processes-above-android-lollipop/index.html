@@ -483,6 +483,20 @@
 <p>据说google在7.0上有加强了对/proc目录访问的控制，AndroidProcesses的解决方案就有问题了……..</p>
 <p>持续关注此问题后续可能的解决方案中……</p>
 
+      <script>
+        window.disqusProxy={
+          shortname: 'ciqu',
+          username: 'ciqu',
+          server: 'disqus-proxy.ycwalker.com',
+          port: 443,
+          adminAvatar: '/avatars/admin-avatar.jpg',
+          identifier: '2017/06/08/get-running-processes-above-android-lollipop/',
+        };
+        window.disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = window.disqusProxy.identifier;
+        };
+      </script>
       
     </div>
     
@@ -618,7 +632,13 @@
 
   
     <div class="comments" id="comments">
-      <div id="disqus_thread">
+      
+      <script src="//cdn.bootcss.com/react/16.0.0/umd/react.production.min.js"></script>
+      <script src="//cdn.bootcss.com/react-dom/16.0.0/umd/react-dom.production.min.js"></script>
+      <script src="//cdn.bootcss.com/fetch/2.0.3/fetch.min.js"></script>
+      <script src="//cdn.jsdelivr.net/npm/blockies-identicon@0.1.0/blockies.min.js"></script>
+      <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+      <div id="disqus_proxy_thread"><script src="/scripts/hexo-disqus-proxy-primary.js" async></script>
         <noscript>
           Please enable JavaScript to view the
           <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
@@ -945,7 +965,7 @@
   
 
     
-      <script id="dsq-count-scr" src="https://Ni Guanhua.disqus.com/count.js" async></script>
+      <script id="dsq-count-scr" src="https://techinsight.disqus.com/count.js" async></script>
     
 
     
@@ -956,9 +976,9 @@
           this.page.title = 'Android获取运行进程解决方案分析';
         };
         var d = document, s = d.createElement('script');
-        s.src = 'https://Ni Guanhua.disqus.com/embed.js';
+        
         s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
+        
       </script>
     
 

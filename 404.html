@@ -130,14 +130,17 @@
 
 
 
+<meta name="description" content="window.disqusProxy={           shortname: &apos;ciqu&apos;,           username: &apos;ciqu&apos;,           server: &apos;disqus-proxy.ycwalker.com&apos;,           port: 443,">
 <meta property="og:type" content="website">
 <meta property="og:title" content="TechInsight技术博客">
 <meta property="og:url" content="http://yoursite.com/404.html">
 <meta property="og:site_name" content="TechInsight技术博客">
+<meta property="og:description" content="window.disqusProxy={           shortname: &apos;ciqu&apos;,           username: &apos;ciqu&apos;,           server: &apos;disqus-proxy.ycwalker.com&apos;,           port: 443,">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-04-08T14:44:32.756Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TechInsight技术博客">
+<meta name="twitter:description" content="window.disqusProxy={           shortname: &apos;ciqu&apos;,           username: &apos;ciqu&apos;,           server: &apos;disqus-proxy.ycwalker.com&apos;,           port: 443,">
 
 
 
@@ -365,6 +368,20 @@
   <script src="https://qzone.qq.com/gy/404/page.js" charset="utf-8"></script>
 </body>
 </html>
+      <script>
+        window.disqusProxy={
+          shortname: 'ciqu',
+          username: 'ciqu',
+          server: 'disqus-proxy.ycwalker.com',
+          port: 443,
+          adminAvatar: '/avatars/admin-avatar.jpg',
+          identifier: '404.html',
+        };
+        window.disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = window.disqusProxy.identifier;
+        };
+      </script>
         
       </div>
       
@@ -385,7 +402,13 @@
 
   
     <div class="comments" id="comments">
-      <div id="disqus_thread">
+      
+      <script src="//cdn.bootcss.com/react/16.0.0/umd/react.production.min.js"></script>
+      <script src="//cdn.bootcss.com/react-dom/16.0.0/umd/react-dom.production.min.js"></script>
+      <script src="//cdn.bootcss.com/fetch/2.0.3/fetch.min.js"></script>
+      <script src="//cdn.jsdelivr.net/npm/blockies-identicon@0.1.0/blockies.min.js"></script>
+      <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+      <div id="disqus_proxy_thread"><script src="/scripts/hexo-disqus-proxy-primary.js" async></script>
         <noscript>
           Please enable JavaScript to view the
           <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
@@ -712,7 +735,7 @@
   
 
     
-      <script id="dsq-count-scr" src="https://Ni Guanhua.disqus.com/count.js" async></script>
+      <script id="dsq-count-scr" src="https://techinsight.disqus.com/count.js" async></script>
     
 
     
@@ -723,9 +746,9 @@
           this.page.title = '';
         };
         var d = document, s = d.createElement('script');
-        s.src = 'https://Ni Guanhua.disqus.com/embed.js';
+        
         s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
+        
       </script>
     
 

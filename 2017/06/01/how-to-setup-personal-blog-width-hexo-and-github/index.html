@@ -549,6 +549,20 @@ $ hexo deploy #进行部署
 <li>在根目录_config.xml文件内配置：<br> &nbsp;&nbsp;&nbsp;&nbsp;# 查看yilia主题下所有文章配置<br> &nbsp;&nbsp;&nbsp;&nbsp;jsonContent:<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    meta: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    pages: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    posts:<br> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;     title: true<br> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;     date: true<br> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;     path: true<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      text: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      raw: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      content: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      slug: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      updated: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      comments: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      link: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      permalink: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     excerpt: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      categories: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      tags: true</li>
 </ol>
 
+      <script>
+        window.disqusProxy={
+          shortname: 'ciqu',
+          username: 'ciqu',
+          server: 'disqus-proxy.ycwalker.com',
+          port: 443,
+          adminAvatar: '/avatars/admin-avatar.jpg',
+          identifier: '2017/06/01/how-to-setup-personal-blog-width-hexo-and-github/',
+        };
+        window.disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = window.disqusProxy.identifier;
+        };
+      </script>
       
     </div>
     
@@ -686,7 +700,13 @@ $ hexo deploy #进行部署
 
   
     <div class="comments" id="comments">
-      <div id="disqus_thread">
+      
+      <script src="//cdn.bootcss.com/react/16.0.0/umd/react.production.min.js"></script>
+      <script src="//cdn.bootcss.com/react-dom/16.0.0/umd/react-dom.production.min.js"></script>
+      <script src="//cdn.bootcss.com/fetch/2.0.3/fetch.min.js"></script>
+      <script src="//cdn.jsdelivr.net/npm/blockies-identicon@0.1.0/blockies.min.js"></script>
+      <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+      <div id="disqus_proxy_thread"><script src="/scripts/hexo-disqus-proxy-primary.js" async></script>
         <noscript>
           Please enable JavaScript to view the
           <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
@@ -1038,7 +1058,7 @@ $ hexo deploy #进行部署
   
 
     
-      <script id="dsq-count-scr" src="https://Ni Guanhua.disqus.com/count.js" async></script>
+      <script id="dsq-count-scr" src="https://techinsight.disqus.com/count.js" async></script>
     
 
     
@@ -1049,9 +1069,9 @@ $ hexo deploy #进行部署
           this.page.title = '使用hexo+github搭建个人微博——手把手教';
         };
         var d = document, s = d.createElement('script');
-        s.src = 'https://Ni Guanhua.disqus.com/embed.js';
+        
         s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
+        
       </script>
     
 

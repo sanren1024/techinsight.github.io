@@ -698,6 +698,20 @@
 <hr>
 <p>好了，这章的内容就是这些了。</p>
 
+      <script>
+        window.disqusProxy={
+          shortname: 'ciqu',
+          username: 'ciqu',
+          server: 'disqus-proxy.ycwalker.com',
+          port: 443,
+          adminAvatar: '/avatars/admin-avatar.jpg',
+          identifier: '2018/03/29/Flutter/Flutter_Create_Your_First_App/',
+        };
+        window.disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = window.disqusProxy.identifier;
+        };
+      </script>
       
     </div>
     
@@ -833,7 +847,13 @@
 
   
     <div class="comments" id="comments">
-      <div id="disqus_thread">
+      
+      <script src="//cdn.bootcss.com/react/16.0.0/umd/react.production.min.js"></script>
+      <script src="//cdn.bootcss.com/react-dom/16.0.0/umd/react-dom.production.min.js"></script>
+      <script src="//cdn.bootcss.com/fetch/2.0.3/fetch.min.js"></script>
+      <script src="//cdn.jsdelivr.net/npm/blockies-identicon@0.1.0/blockies.min.js"></script>
+      <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+      <div id="disqus_proxy_thread"><script src="/scripts/hexo-disqus-proxy-primary.js" async></script>
         <noscript>
           Please enable JavaScript to view the
           <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
@@ -1160,7 +1180,7 @@
   
 
     
-      <script id="dsq-count-scr" src="https://Ni Guanhua.disqus.com/count.js" async></script>
+      <script id="dsq-count-scr" src="https://techinsight.disqus.com/count.js" async></script>
     
 
     
@@ -1171,9 +1191,9 @@
           this.page.title = 'Flutter(二)  创建第一个Flutter APP';
         };
         var d = document, s = d.createElement('script');
-        s.src = 'https://Ni Guanhua.disqus.com/embed.js';
+        
         s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
+        
       </script>
     
 
