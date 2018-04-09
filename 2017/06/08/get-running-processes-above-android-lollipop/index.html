@@ -425,8 +425,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/06/08/get-running-processes-above-android-lollipop/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/08/get-running-processes-above-android-lollipop/" itemprop="commentCount"></span>
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/06/08/get-running-processes-above-android-lollipop/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -633,17 +632,8 @@
   
     <div class="comments" id="comments">
       
-      <script src="//cdn.bootcss.com/react/16.0.0/umd/react.production.min.js"></script>
-      <script src="//cdn.bootcss.com/react-dom/16.0.0/umd/react-dom.production.min.js"></script>
-      <script src="//cdn.bootcss.com/fetch/2.0.3/fetch.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/blockies-identicon@0.1.0/blockies.min.js"></script>
-      <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-      <div id="disqus_proxy_thread"><script src="/scripts/hexo-disqus-proxy-primary.js" async></script>
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
+        <div id="gitment-container"></div>
+      
     </div>
 
   
@@ -964,26 +954,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://techinsight.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/06/08/get-running-processes-above-android-lollipop/';
-          this.page.identifier = '2017/06/08/get-running-processes-above-android-lollipop/';
-          this.page.title = 'Android获取运行进程解决方案分析';
-        };
-        var d = document, s = d.createElement('script');
-        
-        s.setAttribute('data-timestamp', '' + +new Date());
-        
-      </script>
-    
-
-  
-
 
 
 
@@ -1005,8 +975,25 @@
 
 
 
-
-
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    
+        <script type="text/javascript">
+            var gitment = new Gitment({
+                    id: window.location.pathname, 
+                    owner: '',
+                    repo: '',
+                    oauth: {
+                        client_id: 'cb806619448a89f91abd',
+                        client_secret: '4c0131ef12724edee6e70149fc4580356796acb9',
+                    }});
+            gitment.render('gitment-container');
+        </script>
+    
 
 
 

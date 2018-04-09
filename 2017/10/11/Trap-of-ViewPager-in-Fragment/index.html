@@ -119,7 +119,7 @@
 
 
 
-  <meta name="keywords" content="Trap,Fragment,ViewPager," />
+  <meta name="keywords" content="Trap,ViewPager,Fragment," />
 
 
 
@@ -131,7 +131,7 @@
 
 
 <meta name="description" content="项目需求中，需要实现app首页下部有三个tab，首个tab内部又有多个顶部tab效果。 首先考虑的是外部容器三个页面使用Fragment实现，首个tab内部又有多个tab对应的页面，即fragment。实现考虑使用ViewPager+TabLayout方式实现。">
-<meta name="keywords" content="Trap,Fragment,ViewPager">
+<meta name="keywords" content="Trap,ViewPager,Fragment">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Trap2——Fragment中嵌有ViewPager（FragmentPagerAdapter）">
 <meta property="og:url" content="http://yoursite.com/2017/10/11/Trap-of-ViewPager-in-Fragment/index.html">
@@ -419,8 +419,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/10/11/Trap-of-ViewPager-in-Fragment/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/10/11/Trap-of-ViewPager-in-Fragment/" itemprop="commentCount"></span>
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/10/11/Trap-of-ViewPager-in-Fragment/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -568,9 +567,9 @@
           
             <a href="/tags/Trap/" rel="tag"># Trap</a>
           
-            <a href="/tags/Fragment/" rel="tag"># Fragment</a>
-          
             <a href="/tags/ViewPager/" rel="tag"># ViewPager</a>
+          
+            <a href="/tags/Fragment/" rel="tag"># Fragment</a>
           
         </div>
       
@@ -627,17 +626,8 @@
   
     <div class="comments" id="comments">
       
-      <script src="//cdn.bootcss.com/react/16.0.0/umd/react.production.min.js"></script>
-      <script src="//cdn.bootcss.com/react-dom/16.0.0/umd/react-dom.production.min.js"></script>
-      <script src="//cdn.bootcss.com/fetch/2.0.3/fetch.min.js"></script>
-      <script src="//cdn.jsdelivr.net/npm/blockies-identicon@0.1.0/blockies.min.js"></script>
-      <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-      <div id="disqus_proxy_thread"><script src="/scripts/hexo-disqus-proxy-primary.js" async></script>
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
+        <div id="gitment-container"></div>
+      
     </div>
 
   
@@ -958,26 +948,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://techinsight.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/10/11/Trap-of-ViewPager-in-Fragment/';
-          this.page.identifier = '2017/10/11/Trap-of-ViewPager-in-Fragment/';
-          this.page.title = 'Trap2——Fragment中嵌有ViewPager（FragmentPagerAdapter）';
-        };
-        var d = document, s = d.createElement('script');
-        
-        s.setAttribute('data-timestamp', '' + +new Date());
-        
-      </script>
-    
-
-  
-
 
 
 
@@ -999,8 +969,25 @@
 
 
 
-
-
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    
+        <script type="text/javascript">
+            var gitment = new Gitment({
+                    id: window.location.pathname, 
+                    owner: '',
+                    repo: '',
+                    oauth: {
+                        client_id: 'cb806619448a89f91abd',
+                        client_secret: '4c0131ef12724edee6e70149fc4580356796acb9',
+                    }});
+            gitment.render('gitment-container');
+        </script>
+    
 
 
 

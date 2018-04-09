@@ -1093,14 +1093,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://techinsight.disqus.com/count.js" async></script>
-    
-
-    
-
-  
-
 
 
 
@@ -1122,8 +1114,25 @@
 
 
 
-
-
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    
+        <script type="text/javascript">
+            var gitment = new Gitment({
+                    id: window.location.pathname, 
+                    owner: '',
+                    repo: '',
+                    oauth: {
+                        client_id: 'cb806619448a89f91abd',
+                        client_secret: '4c0131ef12724edee6e70149fc4580356796acb9',
+                    }});
+            gitment.render('gitment-container');
+        </script>
+    
 
 
 
