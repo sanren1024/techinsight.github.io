@@ -130,18 +130,18 @@
 
 
 
-<meta name="description" content="在最新的design提供了ToolBar来更加自由地定制，使用ActionBar，在布局文件中可以更加灵活地使用。 项目中实际遇上，首页三个tab页面内，ActionBar样式，功能均不同。ViewPager内不同的Fragment，需求的样式不同，菜单功能不同。 但处于同一个Activity内，一般情况下，一个Activity内只布局一个ActionBar（ToolBar）即可，但出于灵活布局，">
+<meta name="description" content="在最新的design提供了ToolBar来更加自由地定制，使用ActionBar，在布局文件中可以更加灵活地使用。">
 <meta name="keywords" content="Trap,ActionBar,Fragment">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Trap3——Fragment中定制ActionBar（同一个Activity内多个Fragment）">
 <meta property="og:url" content="http://yoursite.com/2017/10/11/Trap-Of-Customizing-ActionBar-in-Fragment/index.html">
 <meta property="og:site_name" content="TechInsight技术博客">
-<meta property="og:description" content="在最新的design提供了ToolBar来更加自由地定制，使用ActionBar，在布局文件中可以更加灵活地使用。 项目中实际遇上，首页三个tab页面内，ActionBar样式，功能均不同。ViewPager内不同的Fragment，需求的样式不同，菜单功能不同。 但处于同一个Activity内，一般情况下，一个Activity内只布局一个ActionBar（ToolBar）即可，但出于灵活布局，">
+<meta property="og:description" content="在最新的design提供了ToolBar来更加自由地定制，使用ActionBar，在布局文件中可以更加灵活地使用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-10T19:14:06.389Z">
+<meta property="og:updated_time" content="2018-04-09T02:42:14.841Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Trap3——Fragment中定制ActionBar（同一个Activity内多个Fragment）">
-<meta name="twitter:description" content="在最新的design提供了ToolBar来更加自由地定制，使用ActionBar，在布局文件中可以更加灵活地使用。 项目中实际遇上，首页三个tab页面内，ActionBar样式，功能均不同。ViewPager内不同的Fragment，需求的样式不同，菜单功能不同。 但处于同一个Activity内，一般情况下，一个Activity内只布局一个ActionBar（ToolBar）即可，但出于灵活布局，">
+<meta name="twitter:description" content="在最新的design提供了ToolBar来更加自由地定制，使用ActionBar，在布局文件中可以更加灵活地使用。">
 
 
 
@@ -449,6 +449,7 @@
 
       
         <p>在最新的design提供了ToolBar来更加自由地定制，使用ActionBar，在布局文件中可以更加灵活地使用。</p>
+<a id="more"></a>
 <p>项目中实际遇上，首页三个tab页面内，ActionBar样式，功能均不同。<br>ViewPager内不同的Fragment，需求的样式不同，菜单功能不同。</p>
 <p>但处于同一个Activity内，一般情况下，一个Activity内只布局一个ActionBar（ToolBar）即可，但出于灵活布局，减少Fragment，Activity之间依赖，考虑在每个Fragment内均布局一个ActionBar（ToolBar），在Fragment内通过与原有ActionBar相同的调用来设置Activity对ActionBar的支持及相关属性设置。</p>
 <pre><code>@BindView(R.id.my_toolbar)
@@ -791,11 +792,7 @@ Toolbar mActionBar;
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-
-
-  <span class="post-meta-divider">|</span>
 
 
 
@@ -972,17 +969,6 @@ Toolbar mActionBar;
 
 
 
-  
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
   
 
 
@@ -1323,6 +1309,21 @@ Toolbar mActionBar;
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   

@@ -130,13 +130,13 @@
 
 
 
-<meta name="description" content="文章有点儿长，不过解释很清晰，有兴趣的朋友请耐心看完，肯定能搭建成功！^_^ 这里因为使用的是windows系统，所以选择了Hexo这个微博框架。原来想使用与GitHub结合更有优势的jekyll，但是由于系统的问题，就放弃了。下来就如何来搭建吧！！！">
+<meta name="description" content="文章有点儿长，不过解释很清晰，有兴趣的朋友请耐心看完，肯定能搭建成功！^_^ 这里因为使用的是windows系统，所以选择了Hexo这个微博框架。">
 <meta name="keywords" content="随笔,微博">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用hexo+github搭建个人微博——手把手教">
 <meta property="og:url" content="http://yoursite.com/2017/06/01/how-to-setup-personal-blog-width-hexo-and-github/index.html">
 <meta property="og:site_name" content="TechInsight技术博客">
-<meta property="og:description" content="文章有点儿长，不过解释很清晰，有兴趣的朋友请耐心看完，肯定能搭建成功！^_^ 这里因为使用的是windows系统，所以选择了Hexo这个微博框架。原来想使用与GitHub结合更有优势的jekyll，但是由于系统的问题，就放弃了。下来就如何来搭建吧！！！">
+<meta property="og:description" content="文章有点儿长，不过解释很清晰，有兴趣的朋友请耐心看完，肯定能搭建成功！^_^ 这里因为使用的是windows系统，所以选择了Hexo这个微博框架。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/how-to-setup-personal-blog-width-hexo-and-github/bit_bash_command_ui.png">
 <meta property="og:image" content="http://yoursite.com/images/how-to-setup-personal-blog-width-hexo-and-github/hexo_install_hint_first.png">
@@ -144,10 +144,10 @@
 <meta property="og:image" content="http://yoursite.com/images/how-to-setup-personal-blog-width-hexo-and-github/hexo_site_installed_hierarchy.png">
 <meta property="og:image" content="http://yoursite.com/images/how-to-setup-personal-blog-width-hexo-and-github/create_a_new_repository_on_github.png">
 <meta property="og:image" content="http://yoursite.com/images/how-to-setup-personal-blog-width-hexo-and-github/new_repository_name_rule.png">
-<meta property="og:updated_time" content="2017-08-29T15:15:02.721Z">
+<meta property="og:updated_time" content="2018-04-09T02:41:13.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用hexo+github搭建个人微博——手把手教">
-<meta name="twitter:description" content="文章有点儿长，不过解释很清晰，有兴趣的朋友请耐心看完，肯定能搭建成功！^_^ 这里因为使用的是windows系统，所以选择了Hexo这个微博框架。原来想使用与GitHub结合更有优势的jekyll，但是由于系统的问题，就放弃了。下来就如何来搭建吧！！！">
+<meta name="twitter:description" content="文章有点儿长，不过解释很清晰，有兴趣的朋友请耐心看完，肯定能搭建成功！^_^ 这里因为使用的是windows系统，所以选择了Hexo这个微博框架。">
 <meta name="twitter:image" content="http://yoursite.com/images/how-to-setup-personal-blog-width-hexo-and-github/bit_bash_command_ui.png">
 
 
@@ -456,8 +456,9 @@
 
       
         <p>文章有点儿长，不过解释很清晰，有兴趣的朋友请耐心看完，肯定能搭建成功！^_^</p>
-<p>这里因为使用的是windows系统，所以选择了Hexo这个微博框架。<br>原来想使用与GitHub结合更有优势的jekyll，但是由于系统的问题，就放弃了。<br>下来就如何来搭建吧！！！</p>
+<p>这里因为使用的是windows系统，所以选择了Hexo这个微博框架。</p>
 <a id="more"></a>
+<p>原来想使用与GitHub结合更有优势的jekyll，但是由于系统的问题，就放弃了。<br>下来就如何来搭建吧！！！</p>
 <blockquote>
 <p>先说说怎么会想到搭建个人微博</p>
 </blockquote>
@@ -894,11 +895,7 @@ $ hexo deploy #进行部署
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-
-
-  <span class="post-meta-divider">|</span>
 
 
 
@@ -1075,17 +1072,6 @@ $ hexo deploy #进行部署
 
 
 
-  
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
   
 
 
@@ -1426,6 +1412,21 @@ $ hexo deploy #进行部署
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   
