@@ -25,9 +25,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Flutter简述]]></title>
-    <url>%2F2018%2F03%2F23%2Fflutter%2Fflutter-introduction%2F</url>
-    <content type="text"><![CDATA[Flutter是Google移动UI框架，用以创建高质量的native接口，真正跨平台，同时在iOS和Android上运行。Flutter是免费开源的，全球开发者及组织均可以使用。 Flutter有又几个特点： 快速开发 毫秒级别的加载速度，快速的渲染启动。 极具表现力，灵活的UI 接近native用户体验的特性。分层结构更是允许完全，从而可以非常快速的渲染且灵活。 native性能 Flutter组件包含所有主要平台的差异，例如滚动，导航，图标和字体，从而提供了在iOS和Android一样的native性能体验. 快速开发 Flutter热加载技术有助于你快速且简单地进行试验，构建UI，增加特性，并且快速修复bug。体验不到一秒的重新加载体验。 漂亮的UI Flutter内置MD设计风格及iOS组件，更有丰富的手势API，流畅的滚动体验和平台认同感会让用户感到愉悦。 查看组件 现代的响应式框架（Modern，reactive framework） 利用Flutter响应式框架和丰富的平台，布局和功能组件是的UI构建非常简单。使用灵活并且强大的API（2D，动画，手势，性能等）可以解决在UI上各种问题。 12345678910111213141516171819202122232425262728class CounterState extends State&lt;Counter&gt; &#123; int counter = 0; void increment() &#123; // Tells the Flutter framework that state has changed, // so the framework can run build() and update the display. setState(() &#123; counter++; &#125;); &#125; Widget build(BuildContext context) &#123; // This method is rerun every time setState is called. // The Flutter framework has been optimized to make rerunning // build methods fast, so that you can just rebuild anything that // needs updating rather than having to individually change // instances of widgets. return new Row( children: &lt;Widget&gt;[ new RaisedButton( onPressed: increment, child: new Text('Increment'), ), new Text('Count: $counter'), ], ); &#125;&#125; 查看组件及学习更多有关reactive framework 访问native特性和SDKs 通过使用平台APIs，第三方SDK和native代码，可以灵活地实现App。Flutter可以让你在iOS和Android上复用Java，Swift和Objective-C代码以及访问native特性和SDKs。 Flutter平台特性访问十分简单。下边是Flutter内interop example]示例： 123456789101112Future&lt;Null&gt; getBatteryLevel() async &#123; var batteryLevel = 'unknown'; try &#123; int result = await methodChannel.invokeMethod('getBatteryLevel'); batteryLevel = 'Battery level: $result%'; &#125; on PlatformException &#123; batteryLevel = 'Failed to get battery level.'; &#125; setState(() &#123; _batteryLevel = batteryLevel; &#125;);&#125; 学习如何使用packages，或者platform channels来访问native代码，APIs及SDKs。 统一的开发标准 Flutter拥有工具及库帮助你简单快速地在iOS和Android上实现你的想法。若你还没有任何移动开发经验，那么Flutter将会是你构建漂亮的移动APP的一种简单快速的额方式。若你是有经验的iOS或者Android开发人员，那么你可以使用Flutter组件，并且继续使用已有的Java/Objective-C/Swift程序。 构建 漂亮的APP UI 丰富的2D GPU加速APIs 响应式框架 动画/动作 APIs 兼容Android Material组件及苹果组件样式 流程的编码体验 急速热加载技术 IntelliJ：重构，自动补足功能等 Dart语言及核心库 包管理 拥有App所有特性 与移动OS APIs&amp;SDKs互操作性 Maven/Java Cocoapods/ObjC/Swift 优化 测试 Unit测试 继承测试 无设备测试 Debug IDE debug 基于网络debug 异步/唤醒感知 表达式求值程序 配置 时间线 CPU和内存 应用性能图标 部署 编译 Native ARM程序 消除无效代码 发布 App市场 Play Store 可以在技术概览了解更多Flutter的特殊性。 原文地址]]></content>
+    <title><![CDATA[Flutter(一) 环境准备]]></title>
+    <url>%2F2018%2F03%2F15%2Fflutter%2Fflutter-install%2F</url>
+    <content type="text"><![CDATA[安装Flutter 在国内安装使用Flutter，首先阅读下这篇文章，由于国内网络大环境问题，需要提前进行一点配置。 在国内安装Flutter需要首先需要一个值得信任的国内镜像。在镜像上边保存着Flutter需要的依赖及相关库，包等。为了使用Flutter，需要使用一个备用存储位置，我们需要配置环境变量。配置环境变量名：PUB_HOSTED_URL和FLUTTER_STORAGE_BASE_URL。 在windows系统中，需要在环境变量设置中添加：PUB_HOSTED_URL ： https://pub.flutter-io.cnFLUTTER_STORAGE_BASE_URL ： https://storage.flutter-io.cn 然后运行Git命令（前提是安装了GitBash工具）：git clone -b dev https://github.com/flutter/flutter.git Flutter Flutter文件夹需要注意：文件夹存放的路径上不要出现空格，否则在IDE中进行工程创建后会有警告，SDK环境路径上存在分隔符。 在clone完成之后，即flutter sdk下载完毕，还需要配置Flutter环境： xxxx/Flutter/bin目录下。 重新打开一个命令行，在其中输入命令 flutter doctor 进行环境及缺失的依赖检查，并下载需要的依赖。运行效果如下图： 在环境及相关依赖检查完成之后，可以开始在Android Studio中进行创建工程行为。 注意：Android Studio 预览版中无法保证运行Flutter成功。因此需要使用稳定版AS，且需要3.0版本以上。Android Studio中需要安装Flutter Plugin，Dart Plugin两个插件。 Dart SDK也需要手动安装，直接下载zip包免安装。 成功准备好IDE环境之后，就可以创建Flutter Project了，默认创建Flutter Application就可以了，按照IDE创建提示一直到最终完成。 需要注意：同样由于网络环境，直接运行Flutter Project是不可行的，UI会一直停留在Gradle正在初始化工程。这时需要修改build.gradle配置中的中央Maven库到一个可信赖的公共Maven库。 这里我修改成Ali的Maven库 buildscript { ext.kotlin_version = &apos;1.1.51&apos; repositories { maven { url &apos;http://maven.aliyun.com/nexus/content/groups/public/&apos; } google() } // ...... } // ...... allprojects { repositories { maven { url &apos;http://maven.aliyun.com/nexus/content/groups/public/&apos; } } google() } // ...... 然后再次sync工程，进行运行。 首个创建的Flutter Project工程结构如下： 再来看看运行效果： 至此，Flutter，Dart环境均准备结束了。]]></content>
       <categories>
         <category>Flutter</category>
       </categories>
@@ -37,9 +37,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Flutter(一) 环境准备]]></title>
-    <url>%2F2018%2F03%2F15%2Fflutter%2Fflutter-install%2F</url>
-    <content type="text"><![CDATA[安装Flutter 在国内安装使用Flutter，首先阅读下这篇文章，由于国内网络大环境问题，需要提前进行一点配置。 在国内安装Flutter需要首先需要一个值得信任的国内镜像。在镜像上边保存着Flutter需要的依赖及相关库，包等。为了使用Flutter，需要使用一个备用存储位置，我们需要配置环境变量。配置环境变量名：PUB_HOSTED_URL和FLUTTER_STORAGE_BASE_URL。 在windows系统中，需要在环境变量设置中添加：PUB_HOSTED_URL ： https://pub.flutter-io.cnFLUTTER_STORAGE_BASE_URL ： https://storage.flutter-io.cn 然后运行Git命令（前提是安装了GitBash工具）：git clone -b dev https://github.com/flutter/flutter.git Flutter Flutter文件夹需要注意：文件夹存放的路径上不要出现空格，否则在IDE中进行工程创建后会有警告，SDK环境路径上存在分隔符。 在clone完成之后，即flutter sdk下载完毕，还需要配置Flutter环境： xxxx/Flutter/bin目录下。 重新打开一个命令行，在其中输入命令 flutter doctor 进行环境及缺失的依赖检查，并下载需要的依赖。运行效果如下图： 在环境及相关依赖检查完成之后，可以开始在Android Studio中进行创建工程行为。 注意：Android Studio 预览版中无法保证运行Flutter成功。因此需要使用稳定版AS，且需要3.0版本以上。Android Studio中需要安装Flutter Plugin，Dart Plugin两个插件。 Dart SDK也需要手动安装，直接下载zip包免安装。 成功准备好IDE环境之后，就可以创建Flutter Project了，默认创建Flutter Application就可以了，按照IDE创建提示一直到最终完成。 需要注意：同样由于网络环境，直接运行Flutter Project是不可行的，UI会一直停留在Gradle正在初始化工程。这时需要修改build.gradle配置中的中央Maven库到一个可信赖的公共Maven库。 这里我修改成Ali的Maven库 buildscript { ext.kotlin_version = &apos;1.1.51&apos; repositories { maven { url &apos;http://maven.aliyun.com/nexus/content/groups/public/&apos; } google() } // ...... } // ...... allprojects { repositories { maven { url &apos;http://maven.aliyun.com/nexus/content/groups/public/&apos; } } google() } // ...... 然后再次sync工程，进行运行。 首个创建的Flutter Project工程结构如下： 再来看看运行效果： 至此，Flutter，Dart环境均准备结束了。]]></content>
+    <title><![CDATA[Flutter简述]]></title>
+    <url>%2F2018%2F03%2F12%2Fflutter%2Fflutter-introduction%2F</url>
+    <content type="text"><![CDATA[Flutter是Google移动UI框架，用以创建高质量的native接口，真正跨平台，同时在iOS和Android上运行。Flutter是免费开源的，全球开发者及组织均可以使用。 Flutter有又几个特点： 快速开发 毫秒级别的加载速度，快速的渲染启动。 极具表现力，灵活的UI 接近native用户体验的特性。分层结构更是允许完全，从而可以非常快速的渲染且灵活。 native性能 Flutter组件包含所有主要平台的差异，例如滚动，导航，图标和字体，从而提供了在iOS和Android一样的native性能体验. 快速开发 Flutter热加载技术有助于你快速且简单地进行试验，构建UI，增加特性，并且快速修复bug。体验不到一秒的重新加载体验。 漂亮的UI Flutter内置MD设计风格及iOS组件，更有丰富的手势API，流畅的滚动体验和平台认同感会让用户感到愉悦。 查看组件 现代的响应式框架（Modern，reactive framework） 利用Flutter响应式框架和丰富的平台，布局和功能组件是的UI构建非常简单。使用灵活并且强大的API（2D，动画，手势，性能等）可以解决在UI上各种问题。 12345678910111213141516171819202122232425262728class CounterState extends State&lt;Counter&gt; &#123; int counter = 0; void increment() &#123; // Tells the Flutter framework that state has changed, // so the framework can run build() and update the display. setState(() &#123; counter++; &#125;); &#125; Widget build(BuildContext context) &#123; // This method is rerun every time setState is called. // The Flutter framework has been optimized to make rerunning // build methods fast, so that you can just rebuild anything that // needs updating rather than having to individually change // instances of widgets. return new Row( children: &lt;Widget&gt;[ new RaisedButton( onPressed: increment, child: new Text('Increment'), ), new Text('Count: $counter'), ], ); &#125;&#125; 查看组件及学习更多有关reactive framework 访问native特性和SDKs 通过使用平台APIs，第三方SDK和native代码，可以灵活地实现App。Flutter可以让你在iOS和Android上复用Java，Swift和Objective-C代码以及访问native特性和SDKs。 Flutter平台特性访问十分简单。下边是Flutter内interop example]示例： 123456789101112Future&lt;Null&gt; getBatteryLevel() async &#123; var batteryLevel = 'unknown'; try &#123; int result = await methodChannel.invokeMethod('getBatteryLevel'); batteryLevel = 'Battery level: $result%'; &#125; on PlatformException &#123; batteryLevel = 'Failed to get battery level.'; &#125; setState(() &#123; _batteryLevel = batteryLevel; &#125;);&#125; 学习如何使用packages，或者platform channels来访问native代码，APIs及SDKs。 统一的开发标准 Flutter拥有工具及库帮助你简单快速地在iOS和Android上实现你的想法。若你还没有任何移动开发经验，那么Flutter将会是你构建漂亮的移动APP的一种简单快速的额方式。若你是有经验的iOS或者Android开发人员，那么你可以使用Flutter组件，并且继续使用已有的Java/Objective-C/Swift程序。 构建 漂亮的APP UI 丰富的2D GPU加速APIs 响应式框架 动画/动作 APIs 兼容Android Material组件及苹果组件样式 流程的编码体验 急速热加载技术 IntelliJ：重构，自动补足功能等 Dart语言及核心库 包管理 拥有App所有特性 与移动OS APIs&amp;SDKs互操作性 Maven/Java Cocoapods/ObjC/Swift 优化 测试 Unit测试 继承测试 无设备测试 Debug IDE debug 基于网络debug 异步/唤醒感知 表达式求值程序 配置 时间线 CPU和内存 应用性能图标 部署 编译 Native ARM程序 消除无效代码 发布 App市场 Play Store 可以在技术概览了解更多Flutter的特殊性。 原文地址]]></content>
       <categories>
         <category>Flutter</category>
       </categories>
@@ -69,8 +69,8 @@
       </categories>
       <tags>
         <tag>Trap</tag>
-        <tag>Fragment</tag>
         <tag>ActionBar</tag>
+        <tag>Fragment</tag>
       </tags>
   </entry>
   <entry>
@@ -82,8 +82,8 @@
       </categories>
       <tags>
         <tag>Trap</tag>
-        <tag>ViewPager</tag>
         <tag>Fragment</tag>
+        <tag>ViewPager</tag>
       </tags>
   </entry>
   <entry>
