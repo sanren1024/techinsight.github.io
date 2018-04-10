@@ -119,7 +119,7 @@
 
 
 
-  <meta name="keywords" content="Flutter,Android," />
+  <meta name="keywords" content="Flutter,Dart," />
 
 
 
@@ -130,24 +130,22 @@
 
 
 
-<meta name="description" content="Flutter是Google移动UI框架，用以创建高质量的native接口，真正跨平台，同时在iOS和Android上运行。Flutter是免费开源的，全球开发者及组织均可以使用。">
-<meta name="keywords" content="Flutter,Android">
+<meta name="description" content="安装Flutter  在国内安装使用Flutter，首先阅读下这篇文章，由于国内网络大环境问题，需要提前进行一点配置。">
+<meta name="keywords" content="Flutter,Dart">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Flutter简述">
-<meta property="og:url" content="http://yoursite.com/2018/03/23/Flutter/Flutter_Introduction/index.html">
+<meta property="og:title" content="Flutter(一) 环境准备">
+<meta property="og:url" content="http://yoursite.com/2018/03/15/flutter/flutter-install/index.html">
 <meta property="og:site_name" content="散人技术博客">
-<meta property="og:description" content="Flutter是Google移动UI框架，用以创建高质量的native接口，真正跨平台，同时在iOS和Android上运行。Flutter是免费开源的，全球开发者及组织均可以使用。">
+<meta property="og:description" content="安装Flutter  在国内安装使用Flutter，首先阅读下这篇文章，由于国内网络大环境问题，需要提前进行一点配置。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/Flutter/flutter-introdution/hot-reload.gif">
-<meta property="og:image" content="http://yoursite.com/images/Flutter/flutter-introdution/screenshot-1.png">
-<meta property="og:image" content="http://yoursite.com/images/Flutter/flutter-introdution/screenshot-2.png">
-<meta property="og:image" content="http://yoursite.com/images/Flutter/flutter-introdution/E:/Flutter_Study/screenshot-3.png">
-<meta property="og:image" content="http://yoursite.com/images/Flutter/flutter-introdution/ios-friendlychat.png">
-<meta property="og:updated_time" content="2018-04-09T02:33:19.575Z">
+<meta property="og:image" content="http://yoursite.com/images/flutter/flutter-install/run_flutter_doctor.png">
+<meta property="og:image" content="http://yoursite.com/images/flutter/flutter-install/android_studio_flutter_project.png">
+<meta property="og:image" content="http://yoursite.com/images/flutter/flutter-install/flutter_app_runtime.png">
+<meta property="og:updated_time" content="2018-04-10T16:02:20.944Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Flutter简述">
-<meta name="twitter:description" content="Flutter是Google移动UI框架，用以创建高质量的native接口，真正跨平台，同时在iOS和Android上运行。Flutter是免费开源的，全球开发者及组织均可以使用。">
-<meta name="twitter:image" content="http://yoursite.com/images/Flutter/flutter-introdution/hot-reload.gif">
+<meta name="twitter:title" content="Flutter(一) 环境准备">
+<meta name="twitter:description" content="安装Flutter  在国内安装使用Flutter，首先阅读下这篇文章，由于国内网络大环境问题，需要提前进行一点配置。">
+<meta name="twitter:image" content="http://yoursite.com/images/flutter/flutter-install/run_flutter_doctor.png">
 
 
 
@@ -177,13 +175,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/23/Flutter/Flutter_Introduction/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/15/flutter/flutter-install/"/>
 
 
 
 
 
-  <title>Flutter简述 | 散人技术博客</title>
+  <title>Flutter(一) 环境准备 | 散人技术博客</title>
   
 
 
@@ -364,7 +362,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/Flutter/Flutter_Introduction/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/15/flutter/flutter-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="散人">
@@ -381,7 +379,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Flutter简述</h1>
+          <h1 class="post-title" itemprop="name headline">Flutter(一) 环境准备</h1>
         
 
         <div class="post-meta">
@@ -393,8 +391,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-23T16:36:00+08:00">
-                2018-03-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-15T08:32:51+08:00">
+                2018-03-15
               </time>
             
 
@@ -434,8 +432,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/23/Flutter/Flutter_Introduction/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/03/23/Flutter/Flutter_Introduction/" itemprop="commentsCount"></span>
+                <a href="/2018/03/15/flutter/flutter-install/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/03/15/flutter/flutter-install/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -457,7 +455,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  888 字
+                  584 字
                 </span>
               
 
@@ -473,7 +471,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -494,110 +492,47 @@
       
 
       
-        <p>Flutter是Google移动UI框架，用以创建高质量的native接口，真正跨平台，同时在iOS和Android上运行。Flutter是免费开源的，全球开发者及组织均可以使用。</p>
-<a id="more"></a>
-<p>Flutter有又几个特点：</p>
-<ol>
-<li><p>快速开发</p>
-<ul>
-<li>毫秒级别的加载速度，快速的渲染启动。</li>
-</ul>
-</li>
-<li><p>极具表现力，灵活的UI</p>
-<ul>
-<li>接近native用户体验的特性。分层结构更是允许完全，从而可以非常快速的渲染且灵活。</li>
-</ul>
-</li>
-<li><p>native性能</p>
-<ul>
-<li>Flutter组件包含所有主要平台的差异，例如滚动，导航，图标和字体，从而提供了在iOS和Android一样的native性能体验.</li>
-</ul>
-</li>
-</ol>
-<blockquote>
-<p>快速开发</p>
+        <blockquote>
+<p>安装Flutter</p>
 </blockquote>
-<p>Flutter热加载技术有助于你快速且简单地进行试验，构建UI，增加特性，并且快速修复bug。体验不到一秒的重新加载体验。</p>
-<p><img src="/images/Flutter/flutter-introdution/hot-reload.gif" alt="hot-reload"></p>
-<blockquote>
-<p>漂亮的UI</p>
-</blockquote>
-<p>Flutter内置MD设计风格及iOS组件，更有丰富的手势API，流畅的滚动体验和平台认同感会让用户感到愉悦。</p>
-<p><img src="/images/Flutter/flutter-introdution/screenshot-1.png" alt=""><img src="/images/Flutter/flutter-introdution/screenshot-2.png" alt=""><img src="/images/Flutter/flutter-introdution/E:\Flutter_Study\screenshot-3.png" alt=""><img src="/images/Flutter/flutter-introdution/ios-friendlychat.png" alt=""></p>
-<p>查看<a href="https://flutter.io/widgets/" target="_blank" rel="noopener">组件</a></p>
-<blockquote>
-<p>现代的响应式框架（Modern，reactive framework）</p>
-</blockquote>
-<p>利用Flutter响应式框架和丰富的平台，布局和功能组件是的UI构建非常简单。使用灵活并且强大的API（2D，动画，手势，性能等）可以解决在UI上各种问题。</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CounterState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">Counter</span>&gt; </span>&#123;</span><br><span class="line">  <span class="built_in">int</span> counter = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">void</span> increment() &#123;</span><br><span class="line">    <span class="comment">// Tells the Flutter framework that state has changed,</span></span><br><span class="line">    <span class="comment">// so the framework can run build() and update the display.</span></span><br><span class="line">    setState(() &#123;</span><br><span class="line">      counter++;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="comment">// This method is rerun every time setState is called.</span></span><br><span class="line">    <span class="comment">// The Flutter framework has been optimized to make rerunning</span></span><br><span class="line">    <span class="comment">// build methods fast, so that you can just rebuild anything that</span></span><br><span class="line">    <span class="comment">// needs updating rather than having to individually change</span></span><br><span class="line">    <span class="comment">// instances of widgets.</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Row(</span><br><span class="line">      children: &lt;Widget&gt;[</span><br><span class="line">        <span class="keyword">new</span> RaisedButton(</span><br><span class="line">          onPressed: increment,</span><br><span class="line">          child: <span class="keyword">new</span> Text(<span class="string">'Increment'</span>),</span><br><span class="line">        ),</span><br><span class="line">        <span class="keyword">new</span> Text(<span class="string">'Count: $counter'</span>),</span><br><span class="line">      ],</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>查看<a href="https://flutter.io/widgets/" target="_blank" rel="noopener">组件</a>及学习更多有关<a href="https://flutter.io/widgets-intro/" target="_blank" rel="noopener">reactive framework</a></p>
-<blockquote>
-<p>访问native特性和SDKs</p>
-</blockquote>
-<p>通过使用平台APIs，第三方SDK和native代码，可以灵活地实现App。Flutter可以让你在iOS和Android上复用Java，Swift和Objective-C代码以及访问native特性和SDKs。</p>
-<p>Flutter平台特性访问十分简单。下边是Flutter内<a href="https://github.com/flutter/flutter/tree/master/examples/platform_channel" target="_blank" rel="noopener">interop example</a>]示例：</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Future&lt;<span class="built_in">Null</span>&gt; getBatteryLevel() <span class="keyword">async</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> batteryLevel = <span class="string">'unknown'</span>;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="built_in">int</span> result = <span class="keyword">await</span> methodChannel.invokeMethod(<span class="string">'getBatteryLevel'</span>);</span><br><span class="line">    batteryLevel = <span class="string">'Battery level: $result%'</span>;</span><br><span class="line">  &#125; on PlatformException &#123;</span><br><span class="line">    batteryLevel = <span class="string">'Failed to get battery level.'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  setState(() &#123;</span><br><span class="line">    _batteryLevel = batteryLevel;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>学习如何使用<a href="https://flutter.io/using-packages/" target="_blank" rel="noopener">packages</a>，或者<a href="https://flutter.io/platform-channels/" target="_blank" rel="noopener">platform channels</a>来访问native代码，APIs及SDKs。</p>
-<blockquote>
-<p>统一的开发标准</p>
-</blockquote>
-<p>Flutter拥有工具及库帮助你简单快速地在iOS和Android上实现你的想法。若你还没有任何移动开发经验，那么Flutter将会是你构建漂亮的移动APP的一种简单快速的额方式。若你是有经验的iOS或者Android开发人员，那么你可以使用Flutter组件，并且继续使用已有的Java/Objective-C/Swift程序。</p>
-<ul>
-<li>构建<ul>
-<li>漂亮的APP UI<ul>
-<li>丰富的2D GPU加速APIs</li>
-<li>响应式框架</li>
-<li>动画/动作 APIs</li>
-<li>兼容Android Material组件及苹果组件样式<ul>
-<li>流程的编码体验</li>
-<li>急速热加载技术</li>
-<li>IntelliJ：重构，自动补足功能等</li>
-<li>Dart语言及核心库</li>
-<li>包管理</li>
-<li>拥有App所有特性</li>
-<li>与移动OS APIs&amp;SDKs互操作性</li>
-<li>Maven/Java</li>
-<li>Cocoapods/ObjC/Swift</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>优化<ul>
-<li>测试<ul>
-<li>Unit测试</li>
-<li>继承测试</li>
-<li>无设备测试</li>
-<li>Debug</li>
-<li>IDE debug</li>
-<li>基于网络debug</li>
-<li>异步/唤醒感知</li>
-<li>表达式求值程序</li>
-<li>配置</li>
-<li>时间线</li>
-<li>CPU和内存</li>
-<li>应用性能图标</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>部署<ul>
-<li>编译<ul>
-<li>Native ARM程序</li>
-<li>消除无效代码</li>
-</ul>
-</li>
-<li>发布<ul>
-<li>App市场</li>
-<li>Play Store</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>可以在<a href="https://flutter.io/technical-overview/" target="_blank" rel="noopener">技术概览</a>了解更多Flutter的特殊性。</p>
-<p><a href="https://flutter.io/" target="_blank" rel="noopener">原文地址</a></p>
+<p>在国内安装使用Flutter，首先阅读下这篇<a href="https://github.com/flutter/flutter/wiki/Using-Flutter-in-China" target="_blank" rel="noopener">文章</a>，由于国内网络大环境问题，需要提前进行一点配置。</p>
+<a id="more"></a>  
+<p>在国内安装Flutter需要首先需要一个值得信任的国内镜像。在镜像上边保存着Flutter需要的依赖及相关库，包等。为了使用Flutter，需要使用一个备用存储位置，我们需要配置环境变量。<br>配置环境变量名：PUB_HOSTED_URL和FLUTTER_STORAGE_BASE_URL。</p>
+<p>在windows系统中，需要在环境变量设置中添加：<br>PUB_HOSTED_URL ： <a href="https://pub.flutter-io.cn" target="_blank" rel="noopener">https://pub.flutter-io.cn</a><br>FLUTTER_STORAGE_BASE_URL ： <a href="https://storage.flutter-io.cn" target="_blank" rel="noopener">https://storage.flutter-io.cn</a></p>
+<p>然后运行Git命令（前提是安装了GitBash工具）：<br>git clone -b dev <a href="https://github.com/flutter/flutter.git" target="_blank" rel="noopener">https://github.com/flutter/flutter.git</a> Flutter</p>
+<font color="red" size="5">Flutter文件夹需要注意：文件夹存放的路径上不要出现空格，否则在IDE中进行工程创建后会有警告，SDK环境路径上存在分隔符。</font>
+
+<p>在clone完成之后，即flutter sdk下载完毕，还需要配置Flutter环境： xxxx/Flutter/bin目录下。</p>
+<p>重新打开一个命令行，在其中输入命令</p>
+<pre><code>flutter doctor
+</code></pre><p>进行环境及缺失的依赖检查，并下载需要的依赖。<br>运行效果如下图：<br><img src="/images/flutter/flutter-install/run_flutter_doctor.png" alt="运行flutter doctor"></p>
+<p>在环境及相关依赖检查完成之后，可以开始在Android  Studio中进行创建工程行为。</p>
+<p><font color="red" size="5">注意：Android Studio 预览版中无法保证运行Flutter成功。因此需要使用稳定版AS，且需要3.0版本以上。</font><br>Android Studio中需要安装Flutter Plugin，Dart Plugin两个插件。</p>
+<p>Dart SDK也需要手动安装，直接下载zip包免安装。</p>
+<p>成功准备好IDE环境之后，就可以创建Flutter Project了，默认创建Flutter Application就可以了，按照IDE创建提示一直到最终完成。</p>
+<p><strong> 需要注意：同样由于网络环境，直接运行Flutter Project是不可行的，UI会一直停留在Gradle正在初始化工程。这时需要修改build.gradle配置中的中央Maven库到一个可信赖的公共Maven库。 这里我修改成Ali的Maven库 </strong></p>
+<pre><code>buildscript {
+    ext.kotlin_version = &apos;1.1.51&apos;
+    repositories {
+        maven { url &apos;http://maven.aliyun.com/nexus/content/groups/public/&apos; }
+        google()
+    }
+    // ......
+}
+
+// ......
+
+allprojects {
+    repositories {
+        maven { url &apos;http://maven.aliyun.com/nexus/content/groups/public/&apos; }
+    }
+    google()
+}
+// ......
+</code></pre><p>然后再次sync工程，进行运行。</p>
+<p>首个创建的Flutter Project工程结构如下：<br><img src="/images/flutter/flutter-install/android_studio_flutter_project.png" alt="flutter project结构"></p>
+<p>再来看看运行效果：<br><img src="/images/flutter/flutter-install/flutter_app_runtime.png" alt="flutter工程运行效果"></p>
+<p>至此，Flutter，Dart环境均准备结束了。</p>
 
       <script>
         window.disqusProxy={
@@ -606,7 +541,7 @@
           server: 'disqus-proxy.ycwalker.com',
           port: 443,
           adminAvatar: '/avatars/admin-avatar.jpg',
-          identifier: '2018/03/23/Flutter/Flutter_Introduction/',
+          identifier: '2018/03/15/flutter/flutter-install/',
         };
         window.disqus_config = function () {
           this.page.url = window.location.href;
@@ -667,16 +602,16 @@
 
 		<li class="post-copyright-link">
 		  <strong>本文标题：</strong>
-		  <a href="http://yoursite.com/2018/03/23/Flutter/Flutter_Introduction/" title="Flutter简述">Flutter简述</a>
+		  <a href="http://yoursite.com/2018/03/15/flutter/flutter-install/" title="Flutter(一) 环境准备">Flutter(一) 环境准备</a>
 		</li>
 
 		<li class="post-copyright-link">
 		  <strong>本文链接：</strong>
-		  <a href="http://yoursite.com/2018/03/23/Flutter/Flutter_Introduction/" title="Flutter简述">http://yoursite.com/2018/03/23/Flutter/Flutter_Introduction/</a>
+		  <a href="http://yoursite.com/2018/03/15/flutter/flutter-install/" title="Flutter(一) 环境准备">http://yoursite.com/2018/03/15/flutter/flutter-install/</a>
 		</li>
 
 		<li class="post-copyright-date">
-			<strong>发布时间：</strong>2018年3月23日 - 08时03分
+			<strong>发布时间：</strong>2018年3月15日 - 00时03分
 		</li>  
 
 		<li class="post-copyright-license">
@@ -694,7 +629,7 @@
           
             <a href="/tags/Flutter/" rel="tag"># Flutter</a>
           
-            <a href="/tags/Android/" rel="tag"># Android</a>
+            <a href="/tags/Dart/" rel="tag"># Dart</a>
           
         </div>
       
@@ -707,8 +642,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/15/Flutter/Flutter_Install/" rel="next" title="Flutter(一) 环境准备">
-                <i class="fa fa-chevron-left"></i> Flutter(一) 环境准备
+              <a href="/2017/10/30/how-to-download-android-sdk-offline/" rel="next" title="离线下载Android SDK（100%成功）">
+                <i class="fa fa-chevron-left"></i> 离线下载Android SDK（100%成功）
               </a>
             
           </div>
@@ -717,8 +652,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/29/Flutter/Flutter_Create_Your_First_App/" rel="prev" title="Flutter(二)  创建第一个Flutter APP">
-                Flutter(二)  创建第一个Flutter APP <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/23/flutter/flutter-introduction/" rel="prev" title="Flutter简述">
+                Flutter简述 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -800,7 +735,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -811,7 +746,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -822,7 +757,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
