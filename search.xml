@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Flutter(四) 搭建布局]]></title>
+    <url>%2F2018%2F04%2F11%2Fflutter%2Fflutter-building-layouts%2F</url>
+    <content type="text"><![CDATA[你将学习:&nbsp;&nbsp;- Flutter布局机制如何工作&nbsp;&nbsp;- 如何竖直或横向展示组件&nbsp;&nbsp;- 如何搭建Flutter布局 这篇文章说明Flutter搭建布局。我们将学习搭建布局，做种效果如下截图： 这篇引导退一步来解释Flutter进行布局的方式，以及展示如何在屏幕上放置一个单独的组件。在学习完如何横向或竖向展示组件之后，我们会再看到些常用的布局组件。 搭建布局 Step 0：创建 Step 1：图解布局 Step 2：实现标题行 Step 3：实现按钮行 Step 4：实现文本区域 Step 5：实现图片区域 Step 6：集成上述组件 Flutter布局方法 布局一个组件 横向及竖向布局多个组件 组件对齐方式 调整组件大小 缩紧组件 嵌套行与列 常用布局组件 标准组件 Material组件 资源 搭建布局若你想理解“big picture”的布局原理，那么需要学习Flutter布局方法。 Step 0：创建首页获取代码： 确定已经设置好环境 创建基本Flutter工程 下来在工程中添加图片： 在工程根目录创建images目录 添加 lake.jpg 图片 更新 pubspec.yaml 文件，添加 assets 标签 Step 1：图解布局第一步是将布局分解成基本元素: 区分行与列。 布局是否包含一个网格？ 是否有层叠元素？ UI是否需要tabs？ 注意需要对齐，内边据或者边框的区域。 首先，识别更大的元素。在这里，四个元素在同一列中：一个图片，两行和一个文本块。]]></content>
+      <categories>
+        <category>Flutter</category>
+      </categories>
+      <tags>
+        <tag>Flutter</tag>
+        <tag>Dart</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Flutter(三) 入门：学习更多]]></title>
     <url>%2F2018%2F04%2F11%2Fflutter%2Fflutter-get-started-learn-more%2F</url>
     <content type="text"><![CDATA[学习更多有关Flutter的framework 构建布局(Building Layouts) 教程 交互(Add Interactivity) 教程 Flutter组件框架(Flutter Widget Framework) Android开发者使用Flutter(Flutter for Android Developers) 其他资源 Flutter详尽说明(Flutter Cookbook) Java转向Dart(From Java to Dart) 指引 Dart程序：学习更多Dart知识 学习愉快。]]></content>
