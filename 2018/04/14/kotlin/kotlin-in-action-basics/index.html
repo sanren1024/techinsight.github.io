@@ -162,7 +162,7 @@
 <meta property="og:site_name" content="散人技术博客">
 <meta property="og:description" content="Kotlin是一门静态类型语言且支持类型推导，允许维护正确性与性能的同时保持源码简洁。Kotlin支持面向对象和函数式两种编码风格，通过头等函数使更高级别的抽象成为可能，通过支持不可变值简化了测试和多线程开发。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-13T09:39:49.891Z">
+<meta property="og:updated_time" content="2018-04-13T16:09:41.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin基础">
 <meta name="twitter:description" content="Kotlin是一门静态类型语言且支持类型推导，允许维护正确性与性能的同时保持源码简洁。Kotlin支持面向对象和函数式两种编码风格，通过头等函数使更高级别的抽象成为可能，通过支持不可变值简化了测试和多线程开发。">
@@ -450,7 +450,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-14T01:38:00+08:00">2018-04-13</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-14T00:09:25+08:00">2018-04-13</time>
             
 
             
@@ -471,7 +471,7 @@
               
                 <span class="post-meta-item-text">更新于：</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-13T09:39:49Z">2018-04-13</time>
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-13T16:09:41Z">2018-04-13</time>
             
           </span>
 
@@ -582,7 +582,22 @@
 <p>这段代码中可以看到，变量language前边有$符号，这种写法就是需要说的Kotlin中的新特性，字符串模板。字符串模板的作用即是可以在程序的字符串中引用变量。这种表达写法相当于在Java中使用StringBuilder方式的append()方法，或者是Java中”Hello “ + language + “!”写法。但是相比之下，Kotlin的写法可读性更好。</p>
 <p>字符串模板可以有更加复杂的表达方式——${表达式语句}<br>可以将上述代码进行一定的修改<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">    println(<span class="string">"Hello <span class="subst">$&#123;if (args.size &gt; <span class="number">0</span>) args[<span class="number">0</span>] else "Kotlin"&#125;</span>!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这样的写法也是对的，其中可以看到花括号中又有一对引号。在Kotlin中可以在双引号中嵌套双引号，但需要在表达式内部（即在花括号内）。</p>
-
+<h3 id="类和属性"><a href="#类和属性" class="headerlink" title="类和属性"></a>类和属性</h3><p>但凡了解Java的开发人员对这两个概念不会陌生。下来看看Kotlin中如何来声明类的。<br>先看看Java中的声明方式。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这是最典型的的JavaBean类。再看看对应的Kotlin是怎么声明的。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(<span class="keyword">val</span> name: String)</span><br></pre></td></tr></table></figure></p>
+<p>使用Kotlin声明这样一个类，就只有一行。Kotlin中这种类（只有数据没有其他代码）被称为<font color="red">值对象</font>。同样也应该注意到了，Java声明中的public访问修饰符到Kotlin对应的声明中就不见了，这是因为Kotlin中public是默认的可见性。</p>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><p>我们知道Java中的属性是由字段及其对应的getter，setter方法组成。Kotlin中<font color="red">属性是头等的语言特性</font>，其完全地取代了字段和对应的访问器。</p>
+<p>在Kotlin中声明一个属性跟声明一个变量使用同样的关键字val和var。声明val的属性是只读的，var属性是可变的。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(<span class="keyword">val</span> name: Strinig, <span class="keyword">var</span> isMerried: <span class="built_in">Boolean</span>)</span><br></pre></td></tr></table></figure></p>
+<p>Kotlin中在声明一个属性的时候，同时也就声明了访问器。Kotlin中访问器的默认实现很简单，创建一个存储值得字段，以及getter和setter方法。同样可以自定义访问器，及自己的getter和setter方法。</p>
+<h4 id="自定义访问器"><a href="#自定义访问器" class="headerlink" title="自定义访问器"></a>自定义访问器</h4><p>先看看如何来判断一个矩形是否是正方形的程序。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span></span>(<span class="keyword">val</span> height: <span class="built_in">Int</span>, <span class="keyword">val</span> width: <span class="built_in">Int</span>) &#123;</span><br><span class="line">    <span class="keyword">val</span> isSquare: <span class="built_in">Boolean</span></span><br><span class="line">        <span class="keyword">get</span>() &#123;</span><br><span class="line">           <span class="keyword">return</span> (height == width)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="目录和包"><a href="#目录和包" class="headerlink" title="目录和包"></a>目录和包</h4><p>与Java一样，Kotlin源码布局同样包含了包的概念。每个Kotlin文件都以一个package语句开始，接着是import语句（Kotlin中import的可以是类，也可以是函数）。</p>
+<p>Kotlin中有一点与Java不同的是：Kotlin文件的包层级结构可以不遵循目录结构。及Kotlin文件中package语句的包声明与程序的工程目录结构可以不一致。且多个类可以放置在一个Kotlin文件中，文件名任意。</p>
+<p>但在具体实现过程中，遵循包层级结构与目录层级结构一直是比较好的实践，尤其是在程序中兼有Java和Kotlin程序文件。</p>
+<h3 id="枚举和“when”"><a href="#枚举和“when”" class="headerlink" title="枚举和“when”"></a>枚举和“when”</h3><h4 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h4><p>Kotlin中的枚举声明需要使用两个关键字：enum class。这也是Kotlin中极少数比Java声明关键字多的地方。</p>
+<p>Kotlin中的enum是一个<font color="red">软关键字</font>。即enum只有出现在class之前才有意义，平时使用可以当做一般名称使用。</p>
+<p>枚举类不只是值得列表，可以为其声明方法。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">Color</span></span>(<span class="keyword">val</span> r: <span class="built_in">Int</span>, <span class="keyword">val</span> g: <span class="built_in">Int</span>, <span class="keyword">val</span> b: <span class="built_in">Int</span>) &#123;</span><br><span class="line">    RED(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>), GREEN(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), BLUE(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> rgb = <span class="params">(r * <span class="number">256</span> + g)</span></span> * <span class="number">256</span> + b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里也有唯一一个Kotlin中使用分号的地方。</p>
+<h4 id="when"><a href="#when" class="headerlink" title="when"></a>when</h4>
       <script>
         window.disqusProxy={
           shortname: 'techinsight',
@@ -653,7 +668,7 @@
     <a href="https://techinsight.github.io/2018/04/14/kotlin/kotlin-in-action-basics/" title="Kotlin基础">https://techinsight.github.io/2018/04/14/kotlin/kotlin-in-action-basics/</a>
   </li>
   <li class="post-copyright-date">
-	<strong>发布时间：</strong>2018年4月13日 - 17时04分
+	<strong>发布时间：</strong>2018年4月13日 - 16时04分
   </li>  
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -943,7 +958,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数和变量"><span class="nav-text">函数和变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数"><span class="nav-text">函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量"><span class="nav-text">变量</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数和变量"><span class="nav-text">函数和变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数"><span class="nav-text">函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量"><span class="nav-text">变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类和属性"><span class="nav-text">类和属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性"><span class="nav-text">属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义访问器"><span class="nav-text">自定义访问器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#目录和包"><span class="nav-text">目录和包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举和“when”"><span class="nav-text">枚举和“when”</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#枚举"><span class="nav-text">枚举</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#when"><span class="nav-text">when</span></a></li></ol></li></ol></div>
             
 
           </div>
