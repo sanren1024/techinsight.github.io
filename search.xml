@@ -116,8 +116,8 @@
       </categories>
       <tags>
         <tag>Trap</tag>
-        <tag>ActionBar</tag>
         <tag>Fragment</tag>
+        <tag>ActionBar</tag>
       </tags>
   </entry>
   <entry>
@@ -129,8 +129,8 @@
       </categories>
       <tags>
         <tag>Trap</tag>
-        <tag>Fragment</tag>
         <tag>ViewPager</tag>
+        <tag>Fragment</tag>
       </tags>
   </entry>
   <entry>
