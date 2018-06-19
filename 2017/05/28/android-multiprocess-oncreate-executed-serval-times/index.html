@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Android, Java, 移动开发等相关技术简绍。"><title>Android多进程app中Application回调onCreate()方法被执行多次分析及解决 | 散人技术博客</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Android多进程app中Application回调onCreate()方法被执行多次分析及解决</h1><a id="logo" href="/.">散人技术博客</a><p class="description">技术之谈，欢迎指正。</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Android多进程app中Application回调onCreate()方法被执行多次分析及解决</h1><div class="post-meta">May 28, 2017<span> | </span><span class="category"><a href="/categories/Android/">Android</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span><span class="post-time"><span class="post-meta-item-text"> | </span><span class="post-meta-item-icon"><i class="fa fa-keyboard-o"></i><span class="post-count"> 1,375</span><span class="post-meta-item-text"> 字</span></span></span><span class="post-time"> | <span class="post-meta-item-icon"><i class="fa fa-hourglass-half"></i><span class="post-count"> 5</span><span class="post-meta-item-text"> 分钟</span></span></span></div><div class="post-content"><blockquote>
+<p> 问题描述</p>
+</blockquote>
+<p>最近工作中碰到一个问题，在优化app，使用DDMS查看Application log过程中看到，app启动了三个进程，一个主进程，两个附带的进程。如下图可看到一个app启动的三个进程。</p>
+<a id="more"></a>
+<p><img src="/images/android-multiprocess-oncreate-executed-serval-times/processes_app_starts.png" alt="启动三个进程" title="启动进程"><br>自定义Application回调方法onCreate()被执行了3次。开始不知是何原因。</p>
+<h5 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h5><blockquote>
+<p>android:process</p>
+</blockquote>
+<p>从Android开发者文档中的manifest中进程配置<strong><em>android:process</em></strong>可以获知:<br>正常情况下，应用程序的所有组件运行在一个默认的进程名下，因此不需要使用这个属性。但在需要的情况下，可以通过使用这个属性来覆盖默认进程，这样一个app就跨越多个进程。</p>
+<p>如果这个属性值以冒号（“:”）开始，说明新进程相对于应用程序是一个私有进程，且组件运行在此进程中。若属性值以小写字符开始，那么新进程即是一个全局进程，组件运行在这个全局进程中。这也意味着其他应用程序组件可以与此进程进行通信，减少资源使用。</p>
+<p>标签<em>&lt;application&gt;</em>的<em>android:process</em>属性可以为整个app内组件设置一个默认的运行进程。</p>
+<p>manifest中组件标签<em>&lt;activity&gt;</em>， <em>&lt;service&gt;</em>， <em>&lt;provider&gt;</em>,  <em>&lt;receiver&gt;</em>都支持配置<em>android:process</em>，即每个组件均可以创建运行在自己的一个新进程中。</p>
+<blockquote>
+<p>Application类</p>
+</blockquote>
+<p>我们可以自定义继承Application类来实现自己的Application，然后在其中的onCreate()方法中进行一定的初始化工作。</p>
+<p>若自定义了Application类，那么需要注意的就是这个类在当app中有多个进程时，每个进程启动时都会初始化一次Application。在Android中很不幸的就是我们无法为每个新创建的进程来分别创建一个Application类。<br><img src="/images/android-multiprocess-oncreate-executed-serval-times/android_multiprocesses_application.jpg" alt="多个进程启动的Application状态"></p>
+<hr>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><blockquote>
+<p>第一：getRunningAppProcesses()</p>
+</blockquote>
+<p>每个进程对应一个application，这样可以通过针对特定进程名，进行相应的初始化工作，避免资源浪费，执行时间消耗。</p>
+<p><strong>因为Application的执行时间影响着首个activity，service等的启动时间。</strong>即Application执行时间越长，首个组件（activity）启动时间越晚，给用户造成的感觉就是应用启动速度特别慢。<br><img src="/images/android-multiprocess-oncreate-executed-serval-times/original_processes_start_time_long.png" alt="3个进程启动耗时" title="3个进程创建耗时"></p>
+<p>可以看出，Application回调方法onCreate()被执行3次，均执行耗时操作，这样造成了在点击应用logo后，到看到进入app，首个页面（Activity）启动，耗时将近6s，外加处理器速度，在较慢的机器上，这个时间可能更长，甚至超过10s。</p>
+<p>目前较多采用的方法既是所提到的根据具体进程来进行相应的初始化工作，核心的获取对应进程的方法如下：</p>
+<pre><code>/**
+ * 获取进程名。
+ * 由于app是一个多进程应用，因此每个进程被os创建时，    
+ * onCreate()方法均会被执行一次，
+ * 进行辨别初始化，针对特定进程进行相应初始化工作，
+ * 此方法可以提高一半启动时间。
+ *
+ * @param context 上下文环境对象
+ *
+ * @return 获取此进程的进程名
+ */
+private String getProcessName(Context context) {
+    ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+    List&lt;ActivityManager.RunningAppProcessInfo&gt; runningAppProcesses = am.getRunningAppProcesses();
+    if (runningAppProcesses == null) {
+        return &quot;&quot;;
+    }
+
+    for (ActivityManager.RunningAppProcessInfo runningAppProcess : runningAppProcesses) {
+        if (runningAppProcess.pid == android.os.Process.myPid()
+                &amp;&amp; !TextUtils.isEmpty(runningAppProcess.processName)) {
+            return runningAppProcess.processName;
+        }
+    }
+    return &quot;&quot;;
+}
+</code></pre><p>这样经过测试，在不同的进程被创建时，进行不同的工作，执行时间可以缩短一半。<br><img src="/images/android-multiprocess-oncreate-executed-serval-times/processes_start_timelong_after_modification.png" alt="修改3个进程启动耗时" title="修改后3个进程创建耗时"></p>
+<p><strong><em><font color="red">虽然这种方法在某些版本上可以奏效，在但Android 5.0+版本中，由于Google开始收紧对Android底层权限管理，在趋势上方法<a href="https://developer.android.com/reference/android/app/ActivityManager.html?hl=zh-cn#getRunningAppProcesses(" target="_blank" rel="noopener">getRunningAppProcesses()</a>)将会被毙掉。因为已经在一些版本的环境中，此方法返回null。</font></em></strong></p>
+<blockquote>
+<p>第二：<a href="https://developer.android.com/reference/android/app/usage/UsageStatsManager.html" target="_blank" rel="noopener">UsageStatsManager</a></p>
+</blockquote>
+<p>使用类UsageStatsManager来获取运行的apps列表，但是使用这个类需要添加一个权限<a href="https://developer.android.com/reference/android/Manifest.permission.html#PACKAGE_USAGE_STATS" target="_blank" rel="noopener">PACKAGE_USAGE_STATS</a>，而此权限是系统权限，要使用必须到Settings应用中去针对应用进行授权（我们的app用户肯定不会愿意多次一步）。另外，据称有些OEM厂商已经删除了此项设置，换言之在Settings中找不到授权入口。</p>
+<p>因此这个途径也就被毙掉了。</p>
+<blockquote>
+<p>最终方案</p>
+</blockquote>
+<p>经过几天google方案及针对可能的解决方法进行测试，下边的这个感觉比较靠谱。</p>
+<p>这是一个开源项目，项目地址<a href="https://github.com/jaredrummler/AndroidProcesses" target="_blank" rel="noopener">点击这里</a>。</p>
+<p>在我们的Application中集成并测试了该方法。</p>
+<p>源码中添加一个方法，类似于使用getRunningAppProcesses()方法一样：<br><img src="/images/android-multiprocess-oncreate-executed-serval-times/application_oncreate_call_several_times_solution.png" alt="解决方案代码"></p>
+<p>以下是在三个不同的Android版本进行测试结果：</p>
+<p><img src="/images/android-multiprocess-oncreate-executed-serval-times/android_multi_processes_solution_test_on_4_4_2.png" alt="Android 4.4.2测试结果"></p>
+<p><img src="/images/android-multiprocess-oncreate-executed-serval-times/android_multi_processes_solution_test_on_5_1_1.png" alt="Anroid 5.1.1测试结果"></p>
+<p><img src="/images/android-multiprocess-oncreate-executed-serval-times/android_multi_processes_solution_test_on_6_0.png" alt="Android 6.0测试结果"></p>
+<p>可以看到，针对这三个版本是可以达到相关初始化代码只执行一次的效果。这样可以缩短启动消耗的时间。</p>
+<p>更多版本类型测试大家可以自行进行测试。</p>
+<font color="red">时间原因，此方案的代码及解决方法还没有来得及跟踪，有时间在做分析……</font>
+
+<p>这种方案也有限制：</p>
+<ul>
+<li><p>一些版本的系统应用不包括在内，因为他们具有更高级别的<a href="http://blog.csdn.net/innost/article/details/19299937" target="_blank" rel="noopener">SElinux context</a>；</p>
+</li>
+<li><p>这种方法也不是<a href="https://developer.android.com/reference/android/app/ActivityManager.html?hl=zh-cn#getRunningAppProcesses(" target="_blank" rel="noopener">getRunningAppProcesses()</a>)完全的替代，因为它无法给出集成的<a href="https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo.html#pkgList" target="_blank" rel="noopener">pkgList</a>，<a href="https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo.html?hl=zh-cn#lru" target="_blank" rel="noopener">lru</a>和<a href="https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo.html?hl=zh-cn#importance" target="_blank" rel="noopener">importance</a>信息；</p>
+</li>
+<li><p>此库在7.0开发者预览版本上是无法起作用的。</p>
+<font color="red">下面的一篇文章就来分析下此方案是如何解决读取进程的——&gt;《Android获取运行进程解决方案分析》</font></li>
+</ul>
+
+      <script>
+        window.disqusProxy={
+          shortname: 'techinsight',
+          username: 'niguanhua',
+          server: 'disqus-proxy.ycwalker.com',
+          port: 443,
+          adminAvatar: '/avatars/admin-avatar.jpg',
+          identifier: '2017/05/28/android-multiprocess-oncreate-executed-serval-times/',
+        };
+        window.disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = window.disqusProxy.identifier;
+        };
+      </script></div><iframe src="/donate/?AliPayQR=/images/reward/alipay.png&amp;WeChatQR=/images/reward/weixinpay.png&amp;GitHub=null&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;" frameborder="0" scrolling="no"></iframe><div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>散人</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="/2017/05/28/android-multiprocess-oncreate-executed-serval-times/">https://techinsight.github.io/2017/05/28/android-multiprocess-oncreate-executed-serval-times/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</li></ul></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://techinsight.github.io/2017/05/28/android-multiprocess-oncreate-executed-serval-times/" data-id="cjilun3rg00064sxcqau8l8st" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADMUlEQVR42u3aS27bQBAFQN//0g4QZOeIfq+bBsRxcWVI5HBqvGj15+Mjvj7/Xsk9r66v91w/9erb689vvrCxsbEfws63e30cX+9Jvk2uZIXcgo2NjX0qOyfNjuCusNce7svPsbGxsX8luz2IWYBskdjY2NjYmzQjTw+u35ivNguc2NjY2L+B3Zb1803n4SfZbhv8bqilYWNjY789u230vvPfP9jfxsbGxn5L9ufomhWVrt+b73Cz838rYGNjYx/EzlOCPAokiUfeyr23mBXlT9jY2NiPZbfbzRsAs3ZsUn5KDv2bAIaNjY19EHvzmjycbBKYfP1IhI2NjX0cu33BJtnI28P7jsfL1bCxsbGPYOfpRFuQaktIbYFpdvTRuWJjY2M/it0GsOtiUBKQZs+2Rxa9HRsbG/tQ9n6Mpg4kZeaUF7Pq6I2NjY19BLstKv1EsMnXaf9h2NjY2Oexk5/+mzZAcs1C0c2hCxsbG/ux7HuDUDuUsykt5W8vWgXY2NjYD2fnjdXkk31Zqp48mqVb2NjY2Eezk2JNO0aTJDb75Kc4IGxsbOyHs+8KOcmzmybuptH7n31iY2NjH8Ruyz15aGmbAXlp6a52NTY2NvYZ7OQH/b1BqG7BlgcdNbCxsbGxD2Xvy0ztam0BaxbGokklbGxs7Mey80XzROI6tWjHKGfHXQ9iYmNjYz+c3RbcN9Odwy70aFjnm3uwsbGxj2APf7gH5Z5ZgjFLVPIGBjY2NvbZ7Hz8ZZYYJBvKw+SmvIWNjY19KrsNYBtAfkD5CsXYJTY2NvZB7CRczcLYLNmYhaVZqoONjY19KjtZKAldM0w+uJkHvKKzjY2NjX0QezN2024ub/HeNcSDjY2NfSq7DSezcZnZERRFonunlrCxsbHfnv1ZXnmw2ZeB8vvbRAUbGxv7JPYsAMwK9/nm8hA4GwnCxsbGPo8929wmjLVHkBeMim+xsbGxj2Pvt563h2ch8+YqGjY2NjZ22cptj3LfbI6aBNjY2Ni/jJ2nDcmzmwNq28/1jBI2Njb2A9mbkcqkVNS+pf28LUVhY2Njn8Tel3jyok8bAjeHtS9IYWNjY789+w/y8U8C9SmoMwAAAABJRU5ErkJggg==">分享</a><div class="tags"><a href="/tags/Application/">Application</a><a href="/tags/多进程/">多进程</a></div><div class="post-nav"><a class="pre" href="/2017/06/01/how-to-setup-personal-blog-width-hexo-and-github/">使用hexo+github搭建个人微博——手把手教</a></div><div id="container"></div><link rel="stylesheet" href="/css/default.css?v=0.0.0"><script src="/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
+  owner: 'techinsight',
+  repo: 'techinsight-comment',
+  oauth: {
+    client_id: 'cb806619448a89f91abd',
+    client_secret: '4c0131ef12724edee6e70149fc4580356796acb9',
+  },
+})
+gitment.render('container')
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://techinsight.github.io"/></form></div><div class="widget"><form class="search-form" action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank"><input type="search" name="word" maxlength="20" placeholder="Search"/><input type="hidden" name="si" value="https://techinsight.github.io"/><input name="tn" type="hidden" value="bds"/><input name="cl" type="hidden" value="3"/><input name="ct" type="hidden" value="2097152"/><input name="s" type="hidden" value="on"/></form></div><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Flutter/">Flutter</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Kotlin/">Kotlin</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/资源/" style="font-size: 15px;">资源</a> <a href="/tags/Trap/" style="font-size: 15px;">Trap</a> <a href="/tags/Fragment/" style="font-size: 15px;">Fragment</a> <a href="/tags/ViewPager/" style="font-size: 15px;">ViewPager</a> <a href="/tags/Widget/" style="font-size: 15px;">Widget</a> <a href="/tags/FloatingActionButton/" style="font-size: 15px;">FloatingActionButton</a> <a href="/tags/Application/" style="font-size: 15px;">Application</a> <a href="/tags/多进程/" style="font-size: 15px;">多进程</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a> <a href="/tags/ActionBar/" style="font-size: 15px;">ActionBar</a> <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/sdk/" style="font-size: 15px;">sdk</a> <a href="/tags/微博/" style="font-size: 15px;">微博</a> <a href="/tags/Kotlin/" style="font-size: 15px;">Kotlin</a> <a href="/tags/设计模式/" style="font-size: 15px;">设计模式</a> <a href="/tags/Flutter/" style="font-size: 15px;">Flutter</a> <a href="/tags/Dart/" style="font-size: 15px;">Dart</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/kotlin/kotlin-in-action-object/">Kotlin——object（单例，伴生对象，内部类）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/designpattern/design-patterns-singleton/">设计模式之单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/14/kotlin/kotlin-in-action-basics/">Kotlin基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/11/flutter/flutter-building-layouts/">Flutter(四) 搭建布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/11/flutter/flutter-get-started-learn-more/">Flutter(三) 入门：学习更多</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/flutter/flutter-create-your-first-app/">Flutter(二)  创建第一个Flutter APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/15/flutter/flutter-install/">Flutter(一) 环境准备</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/12/flutter/flutter-introduction/">Flutter简述</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/how-to-download-android-sdk-offline/">离线下载Android SDK（100%成功）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/11/Trap-Of-Customizing-ActionBar-in-Fragment/">Trap3——Fragment中定制ActionBar（同一个Activity内多个Fragment）</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://github.com/techinsight" title="GitHub" target="_blank">GitHub</a><ul></ul><a href="https://stackoverflow.com/users/1572994/nicholas-ni" title="StackOverflow" target="_blank">StackOverflow</a><ul></ul><a href="http://www.zhihu.com/people/sz_chrome" title="知乎" target="_blank">知乎</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">散人技术博客.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

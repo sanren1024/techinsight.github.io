@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Android, Java, 移动开发等相关技术简绍。"><title>使用hexo+github搭建个人微博——手把手教 | 散人技术博客</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">使用hexo+github搭建个人微博——手把手教</h1><a id="logo" href="/.">散人技术博客</a><p class="description">技术之谈，欢迎指正。</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">使用hexo+github搭建个人微博——手把手教</h1><div class="post-meta">Jun 1, 2017<span> | </span><span class="category"><a href="/categories/随笔/">随笔</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span><span class="post-time"><span class="post-meta-item-text"> | </span><span class="post-meta-item-icon"><i class="fa fa-keyboard-o"></i><span class="post-count"> 1,750</span><span class="post-meta-item-text"> 字</span></span></span><span class="post-time"> | <span class="post-meta-item-icon"><i class="fa fa-hourglass-half"></i><span class="post-count"> 6</span><span class="post-meta-item-text"> 分钟</span></span></span></div><div class="post-content"><p>文章有点儿长，不过解释很清晰，有兴趣的朋友请耐心看完，肯定能搭建成功！^_^</p>
+<p>这里因为使用的是windows系统，所以选择了Hexo这个微博框架。</p>
+<a id="more"></a>
+<p>原来想使用与GitHub结合更有优势的jekyll，但是由于系统的问题，就放弃了。<br>下来就如何来搭建吧！！！</p>
+<blockquote>
+<p>先说说怎么会想到搭建个人微博</p>
+</blockquote>
+<p>工作多年，没有认真整理过自己工作中的经验，遇到的问题及解决方案。因此想着认真整理下过去到现在过程中的问题。废话不多说，下来看看我是如何来搭建我的个人微博的。</p>
+<blockquote>
+<p>前提条件</p>
+</blockquote>
+<ul>
+<li><p>需要有个github账号。<br>一般做为一个开发人员，github肯定是访问过的，相信绝大多数开发人员会注册拥有一个github账号，因为这是全球知名的代码托管网站。全世界均可访问到它。若还没有可以到<a href="https://github.com/" title="Github" target="_blank" rel="noopener">Github</a>注册。</p>
+</li>
+<li><p>基本软件NodeJS，Git，Hexo<br>在机子上需要使用到NodeJS进行部署，安装插件等。下载<a href="https://nodejs.org/" title="NodeJs" target="_blank" rel="noopener">NodeJs</a>。<br>安装Git，进入Git<a href="https://git-scm.com/download/" target="_blank" rel="noopener">下载页面</a>选择合适的版本进行下载。<br>如果不清楚Hexo是什么？？她是一个快速，简介，高效的博客框架。更多详情可以到<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">Hexo官网</a>读下这个文档就知道了。O(∩_∩)O哈哈~</p>
+</li>
+</ul>
+<p>安装完成Git及NodeJs后，那么就可以开始准备安装Hexo了。<br>打开GitBash，使用npm命令来安装Hexo程序。<br><img src="/images/how-to-setup-personal-blog-width-hexo-and-github/bit_bash_command_ui.png" alt="git bash命令行"></p>
+<p>回车，等待安装，安装完成后有如下信息：<br><img src="/images/how-to-setup-personal-blog-width-hexo-and-github/hexo_install_hint_first.png" alt="安装提示"><br>……..<br><img src="/images/how-to-setup-personal-blog-width-hexo-and-github/hexo_install_hint_last.png" alt="提示最后"></p>
+<p>这样表示Hexo安装成功了。<br>到此，搭建个人微博需要的3个软件就安装完成了。</p>
+<p>接下来就需要进行相关配置及插件安装了。<br>所有的操作均在GitBash命令行中进行操作。</p>
+<blockquote>
+<p>建站</p>
+</blockquote>
+<p>首先简历一个简单的站，创建初始化一个简单的文件夹。</p>
+<pre><code>$ hexo init myGitPages
+$ cd myGitPages
+$ npm install
+</code></pre><p>这样就可以新建所需要的文件。<br>安装完成后，可以看到如下的几个主要文件。<br><img src="/images/how-to-setup-personal-blog-width-hexo-and-github/hexo_site_installed_hierarchy.png" alt="安装结构"></p>
+<p>其中:<br>_config.xml      可以配置网站信息。可以参考<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">配置</a><br>package.json    应用程序信息。有默认配置一些组件，可以自己根据需要添加或者移除。<br>scaffolds          模板文件夹。当新建文章时，Hexo会根据scaffold来建立文件。<br>source              资源文件夹，存放用户资源的地方。<br>themes             主题文件夹。Hexo会根据主题来生成静态页面。</p>
+<blockquote>
+<p>主题</p>
+</blockquote>
+<p>Hexo可以有很多主题，在<a href="https://github.com/" target="_blank" rel="noopener">Github</a>首页搜索框内输入”hexo theme”，可以搜索到很多主题，目前我使用的是litten的<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia</a>主题。</p>
+<p>可以在进入到建立的站点文件夹下（我的是myGitPages）下，下载yilia主题</p>
+<pre><code>$ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
+</code></pre><p>下载完成后，打开站点个目录下（myGitPages）的_config.xml文件，修改其中的theme属性成</p>
+<pre><code>theme: yilia
+</code></pre><p>这样就可以在发布文章的手看到修改的主题，或者通过hexo server进行查看。</p>
+<blockquote>
+<p>发布</p>
+</blockquote>
+<p>发布文章前一定要确认已经安装了hexo-deployer-git插件，否则无法正常发文章到git上的。</p>
+<pre><code>$ npm install hexo-deployer-git --save
+</code></pre><p>来安装git插件。</p>
+<p>到目前基本上需要的从博客站点建立，到发布所需要的软件准备工作都就绪了。</p>
+<blockquote>
+<h6 id="PS：yilia要显示所有文章还需要进行一个配置，下文会写到。"><a href="#PS：yilia要显示所有文章还需要进行一个配置，下文会写到。" class="headerlink" title="PS：yilia要显示所有文章还需要进行一个配置，下文会写到。"></a>PS：yilia要显示所有文章还需要进行一个配置，下文会写到。</h6></blockquote>
+<p>在开始写文章发布之前可以，先查本地运行查看Hexo运行情况，运行</p>
+<pre><code>$ hexo server
+</code></pre><p>启动服务器。默认情况下，端口地址是4000。打开浏览器，访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>查看效果。<font color="red">若访问出错，没有打开页面，那么可能是端口被占用导致。此时可以使用</font></p>
+<pre><code>$ hexo server -p 5000
+</code></pre><p><font color="red">修改端口，然后重新输入端口号进行查看。</font><br>若访问成功，默认看到的是hello-wold.md（即source/_post文件夹下的默认创建文件）文件发布后的效果。</p>
+<blockquote>
+<p>准备工作结束，可以开始写文章发布</p>
+</blockquote>
+<p>上述工作都结束后，可以进入到<strong><em>站点文件夹/source/_post/</em></strong>目录下新建md文件，使用Markdown标记语言写一些内容。</p>
+<p>Markdown标记语言使用比较简单，可以在<a href="http://wowubuntu.com/markdown/#img" target="_blank" rel="noopener">这里</a>学习简单的使用，或者<a href="http://markdown.cn/" target="_blank" rel="noopener">markdown.cn</a>学习使用。</p>
+<p>在写完文章之后就需要将写的文章部署到GitHub上去了。<br>来看下这个过程。</p>
+<p>由于要发布博客到GitHub实际上使用了GitHub Pages功能，因此可以到<a href="https://pages.github.com/" target="_blank" rel="noopener">这里</a>来查看相关的介绍。其中详细介绍了Pages概念，及如何建立自己的站点。</p>
+<p>一下先简绍下我自己的建立过程。</p>
+<blockquote>
+<p>建立GitHub仓库</p>
+</blockquote>
+<p>建立仓库，用以部署Hexo生成的博客。如果还没有GitHub账号就需要注册了。<br>有GitHub账号的小伙伴可以到<a href="https://github.com/" target="_blank" rel="noopener">Github</a>网站<a href="https://github.com/new" target="_blank" rel="noopener">创建一个新仓库</a>，如下显示。<br><img src="/images/how-to-setup-personal-blog-width-hexo-and-github/create_a_new_repository_on_github.png" alt="如图显示"></p>
+<p>其中仓库名有所讲究，它必须是<em>username.github.io</em> ，这里的username有两种情况，其一是你的用户名即注册时使用的名称，其二是组织名称（此处组织名称并未尝试）。如下图可以看下位置。<br><img src="/images/how-to-setup-personal-blog-width-hexo-and-github/new_repository_name_rule.png" alt="新仓库名"></p>
+<blockquote>
+<p>Hexo发布前需要配置_config.xml</p>
+</blockquote>
+<p>在使用Hexo发布博客之前，当然还需要让Hexo知道要发布到什么地方。</p>
+<p>在站点根目录下（myGitPages），找到并编辑_config.xml文件，如下部分：</p>
+<pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repository: git@github.com:techinsight/techinsight.github.io.git
+  branch: master
+  message:
+</code></pre><p>将新建的仓库信息及分支信息配置到_config.xml，让Hexo知道部署到GitHub的那个仓库。</p>
+<blockquote>
+<p>发布</p>
+</blockquote>
+<p>最后，就需要发布了。可以在站点根目录下（myGitPages）下运行一下命令：</p>
+<pre><code>$ hexo clean #清除原有生成的相关文件
+$ hexo generate #重新生成静态页面
+$ hexo deploy #进行部署
+</code></pre><p>在运行部署命令时，会弹出ssh密码输入确认框，输入<em>username.github.io</em>仓库密码，点击OK即可进行顺利发布。</p>
+<p>然后就去访问你的个人站点吧。你会看到发布的文章。</p>
+<h3 id="PS-不同的主题可能在主题中还需要进行一定的配置，这个看个人喜好使用哪个主题，我使用的是yilia主题，其在初次查看所有文章时会发现展示的不是文章列表。那么按照主题作者提示进行配置后，重新部署就可以了。"><a href="#PS-不同的主题可能在主题中还需要进行一定的配置，这个看个人喜好使用哪个主题，我使用的是yilia主题，其在初次查看所有文章时会发现展示的不是文章列表。那么按照主题作者提示进行配置后，重新部署就可以了。" class="headerlink" title="PS: 不同的主题可能在主题中还需要进行一定的配置，这个看个人喜好使用哪个主题，我使用的是yilia主题，其在初次查看所有文章时会发现展示的不是文章列表。那么按照主题作者提示进行配置后，重新部署就可以了。"></a><font color="red">PS: 不同的主题可能在主题中还需要进行一定的配置，这个看个人喜好使用哪个主题，我使用的是yilia主题，其在初次查看所有文章时会发现展示的不是文章列表。那么按照主题作者提示进行配置后，重新部署就可以了。</font></h3><ol>
+<li>nodejs版本大于6.2（最新的nodejs肯定符合）。</li>
+<li>在博客根目录下（不是yilia根目录下）执行如下命令： npm i hexo-generator-json-content –save</li>
+<li>在根目录_config.xml文件内配置：<br> &nbsp;&nbsp;&nbsp;&nbsp;# 查看yilia主题下所有文章配置<br> &nbsp;&nbsp;&nbsp;&nbsp;jsonContent:<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    meta: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    pages: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    posts:<br> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;     title: true<br> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;     date: true<br> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;     path: true<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      text: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      raw: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      content: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      slug: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      updated: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      comments: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      link: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      permalink: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     excerpt: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      categories: false<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      tags: true</li>
+</ol>
+
+      <script>
+        window.disqusProxy={
+          shortname: 'techinsight',
+          username: 'niguanhua',
+          server: 'disqus-proxy.ycwalker.com',
+          port: 443,
+          adminAvatar: '/avatars/admin-avatar.jpg',
+          identifier: '2017/06/01/how-to-setup-personal-blog-width-hexo-and-github/',
+        };
+        window.disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = window.disqusProxy.identifier;
+        };
+      </script></div><iframe src="/donate/?AliPayQR=/images/reward/alipay.png&amp;WeChatQR=/images/reward/weixinpay.png&amp;GitHub=null&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;" frameborder="0" scrolling="no"></iframe><div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>散人</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="/2017/06/01/how-to-setup-personal-blog-width-hexo-and-github/">https://techinsight.github.io/2017/06/01/how-to-setup-personal-blog-width-hexo-and-github/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</li></ul></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://techinsight.github.io/2017/06/01/how-to-setup-personal-blog-width-hexo-and-github/" data-id="cjilun4sd001h4sxcb1g7yhbb" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADOklEQVR42u3awW7bQAwE0Pz/T7dATwVaKTNcB7Dop5Ph2Cu99YHZIb++4uvXn+vv1/++c//5qzWvVr667ld48YWNjY39EHZym3t2Qk0eMb9v/pnL+2JjY2OvY+dFK2cnn7x/hna1xIKNjY39yez8W98Uj/JbyaZgY2NjY58ESclf261pV8PGxsbGTkrILMpJwv02SGqPTNjY2Ni72bNG73u+/vH+NjY2NvabsX+VVx7ozyZkTo5AhQIbGxt7EXsW/c8esW3rzloXRWsBGxsbewX7JPTPh2naSKjdgmT7sLGxsbey84/Ogp6Wka+QtxaK3x8bGxv7geyktOTl577snSDb5ymyNGxsbOyHs/Pl8v/hZ4WnXS0f+omiJWxsbOzV7JOoaDbEOTu61D8kNjY29gp2/hDn4zVtyXlV4IWNjY39yez2aNEePE62vi2B32Rp2NjY2I9lzxq37YhP+6BtacyPPcPeNTY2NvYbs+8PAMlwzHkDOP/ubBjosm5jY2NjL2K3Ec/9orNYKm8w5+tEk0rY2NjY69ht0crjpDxmakeF6pEdbGxs7HXsdszxpKgkxeZVA0CXm4WNjY29iJ3HQK9lt6OTJ8eYb8okNjY29sPZbWHIt6AdADqPkPK7Y2NjY+9jz+Kh9hHva0ceHuXN4Ki/jY2Njf1wdrJcW1pmIzvnreU8osLGxsbex06SlldtU9tpzTc0L6LY2NjYW9n1h+J/+pPidB4/JZuCjY2NvY89G75sjyizWKotcsn2XXZFsLGxsVewkwLWbtMsyj+JpbCxsbE/mT2LY87HelpkXiAvNwUbGxt7ETuP+08Y7ZjOT7SZ//M+NjY29gp2Oy55csv2EJKXonZNbGxs7H3stjzk+GRrctKwa31fsbGxsbFXsE9C/xb22pZwctQ5GtnBxsbGfnv2rADk0Xw7djMLpM5DMWxsbOyns/OHbodj2iGett07awBjY2Njb2XPxnHybWrbtznvRxI1bGxs7KXsfEwnL1d5s7k9/HyjwMbGxv5gdtKOnRWt+605P5x8tb8SNjY29qPYs2PALNzJtyBvMAwLGDY2NvYK9qzR277TlrFZycyjLmxsbOwV7N/B+nfLqy1i7AAAAABJRU5ErkJggg==">分享</a><div class="tags"><a href="/tags/随笔/">随笔</a><a href="/tags/微博/">微博</a></div><div class="post-nav"><a class="pre" href="/2017/06/08/get-running-processes-above-android-lollipop/">Android获取运行进程解决方案分析</a><a class="next" href="/2017/05/28/android-multiprocess-oncreate-executed-serval-times/">Android多进程app中Application回调onCreate()方法被执行多次分析及解决</a></div><div id="container"></div><link rel="stylesheet" href="/css/default.css?v=0.0.0"><script src="/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
+  owner: 'techinsight',
+  repo: 'techinsight-comment',
+  oauth: {
+    client_id: 'cb806619448a89f91abd',
+    client_secret: '4c0131ef12724edee6e70149fc4580356796acb9',
+  },
+})
+gitment.render('container')
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://techinsight.github.io"/></form></div><div class="widget"><form class="search-form" action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank"><input type="search" name="word" maxlength="20" placeholder="Search"/><input type="hidden" name="si" value="https://techinsight.github.io"/><input name="tn" type="hidden" value="bds"/><input name="cl" type="hidden" value="3"/><input name="ct" type="hidden" value="2097152"/><input name="s" type="hidden" value="on"/></form></div><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Flutter/">Flutter</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Kotlin/">Kotlin</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/资源/" style="font-size: 15px;">资源</a> <a href="/tags/Trap/" style="font-size: 15px;">Trap</a> <a href="/tags/Fragment/" style="font-size: 15px;">Fragment</a> <a href="/tags/ViewPager/" style="font-size: 15px;">ViewPager</a> <a href="/tags/Widget/" style="font-size: 15px;">Widget</a> <a href="/tags/FloatingActionButton/" style="font-size: 15px;">FloatingActionButton</a> <a href="/tags/Application/" style="font-size: 15px;">Application</a> <a href="/tags/多进程/" style="font-size: 15px;">多进程</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a> <a href="/tags/ActionBar/" style="font-size: 15px;">ActionBar</a> <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/sdk/" style="font-size: 15px;">sdk</a> <a href="/tags/微博/" style="font-size: 15px;">微博</a> <a href="/tags/Kotlin/" style="font-size: 15px;">Kotlin</a> <a href="/tags/设计模式/" style="font-size: 15px;">设计模式</a> <a href="/tags/Flutter/" style="font-size: 15px;">Flutter</a> <a href="/tags/Dart/" style="font-size: 15px;">Dart</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/kotlin/kotlin-in-action-object/">Kotlin——object（单例，伴生对象，内部类）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/designpattern/design-patterns-singleton/">设计模式之单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/14/kotlin/kotlin-in-action-basics/">Kotlin基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/11/flutter/flutter-building-layouts/">Flutter(四) 搭建布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/11/flutter/flutter-get-started-learn-more/">Flutter(三) 入门：学习更多</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/flutter/flutter-create-your-first-app/">Flutter(二)  创建第一个Flutter APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/15/flutter/flutter-install/">Flutter(一) 环境准备</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/12/flutter/flutter-introduction/">Flutter简述</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/how-to-download-android-sdk-offline/">离线下载Android SDK（100%成功）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/11/Trap-Of-Customizing-ActionBar-in-Fragment/">Trap3——Fragment中定制ActionBar（同一个Activity内多个Fragment）</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://github.com/techinsight" title="GitHub" target="_blank">GitHub</a><ul></ul><a href="https://stackoverflow.com/users/1572994/nicholas-ni" title="StackOverflow" target="_blank">StackOverflow</a><ul></ul><a href="http://www.zhihu.com/people/sz_chrome" title="知乎" target="_blank">知乎</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">散人技术博客.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
