@@ -1603,9 +1603,6 @@ pre .javascript .function {
   border-bottom: 1px dashed #999;
   cursor: help;
 }
-.post-symbolscount {
-  display: inline-block;
-}
 .post-meta-divider {
   margin: 0 0.5em;
 }
@@ -2047,7 +2044,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f5f;
+  background: #21f660;
 }
 .links-of-blogroll {
   font-size: 13px;
