@@ -171,15 +171,18 @@
 <meta property="og:site_name" content="散人技术博客">
 <meta property="og:description" content="你将学习:&amp;nbsp;&amp;nbsp;  - Flutter布局机制如何工作&amp;nbsp;&amp;nbsp;  - 如何竖直或横向展示组件&amp;nbsp;&amp;nbsp;  - 如何搭建Flutter布局">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://techinsight.github.io/images/flutter/flutter-building-layouts/flutter-building-layout-lakes.jpg">
-<meta property="og:image" content="https://techinsight.github.io/images/flutter-asset-images/flutter-building-layouts/flutter-lakes-diagram.png">
-<meta property="og:image" content="https://techinsight.github.io/images/flutter/flutter-building-layouts/flutter-title-section-diagram.png">
-<meta property="og:image" content="https://techinsight.github.io/images/flutter/flutter-building-layouts/flutter-button-section-diagram.png">
-<meta property="og:updated_time" content="2018-04-12T02:24:42.966Z">
+<meta property="og:image" content="https://flutter.io/tutorials/layout/images/lakes.jpg">
+<meta property="og:image" content="https://flutter.io/tutorials/layout/images/lakes-diagram.png">
+<meta property="og:image" content="https://flutter.io/tutorials/layout/images/title-section-diagram.png">
+<meta property="og:image" content="https://flutter.io/tutorials/layout/images/button-section-diagram.png">
+<meta property="og:image" content="https://flutter.io/tutorials/layout/images/lakes-icons.png">
+<meta property="og:image" content="https://flutter.io/tutorials/layout/images/lakes-icons-visual.png">
+<meta property="og:image" content="https://flutter.io/tutorials/layout/images/sample-flutter-layout.png">
+<meta property="og:updated_time" content="2018-06-25T15:07:58.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flutter(四) 搭建布局">
 <meta name="twitter:description" content="你将学习:&amp;nbsp;&amp;nbsp;  - Flutter布局机制如何工作&amp;nbsp;&amp;nbsp;  - 如何竖直或横向展示组件&amp;nbsp;&amp;nbsp;  - 如何搭建Flutter布局">
-<meta name="twitter:image" content="https://techinsight.github.io/images/flutter/flutter-building-layouts/flutter-building-layout-lakes.jpg">
+<meta name="twitter:image" content="https://flutter.io/tutorials/layout/images/lakes.jpg">
 
 
 
@@ -320,7 +323,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">16</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">17</span></a>
   </li>
         
         
@@ -475,7 +478,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-04-12 02:24:42" itemprop="dateModified" datetime="2018-04-12T02:24:42Z">2018-04-12</time>
+                <time title="修改时间：2018-06-25 15:07:58" itemprop="dateModified" datetime="2018-06-25T15:07:58Z">2018-06-25</time>
               
             
           </span>
@@ -530,7 +533,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">9.4k</span>
+                <span title="本文字数">11k</span>
               
 
               
@@ -544,7 +547,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">9 分钟</span>
+                <span title="阅读时长">10 分钟</span>
               
             </div>
           
@@ -567,7 +570,7 @@
         <table><tr><td bgcolor="#DCDCDC"><br>你将学习:<br><p>&nbsp;&nbsp;  - Flutter布局机制如何工作</p><br><p>&nbsp;&nbsp;  - 如何竖直或横向展示组件</p><br><p>&nbsp;&nbsp;  - 如何搭建Flutter布局</p><br></td></tr></table>
 
 <a id="more"></a>
-<p>这篇文章说明Flutter搭建布局。我们将学习搭建布局，做种效果如下截图：<br><img src="/images/flutter/flutter-building-layouts/flutter-building-layout-lakes.jpg" alt=""></p>
+<p>这篇文章说明Flutter搭建布局。我们将学习搭建布局，做种效果如下截图：<br><img src="https://flutter.io/tutorials/layout/images/lakes.jpg" alt=""></p>
 <p>这篇引导退一步来解释Flutter进行布局的方式，以及展示如何在屏幕上放置一个单独的组件。在学习完如何横向或竖向展示组件之后，我们会再看到些常用的布局组件。</p>
 <ul>
 <li><a href="#1">搭建布局</a><ul>
@@ -580,7 +583,7 @@
 <li><a href="#8">Step 6：整合</a></li>
 </ul>
 </li>
-<li><a href="#9">Flutter布局方法</a></li>
+<li><a href="#9">Flutter布局原理</a></li>
 <li><a href="#10">布局一个组件</a></li>
 <li><a href="#11">横向及竖向布局多个组件</a><ul>
 <li><a href="#12">组件对齐方式</a></li>
@@ -617,9 +620,9 @@
 <li>UI是否需要tabs？</li>
 <li>注意需要对齐，内边据或者边框的区域。</li>
 </ul>
-<p>首先，识别更大的元素。在这里，四个元素在同一列中：一个图片，两行和一个文本块。<br><img src="/images/flutter-asset-images/flutter-building-layouts/flutter-lakes-diagram.png" alt=""></p>
-<p>接下来，图解每行。第一行，我们称其Title Section，有3个子组件：一列文本区域，一个星型图标，及一个数字。第一列子组件包含2行文本。且第一列占有较大空间，因此需要将两行文本放在Expanded组件中。<br><img src="/images/flutter/flutter-building-layouts/flutter-title-section-diagram.png" alt=""></p>
-<p>第二行，我们称其Button section，同样有3个子组件：由三列组成，且每列均由一个图标和文本组成。<br><img src="/images/flutter/flutter-building-layouts/flutter-button-section-diagram.png" alt=""></p>
+<p>首先，识别更大的元素。在这里，四个元素在同一列中：一个图片，两行和一个文本块。<br><img src="https://flutter.io/tutorials/layout/images/lakes-diagram.png" alt=""></p>
+<p>接下来，图解每行。第一行，我们称其Title Section，有3个子组件：一列文本区域，一个星型图标，及一个数字。第一列子组件包含2行文本。且第一列占有较大空间，因此需要将两行文本放在Expanded组件中。<br><img src="https://flutter.io/tutorials/layout/images/title-section-diagram.png" alt=""></p>
+<p>第二行，我们称其Button section，同样有3个子组件：由三列组成，且每列均由一个图标和文本组成。<br><img src="https://flutter.io/tutorials/layout/images/button-section-diagram.png" alt=""></p>
 <p>在图解了布局之后，再从细节到整体来实现这个布局就容易了。为了让嵌套的代码看起来不那么混乱，我们将一些实现置于变量和函数中。</p>
 <h4 id="Step-2：实现Title-Section"><a href="#Step-2：实现Title-Section" class="headerlink" title="Step 2：实现Title Section"></a><span id="4">Step 2：实现Title Section</span></h4><p>首先需要在Title Section左侧创建一列。在Expanded组件中的Column组件使得当前列（column并非组件）可以覆盖真个Title section. 将Column组件的 <em>crossAxisAlignment</em> 属性设置为<em>CrossAxisAlignment.start</em> ，这样Column组件位于当前行的起始位置。</p>
 <p>将第一行的文本组件放置于Container组件中以便添加Container内边据。第二个文本组件文字是灰色。</p>
@@ -642,6 +645,43 @@
 <p>BoxFit.cover 告诉Framework图片需要尽可能的小但是需要充满显示部分。</p>
 <h4 id="Step-6：整合"><a href="#Step-6：整合" class="headerlink" title="Step 6：整合"></a><span id="8">Step 6：整合</span></h4><p>最后一步，将删除个步骤中定义的组件最终整合在一起。所有组件放置于ListView中。</p>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() =&gt; runApp(<span class="keyword">new</span> MyApp());</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApp</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>&#123;</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    Widget titleSection = <span class="keyword">new</span> Container(</span><br><span class="line">      padding: <span class="keyword">const</span> EdgeInsets.all(<span class="number">32.0</span>),</span><br><span class="line">      child: <span class="keyword">new</span> Row(</span><br><span class="line">        children: &lt;Widget&gt;[</span><br><span class="line">          <span class="keyword">new</span> Expanded(</span><br><span class="line">              child: <span class="keyword">new</span> Column(</span><br><span class="line">            crossAxisAlignment: CrossAxisAlignment.start,</span><br><span class="line">            children: &lt;Widget&gt;[</span><br><span class="line">              <span class="keyword">new</span> Container(</span><br><span class="line">                padding: <span class="keyword">new</span> EdgeInsets.only(bottom: <span class="number">8.0</span>),</span><br><span class="line">                child: <span class="keyword">new</span> Text(</span><br><span class="line">                  <span class="string">'Oeschinec lake Compground'</span>,</span><br><span class="line">                  style: <span class="keyword">new</span> TextStyle(fontWeight: FontWeight.bold),</span><br><span class="line">                ),</span><br><span class="line">              ),</span><br><span class="line">              <span class="keyword">new</span> Text(</span><br><span class="line">                <span class="string">'Kandersteg, Switzerland'</span>,</span><br><span class="line">                style: <span class="keyword">new</span> TextStyle(color: Colors.grey[<span class="number">500</span>]),</span><br><span class="line">              ),</span><br><span class="line">            ],</span><br><span class="line">          )),</span><br><span class="line">          <span class="keyword">new</span> Icon(</span><br><span class="line">            Icons.star,</span><br><span class="line">            color: Colors.red[<span class="number">500</span>],</span><br><span class="line">          ),</span><br><span class="line">          <span class="keyword">new</span> Text(<span class="string">'41'</span>)</span><br><span class="line">        ],</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="comment">// button section</span></span><br><span class="line">    Column buildButtonColumn(IconData icon, <span class="built_in">String</span> label) &#123;</span><br><span class="line">      Color color = Theme.of(context).primaryColor;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> Column(</span><br><span class="line">        mainAxisAlignment: MainAxisAlignment.center,</span><br><span class="line">        mainAxisSize: MainAxisSize.min,</span><br><span class="line">        children: &lt;Widget&gt;[</span><br><span class="line">          <span class="keyword">new</span> Icon(icon, color: color),</span><br><span class="line">          <span class="keyword">new</span> Container(</span><br><span class="line">            margin: <span class="keyword">const</span> EdgeInsets.only(top: <span class="number">8.0</span>),</span><br><span class="line">            child: <span class="keyword">new</span> Text(</span><br><span class="line">              label,</span><br><span class="line">              style: <span class="keyword">new</span> TextStyle(</span><br><span class="line">                color: color,</span><br><span class="line">                fontSize: <span class="number">12.0</span>,</span><br><span class="line">                fontWeight: FontWeight.w400,</span><br><span class="line">              ),</span><br><span class="line">            ),</span><br><span class="line">          ),</span><br><span class="line">        ],</span><br><span class="line">      );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Widget buttonSection = <span class="keyword">new</span> Container(</span><br><span class="line">      child: <span class="keyword">new</span> Row(</span><br><span class="line">        mainAxisAlignment: MainAxisAlignment.spaceEvenly,</span><br><span class="line">        children: &lt;Widget&gt;[</span><br><span class="line">          buildButtonColumn(Icons.call, <span class="string">'CALL'</span>),</span><br><span class="line">          buildButtonColumn(Icons.near_me, <span class="string">'ROUTE'</span>),</span><br><span class="line">          buildButtonColumn(Icons.share, <span class="string">'SHARE'</span>),</span><br><span class="line">        ],</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    Widget textSection = <span class="keyword">new</span> Container(</span><br><span class="line">      padding: <span class="keyword">const</span> EdgeInsets.all(<span class="number">32.0</span>),</span><br><span class="line">      child: <span class="keyword">new</span> Text(</span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situated 1,578 meters above sea level, it is one of the larger Alpine Lakes. A gondola ride from Kandersteg, followed by a half-hour walk through pastures and pine forest, leads you to the lake, which warms to 20 degrees Celsius in the summer. Activities enjoyed here include rowing, and riding the summer toboggan run.</span></span><br><span class="line"><span class="string">        '''</span>,</span><br><span class="line">        softWrap: <span class="keyword">true</span>,</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> MaterialApp(</span><br><span class="line">      title: <span class="string">'Flutter Demo'</span>,</span><br><span class="line">      theme: <span class="keyword">new</span> ThemeData(primarySwatch: Colors.blue),</span><br><span class="line">      home: <span class="keyword">new</span> Scaffold(</span><br><span class="line">        appBar: <span class="keyword">new</span> AppBar(</span><br><span class="line">          title: <span class="keyword">new</span> Text(<span class="string">'Top Lakes'</span>),</span><br><span class="line">        ),</span><br><span class="line">        body: <span class="keyword">new</span> ListView(</span><br><span class="line">          children: &lt;Widget&gt;[</span><br><span class="line">            <span class="keyword">new</span> Image.asset(</span><br><span class="line">              <span class="string">'images/lake.jpg'</span>,</span><br><span class="line">              height: <span class="number">240.0</span>,</span><br><span class="line">              fit: BoxFit.cover,</span><br><span class="line">            ),</span><br><span class="line">            titleSection,</span><br><span class="line">            buttonSection,</span><br><span class="line">            textSection,</span><br><span class="line">          ],</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Flutter布局原理"><a href="#Flutter布局原理" class="headerlink" title="Flutter布局原理"></a><span id="9">Flutter布局原理</span></h3><p><strong>重点</strong></p>
+<ul>
+<li>Flutter中组件（Widget）都是类（class），即有这些类来组成UI</li>
+<li>布局（layout）和UI均称为组件</li>
+<li>复杂UI由简单的组件组成</li>
+</ul>
+<p>Flutter中核心的概念就是组建（Widget）——包括layout和widget。例如：图片，图标，文本等这些可见的元素是组件，同样不可见的元素如行（Row），列（Column），网格（Grid）也是组件。</p>
+<p>通过组织这些简单组件来完成复杂的布局。如下图中三列，没列均有一个图标和一个文本组成。<br><img src="https://flutter.io/tutorials/layout/images/lakes-icons.png" alt="">  <img src="https://flutter.io/tutorials/layout/images/lakes-icons-visual.png" alt=""></p>
+<p>第二张图显示了可见组件。</p>
+<p>看看图解：<br><img src="https://flutter.io/tutorials/layout/images/sample-flutter-layout.png" alt=""></p>
+<p>图中多数是与预期的一样，那么粉红色的Container组件是干嘛的？Container组件可以用来定制组件样式，添加内边距，外边距，边框和背景色等。</p>
+<p>这个示例中所有的文本组件均放置于Container组件中。而整个行（Row）也放置于一个Container组件中并添加了边距。</p>
+<h3 id="布局一个组件"><a href="#布局一个组件" class="headerlink" title="布局一个组件"></a><span id="10">布局一个组件</span></h3><p><strong>重点</strong></p>
+<ul>
+<li>app也是组件</li>
+<li>创建组件并添加到布局</li>
+<li>要在设备上展示组件，必须将组件添加到app组件</li>
+<li>Material组件库的<a href="https://docs.flutter.io/flutter/material/Scaffold-class.html" target="_blank" rel="noopener">Scaffold</a>使用，它提供了默认的banner，背景色，并且提供了添加drawers，snack bars和底部sheets的APIs</li>
+<li>如果愿意，可以只使用标准组件库中的组件完成app</li>
+</ul>
+<p>这部分内容就说说如何创建一个组件并且显示。<br>只需要几步就可以在屏幕上显示一个文本，图标或者图片。</p>
+<ol>
+<li>选择一个布局来存储这个对象。<br> 基于布局样式，如边距，对齐方式等限制条件，从<a href="https://flutter.io/widgets/" target="_blank" rel="noopener">layout widgets</a>中选择一个布局组件。</li>
+<li>创建一个组件来持有这个对象。</li>
+</ol>
+<p>看看创建实例代码<br>   创建文本<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Text(<span class="string">'Hello World'</span>, style: <span class="keyword">new</span> TextStyle(ftontSize: <span class="number">32.0</span>))</span><br></pre></td></tr></table></figure></p>
+<p>   创建图片<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Image.asset(<span class="string">'images/myimage.jpg'</span>, fit: BoxFit.cover)</span><br></pre></td></tr></table></figure></p>
+<p>   创建图标<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Icon(Icons.star, color: Colors.red[<span class="number">500</span>])</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li><p>在布局组件中添加这个可见组件<br> 布局组件分两种：单个子组件的布局组件有一个<em>child</em>属性（如Center，Container）；多个子组件的布局组件拥有<em>children</em>属性（如Row，Column等）。</p>
+<p>下边这段代码在Center中添加Text</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Center(child: <span class="keyword">new</span> Text(<span class="string">'Hello World'</span>, style: <span class="keyword">new</span> TextStyle(ftontSize: <span class="number">32.0</span>)))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在页面上展示组件<br> Flutter app本身就是一个组件，且多数组件有一个<a href="https://docs.flutter.io/flutter/widgets/StatelessWidget/build.html" target="_blank" rel="noopener">build()</a>方法。在build方法中声明组件即是在设备上显示。<br>对 Material风格的app来说，在<em>body</em>属性值上直接设置Center组件值即可。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">_MyHomePageState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">MyHomePage</span>&gt; </span>&#123;</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Scaffold(</span><br><span class="line">      appBar: <span class="keyword">new</span> AppBar(</span><br><span class="line">        title: <span class="keyword">new</span> Text(widget.title),</span><br><span class="line">      ),</span><br><span class="line">      body: <span class="keyword">new</span> Center(</span><br><span class="line">        child: <span class="keyword">new</span> Text(<span class="string">'Hello World'</span>, style: <span class="keyword">new</span> TextStyle(fontSize: <span class="number">32.0</span>)),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       <script>
         window.disqusProxy={
@@ -748,8 +788,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/14/kotlin/kotlin-in-action-basics/" rel="prev" title="Kotlin基础">
-                Kotlin基础 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/20/designpattern/design-patterns-singleton/" rel="prev" title="设计模式之单例模式">
+                设计模式之单例模式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -837,7 +877,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1006,7 +1046,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建布局"><span class="nav-number">1.</span> <span class="nav-text">搭建布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-0：创建"><span class="nav-number">1.1.</span> <span class="nav-text">Step 0：创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-1：图解布局"><span class="nav-number">1.2.</span> <span class="nav-text">Step 1：图解布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-2：实现Title-Section"><span class="nav-number">1.3.</span> <span class="nav-text">Step 2：实现Title Section</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-3：实现按钮行（Button-Section）"><span class="nav-number">1.4.</span> <span class="nav-text">Step 3：实现按钮行（Button Section）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-4：实现多行文本（Text-Section）"><span class="nav-number">1.5.</span> <span class="nav-text">Step 4：实现多行文本（Text Section）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-5：实现头部图片（Image-Section）"><span class="nav-number">1.6.</span> <span class="nav-text">Step 5：实现头部图片（Image Section）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-6：整合"><span class="nav-number">1.7.</span> <span class="nav-text">Step 6：整合</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建布局"><span class="nav-number">1.</span> <span class="nav-text">搭建布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-0：创建"><span class="nav-number">1.1.</span> <span class="nav-text">Step 0：创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-1：图解布局"><span class="nav-number">1.2.</span> <span class="nav-text">Step 1：图解布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-2：实现Title-Section"><span class="nav-number">1.3.</span> <span class="nav-text">Step 2：实现Title Section</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-3：实现按钮行（Button-Section）"><span class="nav-number">1.4.</span> <span class="nav-text">Step 3：实现按钮行（Button Section）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-4：实现多行文本（Text-Section）"><span class="nav-number">1.5.</span> <span class="nav-text">Step 4：实现多行文本（Text Section）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-5：实现头部图片（Image-Section）"><span class="nav-number">1.6.</span> <span class="nav-text">Step 5：实现头部图片（Image Section）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-6：整合"><span class="nav-number">1.7.</span> <span class="nav-text">Step 6：整合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flutter布局原理"><span class="nav-number">2.</span> <span class="nav-text">Flutter布局原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局一个组件"><span class="nav-number">3.</span> <span class="nav-text">布局一个组件</span></a></li></ol></div>
             
 
           </div>
@@ -1047,7 +1087,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">65k</span>
+    <span title="站点总字数">69k</span>
   
 
   
@@ -1058,7 +1098,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">59 分钟</span>
+    <span title="站点阅读时长">1:02</span>
   
 </div>
 
