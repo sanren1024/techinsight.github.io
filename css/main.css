@@ -2047,7 +2047,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff46c2;
+  background: #d53c14;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2916,7 +2916,7 @@ ul.breadcrumb li+li:last-child {
 .header {
   position: relative;
   margin: 0 auto;
-  width: 90% /*$main-desktop*/;
+  width: 85% /*$main-desktop*/;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .header {
@@ -2976,7 +2976,7 @@ ul.breadcrumb li+li:last-child {
   }
 }
 .container .main-inner {
-  width: 90% /*$main-desktop*/;
+  width: 85% /*$main-desktop*/;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .container .main-inner {

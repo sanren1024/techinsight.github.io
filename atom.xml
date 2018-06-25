@@ -293,9 +293,9 @@
     
       <category term="Trap" scheme="https://techinsight.github.io/tags/Trap/"/>
     
-      <category term="Fragment" scheme="https://techinsight.github.io/tags/Fragment/"/>
-    
       <category term="ActionBar" scheme="https://techinsight.github.io/tags/ActionBar/"/>
+    
+      <category term="Fragment" scheme="https://techinsight.github.io/tags/Fragment/"/>
     
   </entry>
   
@@ -320,9 +320,9 @@
     
       <category term="Trap" scheme="https://techinsight.github.io/tags/Trap/"/>
     
-      <category term="ViewPager" scheme="https://techinsight.github.io/tags/ViewPager/"/>
-    
       <category term="Fragment" scheme="https://techinsight.github.io/tags/Fragment/"/>
+    
+      <category term="ViewPager" scheme="https://techinsight.github.io/tags/ViewPager/"/>
     
   </entry>
   
