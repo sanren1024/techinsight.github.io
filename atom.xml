@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://techinsight.github.io/"/>
-  <updated>2018-06-25T15:09:27.669Z</updated>
+  <updated>2018-06-27T05:00:46.248Z</updated>
   <id>https://techinsight.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kotlin基础——函数定义及调用</title>
+    <link href="https://techinsight.github.io/2018/06/27/kotlin/kotlin-in-action-method/"/>
+    <id>https://techinsight.github.io/2018/06/27/kotlin/kotlin-in-action-method/</id>
+    <published>2018-06-27T05:00:34.866Z</published>
+    <updated>2018-06-27T05:00:46.248Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>函数是一门语言中最基本也是最重要的环节之一。这里就来说说Kotlin的函数部分的一些内容。</p><h4 id="顶层函数"><a href="#顶层函数" class="headerlink" title="顶层函数"></a>顶层函数</h4><p>我们知道的是Java中的方法定义离不开类，即所定义的方法必须在某个类中，即使一个类中只有一个单一的方法。</p><p>有时会遇到这样的情况，针对两个不同对象的处理方式相差无几，这样的方法定义不想依赖于具体的示例对象，这个时候一般的做法是将对应的方法定义到一个Util方法中。</p><p>Kotlin针对这种情况，则提供了顶层函数的定义，即无需将函数定义到某一个类中，直接定义在代码文件的顶层。</p><p>如下的示例代码：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> kt  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">sayHelloWorld</span><span class="params">()</span></span> &#123;  </span><br><span class="line">    println(<span class="string">"hello world!"</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>这就是一个最基本的顶层函数的定义。相应的，它被编译成Java就变成了</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> kt;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">TopMethodKt</span> </span>&#123;  </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">sayHelloWorld</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">      String var0 = <span class="string">"hello world!"</span>;  </span><br><span class="line">      System.out.println(var0);  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>可以到，Kotlin文件TopMethod被编译成了TopMethodKt类，相应的顶层函数sayHelloWorld方法变成了静态方法。</p><p>Kotlin中顶层函数调用非常简单</p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> kt.sayHelloWorld  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;  </span><br><span class="line">    sayHelloWorld()  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这里可以看到，顶层函数像类一样被直接导入，然后直接调用即可。<br>若从Java中来调用这个Kotlin函数则需要导入类。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> kt.TopMethodKt.sayHelloWorld;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </span><br><span class="line">        sayHelloWorld();  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>另外由于Kotlin中顶层函数在编译后默认被放置在 [文件名Kt] 样式的类中，在Kotlin中调用没有任何问题，由于不需要前缀类方式的调用。若在Java中需要调用这个类，通常需要这个方法在一个与之相关的功能类名中。</p><p>这样就可能遇到这种情况：Kotlin中定义相对比较随意，kt文件直接命名为TopMethod等，Java中需要根据具体业务功能来命名方法所在的类。</p><p>这种情况，可以通过修改文件类名方式解决。就需要通过标注<font color="red">@JvmName</font>进行解决，而且标注需要在文件第一行。</p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@file:JvmName</span>(<span class="string">"Greet"</span>)  </span><br><span class="line"><span class="keyword">package</span> kt</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">sayHelloWorld</span><span class="params">()</span></span> &#123;  </span><br><span class="line">    println(<span class="string">"hello world!"</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然后重新编译，就会发现原来的TopMethodKt.class会变成Greet.class。<br><img src="/images/kotlin-in-action-basics-method/kotlin-in-action-method-prejvmname.png" alt="原Kotlin文件编译后"> -&gt;<img src="/images/kotlin-in-action-basics-method/kotlion-in-action-method-jvmname.png" alt="添加@JvmName标注编译后"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;函数是一门语言中最基本也是最重要的环节之一。这里就来说说Kotlin的函数部分的一些内容。&lt;/p&gt;
+&lt;h4 id=&quot;顶层函数&quot;&gt;&lt;a hre
+      
+    
+    </summary>
+    
+      <category term="Kotlin" scheme="https://techinsight.github.io/categories/Kotlin/"/>
+    
+    
+      <category term="Kotlin" scheme="https://techinsight.github.io/tags/Kotlin/"/>
+    
+  </entry>
   
   <entry>
     <title>Kotlin基础</title>
@@ -37,32 +63,6 @@
       <category term="Kotlin" scheme="https://techinsight.github.io/tags/Kotlin/"/>
     
       <category term="Android" scheme="https://techinsight.github.io/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kotlin基础——函数定义及调用</title>
-    <link href="https://techinsight.github.io/2018/06/25/kotlin/kotlin-in-action-method/"/>
-    <id>https://techinsight.github.io/2018/06/25/kotlin/kotlin-in-action-method/</id>
-    <published>2018-06-25T15:08:47.718Z</published>
-    <updated>2018-06-25T15:08:47.974Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>函数是一门语言中最基本也是最重要的环节之一。这里就来说说Kotlin的函数部分的一些内容。</p><h4 id="顶层函数"><a href="#顶层函数" class="headerlink" title="顶层函数"></a>顶层函数</h4><p>我们知道的是Java中的方法定义离不开类，即所定义的方法必须在某个类中，即使一个类中只有一个单一的方法。</p><p>有时会遇到这样的情况，针对两个不同对象的处理方式相差无几，这样的方法定义不想依赖于具体的示例对象，这个时候一般的做法是将对应的方法定义到一个Util方法中。</p><p>Kotlin针对这种情况，则提供了提成函数的定义，即无需将函数定义到某一个类中，直接定义在代码文件的顶层。</p><p>如下的示例代码：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> kt  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">sayHelloWorld</span><span class="params">()</span></span> &#123;  </span><br><span class="line">    println(<span class="string">"hello world!"</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>这就是一个最基本的顶层函数的定义。相应的，它被编译成Java就编程了<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> kt;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">TopMethodKt</span> </span>&#123;  </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">sayHelloWorld</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">      String var0 = <span class="string">"hello world!"</span>;  </span><br><span class="line">      System.out.println(var0);  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>可以到，Kotlin文件TopMethod被编译成了TopMethodKt类，相应的顶层函数sayHelloWorld方法编程了静态方法。</p><p>Kotlin中顶层函数调用非常简单<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> kt.sayHelloWorld  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;  </span><br><span class="line">    sayHelloWorld()  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>这里可以看到，顶层函数像类一样被直接导入，然后直接调用即可。<br>若从Java中来调用这个Kotlin函数则需要导入类。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> kt.TopMethodKt.sayHelloWorld;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </span><br><span class="line">        sayHelloWorld();  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>另外由于Kotlin中顶层函数在编译后默认被放置在 [文件名Kt] 样式的类中，在Kotlin中调用没有任何问题，由于不需要前缀类方式的调用。若在Java中需要调用这个类，通常需要这个方法在一个与之相关的功能类名中。</p><p>这样就可能遇到这种情况：Kotlin中定义相对比较随意，kt文件直接命名为TopMethod等，Java中需要根据具体业务功能来命名方法所在的类。</p><p>这种情况，可以通过修改文件类名方式解决。就需要通过标注<font color="red">@JvmName</font>进行解决。而且标注需要在文件第一行。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@file:JvmName</span>(<span class="string">"Greet"</span>)  </span><br><span class="line"><span class="keyword">package</span> kt</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">sayHelloWorld</span><span class="params">()</span></span> &#123;  </span><br><span class="line">    println(<span class="string">"hello world!"</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>然后重新编译，就会发现原来的TopMethodKt.class会变成Greet.class。<br><img src="/images/kotlin-in-action-basics-method/kotlin-in-action-method-prejvmname.png" alt="原Kotlin文件编译后"> -&gt;<img src="/images/kotlin-in-action-basics-method/kotlion-in-action-method-jvmname.png" alt="添加@JvmName标注编译后"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;函数是一门语言中最基本也是最重要的环节之一。这里就来说说Kotlin的函数部分的一些内容。&lt;/p&gt;
-&lt;h4 id=&quot;顶层函数&quot;&gt;&lt;a hre
-      
-    
-    </summary>
-    
-      <category term="Kotlin" scheme="https://techinsight.github.io/categories/Kotlin/"/>
-    
-    
-      <category term="Kotlin" scheme="https://techinsight.github.io/tags/Kotlin/"/>
     
   </entry>
   
