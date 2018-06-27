@@ -163,18 +163,21 @@
 
 
 
-  <meta name="description" content="Kotlin是一门静态类型语言且支持类型推导，允许维护正确性与性能的同时保持源码简洁。Kotlin支持面向对象和函数式两种编码风格，通过头等函数使更高级别的抽象成为可能，通过支持不可变值简化了测试和多线程开发。">
-<meta name="keywords" content="Kotlin,Android">
+  <meta name="description" content="前言函数是一门语言中最基本也是最重要的环节之一。这里就来说说Kotlin的函数部分的一些内容。 顶层函数我们知道的是Java中的方法定义离不开类，即所定义的方法必须在某个类中，即使一个类中只有一个单一的方法。 有时会遇到这样的情况，针对两个不同对象的处理方式相差无几，这样的方法定义不想依赖于具体的示例对象，这个时候一般的做法是将对应的方法定义到一个Util方法中。 Kotlin针对这种情况，则提供">
+<meta name="keywords" content="Kotlin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kotlin基础">
-<meta property="og:url" content="https://techinsight.github.io/2018/06/25/kotlin/kotlin-in-action-basics/index.html">
+<meta property="og:title" content="Kotlin基础——函数定义及调用">
+<meta property="og:url" content="https://techinsight.github.io/2018/06/09/kotlin/kotlin-in-action-method/index.html">
 <meta property="og:site_name" content="散人技术博客">
-<meta property="og:description" content="Kotlin是一门静态类型语言且支持类型推导，允许维护正确性与性能的同时保持源码简洁。Kotlin支持面向对象和函数式两种编码风格，通过头等函数使更高级别的抽象成为可能，通过支持不可变值简化了测试和多线程开发。">
+<meta property="og:description" content="前言函数是一门语言中最基本也是最重要的环节之一。这里就来说说Kotlin的函数部分的一些内容。 顶层函数我们知道的是Java中的方法定义离不开类，即所定义的方法必须在某个类中，即使一个类中只有一个单一的方法。 有时会遇到这样的情况，针对两个不同对象的处理方式相差无几，这样的方法定义不想依赖于具体的示例对象，这个时候一般的做法是将对应的方法定义到一个Util方法中。 Kotlin针对这种情况，则提供">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-25T15:09:27.669Z">
+<meta property="og:image" content="https://techinsight.github.io/images/kotlin-in-action-basics-method/kotlin-in-action-method-prejvmname.png">
+<meta property="og:image" content="https://techinsight.github.io/images/kotlin-in-action-basics-method/kotlion-in-action-method-jvmname.png">
+<meta property="og:updated_time" content="2018-06-27T05:07:58.302Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kotlin基础">
-<meta name="twitter:description" content="Kotlin是一门静态类型语言且支持类型推导，允许维护正确性与性能的同时保持源码简洁。Kotlin支持面向对象和函数式两种编码风格，通过头等函数使更高级别的抽象成为可能，通过支持不可变值简化了测试和多线程开发。">
+<meta name="twitter:title" content="Kotlin基础——函数定义及调用">
+<meta name="twitter:description" content="前言函数是一门语言中最基本也是最重要的环节之一。这里就来说说Kotlin的函数部分的一些内容。 顶层函数我们知道的是Java中的方法定义离不开类，即所定义的方法必须在某个类中，即使一个类中只有一个单一的方法。 有时会遇到这样的情况，针对两个不同对象的处理方式相差无几，这样的方法定义不想依赖于具体的示例对象，这个时候一般的做法是将对应的方法定义到一个Util方法中。 Kotlin针对这种情况，则提供">
+<meta name="twitter:image" content="https://techinsight.github.io/images/kotlin-in-action-basics-method/kotlin-in-action-method-prejvmname.png">
 
 
 
@@ -183,7 +186,7 @@
 
 
 
-  <link rel="canonical" href="https://techinsight.github.io/2018/06/25/kotlin/kotlin-in-action-basics/"/>
+  <link rel="canonical" href="https://techinsight.github.io/2018/06/09/kotlin/kotlin-in-action-method/"/>
 
 
 
@@ -193,7 +196,7 @@
   };
 </script>
 
-  <title>Kotlin基础 | 散人技术博客</title>
+  <title>Kotlin基础——函数定义及调用 | 散人技术博客</title>
   
 
 
@@ -411,7 +414,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://techinsight.github.io/2018/06/25/kotlin/kotlin-in-action-basics/">
+    <link itemprop="mainEntityOfPage" href="https://techinsight.github.io/2018/06/09/kotlin/kotlin-in-action-method/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="散人">
@@ -428,7 +431,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Kotlin基础
+          <h2 class="post-title" itemprop="name headline">Kotlin基础——函数定义及调用
               
             
           </h2>
@@ -453,12 +456,24 @@
                 
               
 
-              <time title="创建时间：2018-06-25 15:09:21 / 修改时间：15:09:27" itemprop="dateCreated datePublished" datetime="2018-06-25T15:09:21Z">2018-06-25</time>
+              <time title="创建时间：2018-06-08 20:15:47" itemprop="dateCreated datePublished" datetime="2018-06-08T20:15:47Z">2018-06-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-27 05:07:58" itemprop="dateModified" datetime="2018-06-27T05:07:58Z">2018-06-27</time>
               
             
           </span>
@@ -490,8 +505,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/25/kotlin/kotlin-in-action-basics/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/06/25/kotlin/kotlin-in-action-basics/" itemprop="commentCount"></span>
+                <a href="/2018/06/09/kotlin/kotlin-in-action-method/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/06/09/kotlin/kotlin-in-action-method/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -499,7 +514,7 @@
 
           
           
-             <span id="/2018/06/25/kotlin/kotlin-in-action-basics/" class="leancloud_visitors" data-flag-title="Kotlin基础">
+             <span id="/2018/06/09/kotlin/kotlin-in-action-method/" class="leancloud_visitors" data-flag-title="Kotlin基础——函数定义及调用">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -524,7 +539,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.9k</span>
+                <span title="本文字数">1.9k</span>
               
 
               
@@ -538,7 +553,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">4 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -558,65 +573,24 @@
       
 
       
-        <p>Kotlin是一门静态类型语言且支持类型推导，允许维护正确性与性能的同时保持源码简洁。Kotlin支持面向对象和函数式两种编码风格，通过头等函数使更高级别的抽象成为可能，通过支持不可变值简化了测试和多线程开发。</p>
-<a id="more"></a>
-<p>Kotlin在服务器应用程序上也可以运行的很好，全面支持所有现存的Java框架。且Kotlin在Android上也可以工作，这得益于对Android API特殊的编译器支持以及丰富的库，为常见Android开发任务提供了Kotlin友好的函数。</p>
-<p>它是免费和开源的，全面支持主流的IDE和构建系统。</p>
-<table><tr><td bgcolor="#A9A9A9"><br>本文内容：<br><br>- 声明函数、变量、类、枚举以及属性<br><br>- Kotlin中的控制结构<br><br>- 智能转换<br><br>- 抛出和异常处理<br></td></tr></table>
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>函数是一门语言中最基本也是最重要的环节之一。这里就来说说Kotlin的函数部分的一些内容。</p>
+<h4 id="顶层函数"><a href="#顶层函数" class="headerlink" title="顶层函数"></a>顶层函数</h4><p>我们知道的是Java中的方法定义离不开类，即所定义的方法必须在某个类中，即使一个类中只有一个单一的方法。</p>
+<p>有时会遇到这样的情况，针对两个不同对象的处理方式相差无几，这样的方法定义不想依赖于具体的示例对象，这个时候一般的做法是将对应的方法定义到一个Util方法中。</p>
+<p>Kotlin针对这种情况，则提供了顶层函数的定义，即无需将函数定义到某一个类中，直接定义在代码文件的顶层。</p>
+<p>如下的示例代码：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> kt  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">sayHelloWorld</span><span class="params">()</span></span> &#123;  </span><br><span class="line">    println(<span class="string">"hello world!"</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这就是一个最基本的顶层函数的定义。相应的，它被编译成Java就变成了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> kt;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">TopMethodKt</span> </span>&#123;  </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">sayHelloWorld</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">      String var0 = <span class="string">"hello world!"</span>;  </span><br><span class="line">      System.out.println(var0);  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以到，Kotlin文件TopMethod被编译成了TopMethodKt类，相应的顶层函数sayHelloWorld方法变成了静态方法。</p>
+<p>Kotlin中顶层函数调用非常简单</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> kt.sayHelloWorld  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;  </span><br><span class="line">    sayHelloWorld()  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里可以看到，顶层函数像类一样被直接导入，然后直接调用即可。<br>若从Java中来调用这个Kotlin函数则需要导入类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> kt.TopMethodKt.sayHelloWorld;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </span><br><span class="line">        sayHelloWorld();  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外由于Kotlin中顶层函数在编译后默认被放置在 [文件名Kt] 样式的类中，在Kotlin中调用没有任何问题，由于不需要前缀类方式的调用。若在Java中需要调用这个类，通常需要这个方法在一个与之相关的功能类名中。</p>
+<p>这样就可能遇到这种情况：Kotlin中定义相对比较随意，kt文件直接命名为TopMethod等，Java中需要根据具体业务功能来命名方法所在的类。</p>
+<p>这种情况，可以通过修改文件类名方式解决。就需要通过标注<font color="red">@JvmName</font>进行解决，而且标注需要在文件第一行。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@file:JvmName</span>(<span class="string">"Greet"</span>)  </span><br><span class="line"><span class="keyword">package</span> kt</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">sayHelloWorld</span><span class="params">()</span></span> &#123;  </span><br><span class="line">    println(<span class="string">"hello world!"</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后重新编译，就会发现原来的TopMethodKt.class会变成Greet.class。<br><img src="/images/kotlin-in-action-basics-method/kotlin-in-action-method-prejvmname.png" alt="原Kotlin文件编译后"> -&gt;<img src="/images/kotlin-in-action-basics-method/kotlion-in-action-method-jvmname.png" alt="添加@JvmName标注编译后"></p>
 
-<h3 id="函数和变量"><a href="#函数和变量" class="headerlink" title="函数和变量"></a>函数和变量</h3><h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><p>首先看著名的hello world代码：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">    println(<span class="string">"Hello World!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里给出了最基本的函数声明。</p>
-<ul>
-<li>关键字fun用来声明一个函数。</li>
-<li>参数类型写在变量之后。</li>
-<li>Kotlin中每行代码结尾省略了分号。</li>
-</ul>
-<p>再看一段函数声明：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">compare</span><span class="params">(a: <span class="type">Int</span>, b: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">if</span> (a &gt; b) a <span class="keyword">else</span> b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在函数后边紧跟着函数返回类型，返回类型与函数声明之间用冒号分隔。</p>
-<p>这里可以看到，if是一个表达式，而不是语句。语句与表达式的区别在于，表达式有值，语句并没有自己的值。在Kotlin中，除了循环（for, while, do..while）之外，大多数控制结构都是表达式。</p>
-<p>提到函数，Kotlin中有一个表达式函数体的概念。 即函数体由单个表达式构成，可以用这个表达式作为完整的函数体，并去掉花括号和return语句。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">compare</span><span class="params">(a: <span class="type">Int</span>, b: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> = <span class="keyword">if</span> (a &gt; b) a <span class="keyword">else</span> b</span><br></pre></td></tr></table></figure></p>
-<p>如果函数体在花括号中，这个函数是代码块体函数。</p>
-<p>这里的compare函数还可以进一步简化，如下:<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">compare</span><span class="params">(a: <span class="type">Int</span>, b: <span class="type">Int</span>)</span></span> = <span class="keyword">if</span> (a &gt; b) a <span class="keyword">else</span> b</span><br></pre></td></tr></table></figure></p>
-<p>即省略函数返回类型。那么会有疑问，为什么函数可以不要返回值类型？？作为一门静态语言，Kotlin应该要求所有的表达式应该在编译期间就有类型？事实上，Kotlin的每个变量和表达式独有类型，每个函数也都有返回类型。而对表达式函数体来说，编译器会分析作为函数体的表达式，并把它的类型作为函数的返回类型，即使没有显示地显示出来。这种分析叫类型推导。</p>
-<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>了解Java的开发人员度知道，java在声明变量的时候会以类型开始。Kotlin中不需要这么麻烦，许多的变量声明的类型都可以省略。Kotlin中变量的声明是以关键字开始，变量名称最后加上类型（不加也可以）。</p>
-<p>例如：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> number = <span class="number">3</span></span><br><span class="line"><span class="keyword">val</span> literal = <span class="string">"Hello World!"</span></span><br></pre></td></tr></table></figure></p>
-<p>可以看到这里的变量声明也没有加上类型声明，为何？这个原理跟表达式函数体一样，编译器会分析表达式值得类型，并把它的类型作为变量的类型。</p>
-<font color="red" size="4">但是不是所有的情况都可以省略变量类型，最直接的情况就是在没有对变量进行初始化的情况下，这个时候就需要在声明中加上变量的类型。</font>
-
-<p>例如：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> number</span><br><span class="line">number = <span class="number">4</span></span><br></pre></td></tr></table></figure></p>
-<p>上边这样的声明方式，编译器会提示错误<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: This vairable must either have a<span class="built_in"> type </span>annotation <span class="keyword">or</span> be initialized.</span><br></pre></td></tr></table></figure></p>
-<p>这就说明了Kotlin中变量声明要么一开始就进行初始化而不加类型，要么不进行初始化但必须要加上变量类型。</p>
-<p>因为如果不能提供可以赋给这个变量的值得信息，编译器就无法推导出它的类型，进而无法知道变量的类型。</p>
-<p>Kotlin中的变量可分为可变变量和不可变量：</p>
-<ul>
-<li>val —— 不可变引用。val声明的变量赋值之后不可更改。与Java的final对应。</li>
-<li>var —— 可变引用。var声明的变量的值可变。与Java中的一般的变量相当。</li>
-</ul>
-<p>默认情况下，Kotlin中尽可能的将变量声明为val，只在需要的时候换成var。</p>
-<p>另外，声明了val变量的代码块中，如果编译器分析后可以确保变量在整个执行过程中只会有唯一一次的赋值行为，那么也是可以的。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> average: <span class="built_in">Int</span></span><br><span class="line"><span class="keyword">if</span> (isMain) &#123;</span><br><span class="line">    average = <span class="number">8</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    average = <span class="number">5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>另外还有与Java类似的是，val引用本身是不可变的，但其指向的对象是可以改变的。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> programs = arrayListOf(<span class="string">"Java"</span>)</span><br><span class="line">programs.add(<span class="string">"Kotlin"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>val关键字目前就是这么些注意的内容，再来谈谈var。<br>var声明的变量虽然是可变的，但是变量的类型是不可变的。 编译器只会根据变量初始化器来推导变量的类型，在确认类型之后不会再考虑后续赋值操作。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">1</span></span><br><span class="line">count = <span class="string">"hello"</span></span><br></pre></td></tr></table></figure></p>
-<p>这段变量声明是不合法的，变量count的类型在初始化为1的时候已经确认了是Int类型，再去给其赋值为String类型，这是编译器回给出错误提示。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Type mismatch: Infer<span class="built_in"> type </span>is String but Int was expected</span><br></pre></td></tr></table></figure></p>
-<p>顺便提下，Kotlin中的字符串格式化：字符串模板<br>先看一段简单的代码<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> language = <span class="keyword">if</span> (args.size &gt; <span class="number">0</span>) args[<span class="number">0</span>] <span class="keyword">else</span> <span class="string">"Kotlin"</span></span><br><span class="line">    println(<span class="string">"Hello <span class="variable">$language</span>!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这段代码中可以看到，变量language前边有$符号，这种写法就是需要说的Kotlin中的新特性，字符串模板。字符串模板的作用即是可以在程序的字符串中引用变量。这种表达写法相当于在Java中使用StringBuilder方式的append()方法，或者是Java中”Hello “ + language + “!”写法。但是相比之下，Kotlin的写法可读性更好。</p>
-<p>字符串模板可以有更加复杂的表达方式——${表达式语句}<br>可以将上述代码进行一定的修改<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">    println(<span class="string">"Hello <span class="subst">$&#123;if (args.size &gt; <span class="number">0</span>) args[<span class="number">0</span>] else "Kotlin"&#125;</span>!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这样的写法也是对的，其中可以看到花括号中又有一对引号。在Kotlin中可以在双引号中嵌套双引号，但需要在表达式内部（即在花括号内）。</p>
-<h3 id="类和属性"><a href="#类和属性" class="headerlink" title="类和属性"></a>类和属性</h3><p>但凡了解Java的开发人员对这两个概念不会陌生。下来看看Kotlin中如何来声明类的。<br>先看看Java中的声明方式。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这是最典型的的JavaBean类。再看看对应的Kotlin是怎么声明的。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(<span class="keyword">val</span> name: String)</span><br></pre></td></tr></table></figure></p>
-<p>使用Kotlin声明这样一个类，就只有一行。Kotlin中这种类（只有数据没有其他代码）被称为<font color="red">值对象</font>。同样也应该注意到了，Java声明中的public访问修饰符到Kotlin对应的声明中就不见了，这是因为Kotlin中public是默认的可见性。</p>
-<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><p>我们知道Java中的属性是由字段及其对应的getter，setter方法组成。Kotlin中<font color="red">属性是头等的语言特性</font>，其完全地取代了字段和对应的访问器。</p>
-<p>在Kotlin中声明一个属性跟声明一个变量使用同样的关键字val和var。声明val的属性是只读的，var属性是可变的。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(<span class="keyword">val</span> name: Strinig, <span class="keyword">var</span> isMerried: <span class="built_in">Boolean</span>)</span><br></pre></td></tr></table></figure></p>
-<p>Kotlin中在声明一个属性的时候，同时也就声明了访问器。Kotlin中访问器的默认实现很简单，创建一个存储值得字段，以及getter和setter方法。同样可以自定义访问器，及自己的getter和setter方法。</p>
-<h4 id="自定义访问器"><a href="#自定义访问器" class="headerlink" title="自定义访问器"></a>自定义访问器</h4><p>先看看如何来判断一个矩形是否是正方形的程序。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span></span>(<span class="keyword">val</span> height: <span class="built_in">Int</span>, <span class="keyword">val</span> width: <span class="built_in">Int</span>) &#123;</span><br><span class="line">    <span class="keyword">val</span> isSquare: <span class="built_in">Boolean</span></span><br><span class="line">        <span class="keyword">get</span>() &#123;</span><br><span class="line">           <span class="keyword">return</span> (height == width)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="目录和包"><a href="#目录和包" class="headerlink" title="目录和包"></a>目录和包</h4><p>与Java一样，Kotlin源码布局同样包含了包的概念。每个Kotlin文件都以一个package语句开始，接着是import语句（Kotlin中import的可以是类，也可以是函数）。</p>
-<p>Kotlin中有一点与Java不同的是：Kotlin文件的包层级结构可以不遵循目录结构。及Kotlin文件中package语句的包声明与程序的工程目录结构可以不一致。且多个类可以放置在一个Kotlin文件中，文件名任意。</p>
-<p>但在具体实现过程中，遵循包层级结构与目录层级结构一直是比较好的实践，尤其是在程序中兼有Java和Kotlin程序文件。</p>
-<h3 id="枚举和“when”"><a href="#枚举和“when”" class="headerlink" title="枚举和“when”"></a>枚举和“when”</h3><h4 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h4><p>Kotlin中的枚举声明需要使用两个关键字：enum class。这也是Kotlin中极少数比Java声明关键字多的地方。</p>
-<p>Kotlin中的enum是一个<font color="red">软关键字</font>。即enum只有出现在class之前才有意义，平时使用可以当做一般名称使用。</p>
-<p>枚举类不只是值得列表，可以为其声明方法。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">Color</span></span>(<span class="keyword">val</span> r: <span class="built_in">Int</span>, <span class="keyword">val</span> g: <span class="built_in">Int</span>, <span class="keyword">val</span> b: <span class="built_in">Int</span>) &#123;</span><br><span class="line">    RED(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>), GREEN(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), BLUE(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> rgb = <span class="params">(r * <span class="number">256</span> + g)</span></span> * <span class="number">256</span> + b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里也有唯一一个Kotlin中使用分号的地方。</p>
-<h4 id="when"><a href="#when" class="headerlink" title="when"></a>when</h4>
       <script>
         window.disqusProxy={
           shortname: 'techinsight',
@@ -624,7 +598,7 @@
           server: 'disqus-proxy.ycwalker.com',
           port: 443,
           adminAvatar: '/avatars/admin-avatar.jpg',
-          identifier: '2018/06/25/kotlin/kotlin-in-action-basics/',
+          identifier: '2018/06/09/kotlin/kotlin-in-action-method/',
         };
         window.disqus_config = function () {
           this.page.url = window.location.href;
@@ -684,7 +658,7 @@
     <strong>本文作者： </strong>散人</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://techinsight.github.io/2018/06/25/kotlin/kotlin-in-action-basics/" title="Kotlin基础">https://techinsight.github.io/2018/06/25/kotlin/kotlin-in-action-basics/</a>
+    <a href="https://techinsight.github.io/2018/06/09/kotlin/kotlin-in-action-method/" title="Kotlin基础——函数定义及调用">https://techinsight.github.io/2018/06/09/kotlin/kotlin-in-action-method/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -699,8 +673,6 @@
           
             <a href="/tags/Kotlin/" rel="tag"># Kotlin</a>
           
-            <a href="/tags/Android/" rel="tag"># Android</a>
-          
         </div>
       
 
@@ -712,8 +684,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/20/kotlin/kotlin-in-action-object/" rel="next" title="Kotlin——object（单例，伴生对象，内部类）">
-                <i class="fa fa-chevron-left"></i> Kotlin——object（单例，伴生对象，内部类）
+              <a href="/2018/06/06/kotlin/kotlin-in-action-basics/" rel="next" title="Kotlin基础">
+                <i class="fa fa-chevron-left"></i> Kotlin基础
               </a>
             
           </div>
@@ -722,8 +694,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/27/kotlin/kotlin-in-action-method/" rel="prev" title="Kotlin基础——函数定义及调用">
-                Kotlin基础——函数定义及调用 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/20/designpattern/design-patterns-singleton/" rel="prev" title="设计模式之单例模式">
+                设计模式之单例模式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -976,7 +948,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数和变量"><span class="nav-number">1.</span> <span class="nav-text">函数和变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数"><span class="nav-number">1.1.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量"><span class="nav-number">1.2.</span> <span class="nav-text">变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类和属性"><span class="nav-number">2.</span> <span class="nav-text">类和属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性"><span class="nav-number">2.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义访问器"><span class="nav-number">2.2.</span> <span class="nav-text">自定义访问器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#目录和包"><span class="nav-number">2.3.</span> <span class="nav-text">目录和包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举和“when”"><span class="nav-number">3.</span> <span class="nav-text">枚举和“when”</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#枚举"><span class="nav-number">3.1.</span> <span class="nav-text">枚举</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#when"><span class="nav-number">3.2.</span> <span class="nav-text">when</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#顶层函数"><span class="nav-number">2.</span> <span class="nav-text">顶层函数</span></a></li></ol></div>
             
 
           </div>
