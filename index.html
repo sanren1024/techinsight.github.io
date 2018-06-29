@@ -688,7 +688,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-27 05:06:53" itemprop="dateModified" datetime="2018-06-27T05:06:53Z">2018-06-27</time>
+                <time title="修改时间：2018-06-29 15:47:30" itemprop="dateModified" datetime="2018-06-29T15:47:30Z">2018-06-29</time>
               
             
           </span>
@@ -789,11 +789,13 @@
 
       
         
-          
-          在我的前一篇文章设计模式之单例模式中Kotlin实现中，有涉及到Kotlin中的伴生对象和属性委托的概念，这篇文章先来说说object（包括伴生对象）。
-object关键字“object”，这个关键字与Java中的Object类不同，Kotlin中object关键字用以修饰类，在声明类的同时创建一个实例（即该类的一个对象）。可以理解成Java中的静态单例。
-object关键字使用的几种不同的场景：
-          ...
+          <p>在我的前一篇文章<a href="">设计模式之单例模式</a>中Kotlin实现中，有涉及到Kotlin中的伴生对象和属性委托的概念，这篇文章先来说说object（包括伴生对象）。</p>
+<h2 id="object"><a href="#object" class="headerlink" title="object"></a>object</h2><p>关键字“object”，这个关键字与Java中的Object类不同，Kotlin中object关键字用以修饰类，在声明类的同时创建一个实例（即该类的一个对象）。可以理解成Java中的静态单例。</p>
+<p>object关键字使用的几种不同的场景：</p>
+<ul>
+<li>用以声明一个单例类;</li>
+<li>伴生对象（可以持有工厂方法和其他与这个类相关，但在调用时不依赖于容器类的方法。他们的成员可以通过容器类的类名来访问即相当与Java中的静态成员形式）;</li>
+<li>对象表达式（Java的匿名内部类）;
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/06/20/kotlin/kotlin-in-action-object/#more" rel="contents">
@@ -1138,7 +1140,7 @@ object关键字使用的几种不同的场景：
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-27 05:11:48" itemprop="dateModified" datetime="2018-06-27T05:11:48Z">2018-06-27</time>
+                <time title="修改时间：2018-06-29 15:44:22" itemprop="dateModified" datetime="2018-06-29T15:44:22Z">2018-06-29</time>
               
             
           </span>
@@ -1204,7 +1206,7 @@ object关键字使用的几种不同的场景：
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.9k</span>
+                <span title="本文字数">1.8k</span>
               
 
               
@@ -1239,12 +1241,9 @@ object关键字使用的几种不同的场景：
 
       
         
-          
-          前言函数是一门语言中最基本也是最重要的环节之一。这里就来说说Kotlin的函数部分的一些内容。
-顶层函数我们知道的是Java中的方法定义离不开类，即所定义的方法必须在某个类中，即使一个类中只有一个单一的方法。
-有时会遇到这样的情况，针对两个不同对象的处理方式相差无几，这样的方法定义不想依赖于具体的示例对象，这个时候一般的做法是将对应的方法定义到一个Util方法中。
-Kotlin针对这种情况，则提供
-          ...
+          <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>函数是一门语言中最基本也是最重要的环节之一。这里就来说说Kotlin的函数部分的一些内容。</p>
+<h4 id="顶层函数"><a href="#顶层函数" class="headerlink" title="顶层函数"></a>顶层函数</h4><p>我们知道的是Java中的方法定义离不开类，即所定义的方法必须在某个类中，即使一个类中只有一个单一的方法。</p>
+<p>有时会遇到这样的情况，针对两个不同对象的处理方式相差无几，这样的方法定义不想依赖于具体的示例对象，这个时候一般的做法是将对应的方法定义到一个Util方法中。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/06/09/kotlin/kotlin-in-action-method/#more" rel="contents">
@@ -1370,7 +1369,7 @@ Kotlin针对这种情况，则提供
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-27 05:12:00" itemprop="dateModified" datetime="2018-06-27T05:12:00Z">2018-06-27</time>
+                <time title="修改时间：2018-06-29 15:43:03" itemprop="dateModified" datetime="2018-06-29T15:43:03Z">2018-06-29</time>
               
             
           </span>
@@ -1436,7 +1435,7 @@ Kotlin针对这种情况，则提供
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.9k</span>
+                <span title="本文字数">5k</span>
               
 
               
@@ -1450,7 +1449,7 @@ Kotlin针对这种情况，则提供
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">4 分钟</span>
+                <span title="阅读时长">5 分钟</span>
               
             </div>
           
@@ -1472,6 +1471,7 @@ Kotlin针对这种情况，则提供
       
         
           <p>Kotlin是一门静态类型语言且支持类型推导，允许维护正确性与性能的同时保持源码简洁。Kotlin支持面向对象和函数式两种编码风格，通过头等函数使更高级别的抽象成为可能，通过支持不可变值简化了测试和多线程开发。</p>
+<p>Kotlin在服务器应用程序上也可以运行的很好，全面支持所有现存的Java框架。且Kotlin在Android上也可以工作，这得益于对Android API特殊的编译器支持以及丰富的库，为常见Android开发任务提供了Kotlin友好的函数。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/06/06/kotlin/kotlin-in-action-basics/#more" rel="contents">
