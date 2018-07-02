@@ -163,18 +163,26 @@
 
 
 
-  <meta name="description" content="在我的前一篇文章设计模式之单例模式中Kotlin实现中，有涉及到Kotlin中的伴生对象和属性委托的概念，这篇文章先来说说object（包括伴生对象）。 object关键字“object”，这个关键字与Java中的Object类不同，Kotlin中object关键字用以修饰类，在声明类的同时创建一个实例（即该类的一个对象）。可以理解成Java中的静态单例。 object关键字使用的几种不同的场景：">
-<meta name="keywords" content="Kotlin">
+  <meta name="description" content="title: Ubuntu常用软件安装流程整理 tags:  ubuntu linux  categories:  linux  author: 散人 date: 2018-06-29 00:18:14  每次安装ubuntu之后，需要查找安装常用软件，现在整理一下常用软件及其安装。我的ubuntu版本是ubuntu mate 17.10，整理的软件也是安装成功的。  google拼音输入法美化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kotlin——object（单例，伴生对象，内部类）">
-<meta property="og:url" content="https://techinsight.github.io/2018/06/20/kotlin/kotlin-in-action-object/index.html">
+<meta property="og:title" content="散人技术博客">
+<meta property="og:url" content="https://techinsight.github.io/2018/07/02/linux/linux-common-softwares-install/index.html">
 <meta property="og:site_name" content="散人技术博客">
-<meta property="og:description" content="在我的前一篇文章设计模式之单例模式中Kotlin实现中，有涉及到Kotlin中的伴生对象和属性委托的概念，这篇文章先来说说object（包括伴生对象）。 object关键字“object”，这个关键字与Java中的Object类不同，Kotlin中object关键字用以修饰类，在声明类的同时创建一个实例（即该类的一个对象）。可以理解成Java中的静态单例。 object关键字使用的几种不同的场景：">
+<meta property="og:description" content="title: Ubuntu常用软件安装流程整理 tags:  ubuntu linux  categories:  linux  author: 散人 date: 2018-06-29 00:18:14  每次安装ubuntu之后，需要查找安装常用软件，现在整理一下常用软件及其安装。我的ubuntu版本是ubuntu mate 17.10，整理的软件也是安装成功的。  google拼音输入法美化">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-29T15:47:30.715Z">
+<meta property="og:image" content="https://techinsight.github.io/images/linux-ubuntu-common-softwares/ubuntu_add_input_language_menu.PNG">
+<meta property="og:image" content="https://techinsight.github.io/images/linux-ubuntu-common-softwares/ubuntu_install_simple_chinese.PNG">
+<meta property="og:image" content="https://techinsight.github.io/images/linux-ubuntu-common-softwares/ubuntu_support_languages.PNG">
+<meta property="og:image" content="https://techinsight.github.io/images/linux-ubuntu-common-softwares/ubuntu_add_chinese_input_method_layout.PNG">
+<meta property="og:image" content="https://techinsight.github.io/images/linux-ubuntu-common-softwares/ubuntu_input_method_configuration.PNG">
+<meta property="og:image" content="https://techinsight.github.io/images/linux-ubuntu-common-softwares/ubuntu_add_google_pinyin.PNG">
+<meta property="og:image" content="https://techinsight.github.io/images/linux-ubuntu-common-softwares/ubuntu_jdk.png">
+<meta property="og:image" content="https://techinsight.github.io/images/linux-ubuntu-common-softwares/ubuntu_jdk_install_dir.png">
+<meta property="og:updated_time" content="2018-07-02T13:36:47.848Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kotlin——object（单例，伴生对象，内部类）">
-<meta name="twitter:description" content="在我的前一篇文章设计模式之单例模式中Kotlin实现中，有涉及到Kotlin中的伴生对象和属性委托的概念，这篇文章先来说说object（包括伴生对象）。 object关键字“object”，这个关键字与Java中的Object类不同，Kotlin中object关键字用以修饰类，在声明类的同时创建一个实例（即该类的一个对象）。可以理解成Java中的静态单例。 object关键字使用的几种不同的场景：">
+<meta name="twitter:title" content="散人技术博客">
+<meta name="twitter:description" content="title: Ubuntu常用软件安装流程整理 tags:  ubuntu linux  categories:  linux  author: 散人 date: 2018-06-29 00:18:14  每次安装ubuntu之后，需要查找安装常用软件，现在整理一下常用软件及其安装。我的ubuntu版本是ubuntu mate 17.10，整理的软件也是安装成功的。  google拼音输入法美化">
+<meta name="twitter:image" content="https://techinsight.github.io/images/linux-ubuntu-common-softwares/ubuntu_add_input_language_menu.PNG">
 
 
 
@@ -183,7 +191,7 @@
 
 
 
-  <link rel="canonical" href="https://techinsight.github.io/2018/06/20/kotlin/kotlin-in-action-object/"/>
+  <link rel="canonical" href="https://techinsight.github.io/2018/07/02/linux/linux-common-softwares-install/"/>
 
 
 
@@ -193,7 +201,7 @@
   };
 </script>
 
-  <title>Kotlin——object（单例，伴生对象，内部类） | 散人技术博客</title>
+  <title> | 散人技术博客</title>
   
 
 
@@ -411,7 +419,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://techinsight.github.io/2018/06/20/kotlin/kotlin-in-action-object/">
+    <link itemprop="mainEntityOfPage" href="https://techinsight.github.io/2018/07/02/linux/linux-common-softwares-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="散人">
@@ -428,7 +436,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Kotlin——object（单例，伴生对象，内部类）
+          <h2 class="post-title" itemprop="name headline">
               
             
           </h2>
@@ -453,46 +461,16 @@
                 
               
 
-              <time title="创建时间：2018-06-19 22:34:47" itemprop="dateCreated datePublished" datetime="2018-06-19T22:34:47Z">2018-06-19</time>
+              <time title="创建时间：2018-07-02 13:36:42 / 修改时间：13:36:47" itemprop="dateCreated datePublished" datetime="2018-07-02T13:36:42Z">2018-07-02</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-29 15:47:30" itemprop="dateModified" datetime="2018-06-29T15:47:30Z">2018-06-29</time>
               
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Kotlin/" itemprop="url" rel="index"><span itemprop="name">Kotlin</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -502,8 +480,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/20/kotlin/kotlin-in-action-object/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/06/20/kotlin/kotlin-in-action-object/" itemprop="commentCount"></span>
+                <a href="/2018/07/02/linux/linux-common-softwares-install/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/07/02/linux/linux-common-softwares-install/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -511,7 +489,7 @@
 
           
           
-             <span id="/2018/06/20/kotlin/kotlin-in-action-object/" class="leancloud_visitors" data-flag-title="Kotlin——object（单例，伴生对象，内部类）">
+             <span id="/2018/07/02/linux/linux-common-softwares-install/" class="leancloud_visitors" data-flag-title="">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -536,7 +514,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.7k</span>
+                <span title="本文字数">4.6k</span>
               
 
               
@@ -570,46 +548,140 @@
       
 
       
-        <p>在我的前一篇文章<a href="">设计模式之单例模式</a>中Kotlin实现中，有涉及到Kotlin中的伴生对象和属性委托的概念，这篇文章先来说说object（包括伴生对象）。</p>
-<h2 id="object"><a href="#object" class="headerlink" title="object"></a>object</h2><p>关键字“object”，这个关键字与Java中的Object类不同，Kotlin中object关键字用以修饰类，在声明类的同时创建一个实例（即该类的一个对象）。可以理解成Java中的静态单例。</p>
-<p>object关键字使用的几种不同的场景：</p>
+        <hr>
+<p>title: Ubuntu常用软件安装流程整理</p>
+<p>tags:</p>
 <ul>
-<li>用以声明一个单例类;</li>
-<li>伴生对象（可以持有工厂方法和其他与这个类相关，但在调用时不依赖于容器类的方法。他们的成员可以通过容器类的类名来访问即相当与Java中的静态成员形式）;</li>
-<li>对象表达式（Java的匿名内部类）;<a id="more"></a>
-</li>
+<li>ubuntu</li>
+<li>linux</li>
 </ul>
-<h3 id="单例"><a href="#单例" class="headerlink" title="单例"></a>单例</h3><p>先来看object关键字修饰下的类的形式。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">object</span> Factory</span><br></pre></td></tr></table></figure>
-<p>这是最简单的单例声明方法。为了更方便的了解这是单例，完整的demo代码来看下。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">object</span> Factory &#123;</span><br><span class="line">    <span class="keyword">val</span> name: String = <span class="string">"object single"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> factorySingle : Factory = Factory</span><br><span class="line">    println(factorySingle.name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在object类中定义一个name成员，然后在执行入口函数main()中引用这个单例，并且打印其成员name，实际的执行结果就是在控制台打印“object single”.</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">object</span> single</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>在函数main()中可以看到，引用创建时，等号右则直接是类名。Kotlin中使用object关键字修饰的类将一个类声明及该类的唯一实例创建结合在一起，这个功能也叫对象声明。</p>
-<h3 id="伴生对象"><a href="#伴生对象" class="headerlink" title="伴生对象"></a>伴生对象</h3><p>再来说本篇文章的重点，即伴生对象。伴生对象从功能上的另外一个描述：<font color="red"><b>它是工厂方法和静态成员的地盘</b></font>。</p>
-<p>与Java做一个比较，Kotlin本身是不支持static关键字的，即static关键字并不是Kotlin语言的一部分。作为替代方案，Kotlin提供了包级别函数（可以在大多数情况下替代Java的静态方法）和对象声明（大多数情况下替代Java的静态方法及静态成员），多数情况下，还是推荐使用顶层函数。</p>
-<p>重点来了，标题是伴生对象，那么怎么来声明呢 ？</p>
-<p>在类中定义一个用特殊关键字标记的对象：companion。companion修饰的对象，使得外部可以直接通过companion容器类来访问这个对象（companion object）的属性和方法，就像Java中对静态方法和静态成员的访问形式，不需要再通过具体实例来访问。</p>
-<p>下来看下Factory类的另外一个写法，并同样打印Factory成员name的值。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Factory</span> </span>&#123;</span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        const <span class="keyword">val</span> name: String = <span class="string">"object single"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> factory : Factory = Factory()</span><br><span class="line">    println(Factory.name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看到Factory对象创建依然是普通类对象的创建方式，而对name成员的访问的形式使用的是类名. 方式访问，而不是具体实例factory.name方式访问。</p>
-<p>在标题开始，写到伴生对象的另外一种描述是：工厂方法和静态成员的地盘。<br>静态成员的地盘这个描述相信通过上述的示例已经可以看出一二。</p>
-<p>下来看看工厂方法是如何来表现的呢？<br>创建一个User对象，根据不同的参数来获取User属性name。<br>学习过Java的程序员首先想到的只怕是通过不同的构造方法，传入不同参数类型来实现。相应的Kotlin中也可以采用此种方式去实现。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">val</span> name: String</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>(name: String) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>(id: <span class="built_in">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = getNameBy(id)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">getNameBy</span><span class="params">(id: <span class="type">Int</span>)</span></span>: String &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">".."</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以使用相同逻辑，但使用工厂方法来实现。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">private</span> <span class="keyword">constructor</span></span>(<span class="keyword">val</span> name: String) &#123;</span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">createUserByName</span><span class="params">(name: <span class="type">String</span>)</span></span>: User &#123;</span><br><span class="line">            <span class="keyword">return</span> User(name)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">createUserById</span><span class="params">(id: <span class="type">Int</span>)</span></span>: User &#123;</span><br><span class="line">            <span class="keyword">return</span> User(getNameBy(id))</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">getNameBy</span><span class="params">(id: <span class="type">Int</span>)</span></span>: String &#123;</span><br><span class="line">            <span class="comment">// ...</span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">".."</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>工厂方法非常有用，它可以返回声明这个方法的类的子类。但如果需要在后期扩展相关的类，那么使用多个构造方法将是更好的选择，因为伴生对象成员在子类中是不可以被重写的。</p>
-<h4 id="做为普通对象的伴生对象"><a href="#做为普通对象的伴生对象" class="headerlink" title="做为普通对象的伴生对象"></a>做为普通对象的伴生对象</h4><p>伴生对象是一个类声明中定义的普通对象。它同样有名字，可以继承类，实现接口及扩展函数和属性。<br>拿上述的User的伴生对象为例，为其定义一个名字。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">private</span> <span class="keyword">constructor</span></span>(<span class="keyword">val</span> name: String) &#123;</span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> Factory &#123;</span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">createUserByName</span><span class="params">(name: <span class="type">String</span>)</span></span>: User &#123;</span><br><span class="line">            <span class="keyword">return</span> User(name)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">createUserById</span><span class="params">(id: <span class="type">Int</span>)</span></span>: User &#123;</span><br><span class="line">            <span class="keyword">return</span> User(getNameBy(id))</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">getNameBy</span><span class="params">(id: <span class="type">Int</span>)</span></span>: String &#123;</span><br><span class="line">            <span class="comment">// ...</span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">".."</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> user: User = User.Factory.createUserById(<span class="number">36</span>)</span><br><span class="line">    <span class="keyword">val</span> user1: User = User.Factory.createUserByName(<span class="string">"OK"</span>)</span><br><span class="line">    <span class="keyword">val</span> user2: User = User.createUserById(<span class="number">54</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>代码中可以看到，可以通过User.Factory.xxx方式来调用方法，同时也可以直接使用User.xxx方式调用方法。因为companion修改的类随即就拥有了使其外部直接使用类名来访问伴生对象的成员，因此多数情况下，不需要关心伴生对象的名称。</p>
-<h4 id="伴生对象实现接口"><a href="#伴生对象实现接口" class="headerlink" title="伴生对象实现接口"></a>伴生对象实现接口</h4><p>伴生对象跟其他对象声明一样，可以实现接口。其调用方式就是直接使用容器类来调用接口实现，就像容器类实现了相关接口一样。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">JSONFactory</span>&lt;<span class="type">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">loadFromJson</span><span class="params">(json: <span class="type">String</span>)</span></span>: T</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">private</span> <span class="keyword">constructor</span></span>(<span class="keyword">val</span> name: String) &#123;</span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> Factory: JSONFactory&lt;User&gt; &#123;</span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">loadFromJson</span><span class="params">(json: <span class="type">String</span>)</span></span>: User &#123;</span><br><span class="line">            <span class="comment">// ...</span></span><br><span class="line">            <span class="keyword">return</span> User(<span class="string">".."</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在调用的时候，可以直接使用User.loadFromJson(json)方式来调用，就像是User实现了JSONFactory接口一样。</p>
-<h4 id="对象表达式"><a href="#对象表达式" class="headerlink" title="对象表达式"></a>对象表达式</h4><p>对象表达式就功能来说就是改变写法的匿名内部类。<br>这种用法取代Java的匿名内部类的写法。<br>熟悉Android的同志肯定了解UI事件监听写法。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">view.setOnClickListener(</span><br><span class="line">    <span class="keyword">object</span>: OnClickListener &#123;</span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>这里object关键字后冒号以及接口名的组成方式即是Kotlin的对象表达式。对象表达式声明了一个类的同时创建了该来的一个实例。</p>
-<font color="red">与Java的匿名内部类只能扩展一个类或实现一个接口不同，Kotlin中匿名对象可以实现多个接口或者不实现接口。</font>
+<p>categories:</p>
+<ul>
+<li>linux</li>
+</ul>
+<p>author: 散人</p>
+<p>date: 2018-06-29 00:18:14</p>
+<hr>
+<p>每次安装ubuntu之后，需要查找安装常用软件，现在整理一下常用软件及其安装。我的ubuntu版本是ubuntu mate 17.10，整理的软件也是安装成功的。</p>
+<blockquote>
+<p><a href="#1">google拼音输入法</a><br><a href="#2">美化终端，安装zsh</a><br><a href="#3">安装shadowsocks</a><br><a href="#4">安装Chrome浏览器</a><br><a href="#5">Oracle JDK安装</a><br><a href="#6">Nodejs</a><br><a href="#7">Vim强化方案</a></p>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h3 id="google拼音输入法"><a href="#google拼音输入法" class="headerlink" title="google拼音输入法"></a><span id="1">google拼音输入法</span></h3><p>google拼音输入法需要在fcitx框架下安装 。</p>
+<p>1. 打开终端，执行如下命令。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install fcitx fcitx-googlepinyin</span><br></pre></td></tr></table></figure></p>
+<p>安装fcitx框架及google拼音。</p>
+<p>2. 打开系统设置菜单“Language Support”。<br><img src="/images/linux-ubuntu-common-softwares/ubuntu_add_input_language_menu.PNG" alt="Language Support">  </p>
+<p>打开“Language Support”设置窗口。<br><img src="/images/linux-ubuntu-common-softwares/ubuntu_install_simple_chinese.PNG" alt="Language Support设置">  </p>
+<p>其中“Keyboard input method system”项设置为上一步安装的“fcitx”项。</p>
+<p>3. 安装语言支持。</p>
+<p>点击“Install/Remove Languages…”，在弹出的语言选择框中找到“Chinese(Simplified)”项，确认后，开始进行安装。</p>
+<p><img src="/images/linux-ubuntu-common-softwares/ubuntu_support_languages.PNG" alt="安装语言支持"></p>
+<p>安装完成之后在则会在“Language Support”对话框中显示已经安装的“汉语(中国)”项。如果没有找到此项，则可以先进行重启操作。</p>
+<p>4. 配置google拼音。</p>
+<p>在配置支持google拼音输入法之前，先进行Layouts添加。</p>
+<p>选择菜单 “System &gt; Preferences &gt; Hardware &gt; Keyboard”打开“Keyboard Preferences” 打开设置对话框。</p>
+<p><img src="/images/linux-ubuntu-common-softwares/ubuntu_add_chinese_input_method_layout.PNG" alt="添加中文支持">  </p>
+<p>选择”Layouts”选项卡，点击“Add”按钮，打开添加“Chinese”布局。</p>
+<p>最后添加Google拼音输入法，在菜单中找到并打开“Fictx Configuration”，“Add input method”对话框。</p>
+<p><img src="/images/linux-ubuntu-common-softwares/ubuntu_input_method_configuration.PNG" alt="添加输入法"></p>
+<p>点击“+”号，打开“Add input method”对话框。</p>
+<p><img src="/images/linux-ubuntu-common-softwares/ubuntu_add_google_pinyin.PNG" alt="添加google输入法">  </p>
+<p>找到开始时安装的“Google Pinyin”，点击OK后，添加完成。</p>
+<font color="red">PS: 添加成功后可能会遇到一个问题，候选词区是黑色，文字看不到，可能是因为多安装了 fcitx-module-kimpanel，因此删除这个软件。</font>
 
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt remove fcitx-module-kimpanel</span><br></pre></td></tr></table></figure>
+<p>之后再输入的时候可以看到候选词了。</p>
+<hr>
+<h3 id="美化终端，安装zsh，一款强大的Shell工具"><a href="#美化终端，安装zsh，一款强大的Shell工具" class="headerlink" title="美化终端，安装zsh，一款强大的Shell工具"></a><span id="2">美化终端，安装zsh，一款强大的Shell工具</span></h3><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install zsh</span><br></pre></td></tr></table></figure>
+<p>配置成为默认shell工具</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/bash</span><br></pre></td></tr></table></figure>
+<p><strong>安装oh-my-zsh</strong></p>
+<p>由于zsh太强大并且复杂，因此安装on-my-zsh扩展工具。这里提前需要安装git工具，负责无法完成安装进度。</p>
+<p>安装</p>
+<p><em>curl方式</em></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</span><br></pre></td></tr></table></figure>
+<p><em>wget方式</em></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"</span><br></pre></td></tr></table></figure>
+<p>其本质就是下载github上提供的install.sh脚本。</p>
+<p>当然如果没有curl，wget就需要先安装这两个工具。  </p>
+<hr>
+<h3 id="安装shadowsocks客户端"><a href="#安装shadowsocks客户端" class="headerlink" title="安装shadowsocks客户端"></a><span id="3">安装shadowsocks客户端</span></h3><p>直接执行一下三条命令即可  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:hzwhuang/ss-qt5  </span><br><span class="line">sudo apt-get update  </span><br><span class="line">sudo apt-get install shadowsocks-qt5</span><br></pre></td></tr></table></figure>
+<p>安装完成之后就可以配置了。</p>
+<hr>
+<h3 id="安装Chrome浏览器"><a href="#安装Chrome浏览器" class="headerlink" title="安装Chrome浏览器"></a><span id="4">安装Chrome浏览器</span></h3><p>执行如下命令  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wget http://www.linuxidc.com/files/repo/google-chrome.list -P /etc/apt/sources.list.d/</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install google-chrome-stable</span><br></pre></td></tr></table></figure>
+<p>这样就安装成功了。</p>
+<hr>
+<h3 id="Oracle-JDK安装"><a href="#Oracle-JDK安装" class="headerlink" title="Oracle JDK安装"></a><span id="5">Oracle JDK安装</span></h3><p>1. 到Oracle官网上下载下载教稳定的JDK版本。  </p>
+<p><img src="/images/linux-ubuntu-common-softwares/ubuntu_jdk.png" alt="">  </p>
+<p>2. 选择自己想要将jdk安装到的目录，建立一个java文件夹，将jdk包复制进去。我自己选择的是在/usr目录下，然后使用tar命令，将安装包减压到java目录。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sodu tar xzvf jdk-8u171-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+<p>这样就可以完成安装了。</p>
+<p>路径：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/java/jdk1.8.0_171</span><br></pre></td></tr></table></figure>
+<p><img src="/images/linux-ubuntu-common-softwares/ubuntu_jdk_install_dir.png" alt=""></p>
+<p>3. 配置环境变量。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br></pre></td></tr></table></figure>
+<p>打开文件，在文件末尾添加如下几行：  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA\_HOME=/usr/java/jdk1.8.0\_171  </span><br><span class="line">export JRE\_HOME=$JAVA\_HOME/jre  </span><br><span class="line">export CLASSPATH=.:$JAVA\_HOME/lib/dt.jar:$JAVA\_HOME/lib/tools.jar  </span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br></pre></td></tr></table></figure>
+<p>退出编辑器，source /etc/profile</p>
+<p>4. 设置系统默认JDK。<br>Ubuntu系统可能有提前安装openJDK，因此需要设置默认的JDK，即使系统没有事先安装openJDK，这样设置一次也是好的。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_171/bin/java 300  </span><br><span class="line"></span><br><span class="line">sudo update-alternatives --install /usr/bin/javac javac /usr/java/jdk1.8.0_171/bin/javac 300  </span><br><span class="line"></span><br><span class="line">sudo update-alternatives --config java</span><br></pre></td></tr></table></figure>
+<p>这里需要注意的是路径“/usr/java/jdk1.8.0_171”替换成自己的JDK安装目录。</p>
+<p>第三条命令是列出系统当前安装的JDK类型。</p>
+<p>由于我安装的ubuntu并没有事先安装openJDK，因此没法罗列出openJDK版本。</p>
+<p>如果系统有安装，那么会罗列出openJDK和自己安装的JDK版本，按照提示选择需要设为默认JDK版本需要，如果有openJDK的话，一般是2。</p>
+<p>这样，默认的JDK安装及设置就完成了，可以在终端中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
+<p>来检查安装。</p>
+<hr>
+<h3 id="Nodejs"><a href="#Nodejs" class="headerlink" title="Nodejs"></a><span id="6">Nodejs</span></h3><p><strong>1. 使用默认ubuntu的软件源。</strong></p>
+<p>ubuntu mate 17.10默认有nodejs的源，可以直接通过命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></table></figure>
+<p>进行安装，可以通过命令  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<p>查看版本号是 6.11.4 是比较旧的版本。</p>
+<p><strong>2. 自己安装Nodejs。</strong></p>
+<p>> 安装python依赖库。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-software-properties</span><br></pre></td></tr></table></figure>
+<p>  > 添加PPA源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -</span><br></pre></td></tr></table></figure>
+<p>> 安装nodejs</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></table></figure>
+<p><strong>3. 升级Nodejs。</strong></p>
+<p>如果已经有安装了系统原有的版本较低的Nodejs， 那么就通过n模块对node进行升级。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo npm cache clean -f  </span><br><span class="line">sudo npm install -g n  </span><br><span class="line">//安装官方最新版本  </span><br><span class="line">sudo n latest  </span><br><span class="line">//安装官方稳定版本  </span><br><span class="line">sudo n stable  </span><br><span class="line">//安装官方最新LTS版本  </span><br><span class="line">sudo n lts</span><br></pre></td></tr></table></figure>
+<p>> 首先清理下缓存，不管是否有，清理下不会有错的。</p>
+<p>> 安装node的n模块，通过n模块来管理版本。</p>
+<p>> 通过n模块来安装指定版本。</p>
+<hr>
+<h3 id="Vim强化方案"><a href="#Vim强化方案" class="headerlink" title="Vim强化方案"></a><span id="7">Vim强化方案</span></h3><p><a href="https://github.com/techinsight/vim" target="_blank" rel="noopener">强化具体方案</a>  </p>
+<p>> 安装vim</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vim</span><br></pre></td></tr></table></figure>
+<p>> 安装ctags</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ctags</span><br></pre></td></tr></table></figure>
+<p>> 安装一些必备程序</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install xclip vim-gnome astyle python-setuptools</span><br></pre></td></tr></table></figure>
+<p>> python代码格式化工具</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo easy_install -ZU autopep8</span><br></pre></td></tr></table></figure>
+<p>> 建立ctags软链接</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /usr/bin/ctags /usr/local/bin/ctags`</span><br></pre></td></tr></table></figure>
+<p>> clone配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/ &amp;&amp; git clone git://github.com/ma6174/vim.git</span><br></pre></td></tr></table></figure>
+<p>> 重命名vim并移动配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv ~/vim ~/.vim  </span><br><span class="line">mv ~/.vim/.vimrc ~/</span><br></pre></td></tr></table></figure>
+<p>> clone bundle 程序</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle</span><br></pre></td></tr></table></figure>
+<p>> 打开vim并执行bundle程序</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:BundleInstall</span><br></pre></td></tr></table></figure>
+<p>> 退出编辑器，重新打开vim后就可以看到效果了。</p>
 
       <script>
         window.disqusProxy={
@@ -618,7 +690,7 @@
           server: 'disqus-proxy.ycwalker.com',
           port: 443,
           adminAvatar: '/avatars/admin-avatar.jpg',
-          identifier: '2018/06/20/kotlin/kotlin-in-action-object/',
+          identifier: '2018/07/02/linux/linux-common-softwares-install/',
         };
         window.disqus_config = function () {
           this.page.url = window.location.href;
@@ -678,7 +750,7 @@
     <strong>本文作者： </strong>散人</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://techinsight.github.io/2018/06/20/kotlin/kotlin-in-action-object/" title="Kotlin——object（单例，伴生对象，内部类）">https://techinsight.github.io/2018/06/20/kotlin/kotlin-in-action-object/</a>
+    <a href="https://techinsight.github.io/2018/07/02/linux/linux-common-softwares-install/" title="">https://techinsight.github.io/2018/07/02/linux/linux-common-softwares-install/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -689,12 +761,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Kotlin/" rel="tag"># Kotlin</a>
-          
-        </div>
-      
 
       
       
@@ -704,8 +770,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/15/designpattern/design-patterns-singleton/" rel="next" title="设计模式之单例模式">
-                <i class="fa fa-chevron-left"></i> 设计模式之单例模式
+              <a href="/2018/06/29/linux/linux-in-vbox-shared-folder/" rel="next" title="vbox下ubuntu共享文件夹流程整理">
+                <i class="fa fa-chevron-left"></i> vbox下ubuntu共享文件夹流程整理
               </a>
             
           </div>
@@ -713,10 +779,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/29/linux/linux-in-vbox-shared-folder/" rel="prev" title="vbox下ubuntu共享文件夹流程整理">
-                vbox下ubuntu共享文件夹流程整理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -976,7 +1038,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#object"><span class="nav-number">1.</span> <span class="nav-text">object</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单例"><span class="nav-number">1.1.</span> <span class="nav-text">单例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伴生对象"><span class="nav-number">1.2.</span> <span class="nav-text">伴生对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#做为普通对象的伴生对象"><span class="nav-number">1.2.1.</span> <span class="nav-text">做为普通对象的伴生对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伴生对象实现接口"><span class="nav-number">1.2.2.</span> <span class="nav-text">伴生对象实现接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象表达式"><span class="nav-number">1.2.3.</span> <span class="nav-text">对象表达式</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#google拼音输入法"><span class="nav-number">1.</span> <span class="nav-text">google拼音输入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#美化终端，安装zsh，一款强大的Shell工具"><span class="nav-number">2.</span> <span class="nav-text">美化终端，安装zsh，一款强大的Shell工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装shadowsocks客户端"><span class="nav-number">3.</span> <span class="nav-text">安装shadowsocks客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Chrome浏览器"><span class="nav-number">4.</span> <span class="nav-text">安装Chrome浏览器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Oracle-JDK安装"><span class="nav-number">5.</span> <span class="nav-text">Oracle JDK安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nodejs"><span class="nav-number">6.</span> <span class="nav-text">Nodejs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vim强化方案"><span class="nav-number">7.</span> <span class="nav-text">Vim强化方案</span></a></li></ol></div>
             
 
           </div>
